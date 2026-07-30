@@ -1,0 +1,12 @@
+zh:
+  name: "系统字段引用"
+  description: "帮助在分析模型中引用系统预置字段"
+en:
+  name: "System Field Reference"
+  description: "Help reference system preset fields in analysis models"
+ja:
+  name: "システムフィールド参照"
+  description: "分析モデルでシステムプリセットフィールドを参照"
+ko:
+  name: "시스템 필드 참조"
+  description: "분석 모델에서 시스템 사전 설정 필드 참조"

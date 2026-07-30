@@ -1,0 +1,12 @@
+zh:
+  name: "TE 用户 ID 绑定诊断"
+  description: "诊断多端上报导致的用户碎片化问题"
+en:
+  name: "TE User ID Binding Diagnosis"
+  description: "Diagnose user fragmentation caused by multi-platform reporting"
+ja:
+  name: "TEユーザーID紐付け診断"
+  description: "マルチプラットフォーム報告によるユーザー断片化問題を診断します"
+ko:
+  name: "TE 사용자 ID 연동 진단"
+  description: "다중 플랫폼 리포트로 인한 사용자 분화 문제를 진단합니다"

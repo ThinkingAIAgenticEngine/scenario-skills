@@ -1,0 +1,12 @@
+zh:
+  name: "运营创建流程画布"
+  description: "将自然语言描述转换为运营流程画布"
+en:
+  name: "Engage Journey Creation"
+  description: "Convert natural language descriptions into journey canvas"
+ja:
+  name: "ジャーニーキャンバス作成"
+  description: "自然言語の記述をジャーニーキャンバスに変換します"
+ko:
+  name: "여정 캔버스 생성"
+  description: "자연어 설명을 여정 캔버스로 변환합니다"

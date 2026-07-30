@@ -1,0 +1,24 @@
+id: journey-intent-parser
+name: journey-intent-parser
+kind: scenario
+display_name: "Engage Journey Creation"
+description: Convert natural language descriptions into journey canvas
+category: automation
+tags: []
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: manual
+  repository: te-ai/te-claude
+  ref: release/6.0
+  commit: 44ffc78fd4b398aed9ddfda23ee9245d070a2a57
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-27T07:10:05.104Z"

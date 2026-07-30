@@ -1,0 +1,24 @@
+id: te-user-id-debug
+name: te-user-id-debug
+kind: scenario
+display_name: TE User ID Binding Diagnosis
+description: Diagnose user fragmentation caused by multi-platform reporting
+category: data-troubleshooting
+tags:
+  - data-debug
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 69
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T07:02:16.000Z"

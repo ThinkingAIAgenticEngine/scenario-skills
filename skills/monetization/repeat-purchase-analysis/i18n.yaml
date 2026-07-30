@@ -1,0 +1,12 @@
+zh:
+  name: "复购分析"
+  description: "诊断复购率下降并优化复购行为"
+en:
+  name: "Repeat Purchase Analysis"
+  description: "Diagnose repeat purchase rate decline and optimize repurchase"
+ja:
+  name: "リピート購買分析"
+  description: "リピート購買率の低下を診断し最適化"
+ko:
+  name: "재구매 분석"
+  description: "재구매율 하락 진단 및 재구매 최적화"

@@ -1,0 +1,12 @@
+zh:
+  name: "社区话题分析"
+  description: "分析社区话题舆情并输出洞察报告"
+en:
+  name: "Community Topic Analysis"
+  description: "Analyze community topic sentiment and produce insight reports"
+ja:
+  name: "コミュニティトピック分析"
+  description: "コミュニティの話題の世論を分析し、インサイトレポートを出力します"
+ko:
+  name: "커뮤니티 토픽 분석"
+  description: "커뮤니티 토픽 여론을 분석하고 인사이트 보고서를 산출합니다"

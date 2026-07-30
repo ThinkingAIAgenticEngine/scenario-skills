@@ -1,0 +1,12 @@
+zh:
+  name: "留存数据验证"
+  description: "验证留存数据准确性与统计逻辑"
+en:
+  name: "Retention Verification"
+  description: "Verify retention data accuracy and statistical logic"
+ja:
+  name: "リテンションデータ検証"
+  description: "リテンションデータの正確性と統計ロジックを検証"
+ko:
+  name: "리텐션 데이터 검증"
+  description: "리텐션 데이터 정확성과 통계 논리 검증"

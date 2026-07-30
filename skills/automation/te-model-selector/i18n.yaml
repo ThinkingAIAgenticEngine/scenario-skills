@@ -1,0 +1,12 @@
+zh:
+  name: "TE 模型选择助手"
+  description: "推荐最合适的 TE 分析模型并指导配置"
+en:
+  name: "TE Analysis Model Selection"
+  description: "Recommend the best TE analysis model and guide configuration"
+ja:
+  name: "TE分析モデル選択"
+  description: "最適なTE分析モデルを推奨し、設定をガイドします"
+ko:
+  name: "TE 분석 모델 선택"
+  description: "최적의 TE 분석 모델을 추천하고 설정을 안내합니다"

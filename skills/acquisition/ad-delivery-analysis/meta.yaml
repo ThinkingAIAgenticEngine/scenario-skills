@@ -1,0 +1,24 @@
+id: ad-delivery-analysis
+name: ad-delivery-analysis
+kind: scenario
+display_name: Ad Delivery Analysis
+description: Analyze ad campaign performance and channel ROI
+category: acquisition
+tags:
+  - ad
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 194
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-29T07:45:00.000Z"

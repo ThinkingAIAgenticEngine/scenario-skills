@@ -1,0 +1,12 @@
+zh:
+  name: "LTV & LT 预测"
+  description: "多函数拟合预测 LTV 与 LT，支持回本分析、成熟队列借衰减率与 ML 预测"
+en:
+  name: "LTV & LT Prediction"
+  description: "Predict LTV and LT with multi-function fitting, payback analysis, mature cohort borrowing, and ML"
+ja:
+  name: "LTV & LT 予測"
+  description: "多関数フィッティングでLTVとLTを予測、回収分析・成熟コホート借衰減率・ML予測に対応"
+ko:
+  name: "LTV & LT 예측"
+  description: "다중 함수 피팅으로 LTV와 LT 예측, 회수 분석·성숙 코호트 차감율 차용·ML 예측 지원"

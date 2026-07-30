@@ -1,0 +1,1455 @@
+[
+  {
+    "id": "ad-delivery-analysis",
+    "name": "ad-delivery-analysis",
+    "display_name": "Ad Delivery Analysis",
+    "description": "Analyze ad campaign performance and channel ROI",
+    "category": "acquisition",
+    "category_display_name": "获客增长",
+    "tags": [
+      "ad"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "广告投放分析",
+        "description": "分析广告投放效果与渠道ROI"
+      },
+      "en": {
+        "name": "Ad Delivery Analysis",
+        "description": "Analyze ad campaign performance and channel ROI"
+      },
+      "ja": {
+        "name": "広告配信分析",
+        "description": "広告キャンペーンの効果とチャネルROIを分析"
+      },
+      "ko": {
+        "name": "광고 배송 분석",
+        "description": "광고 캠페인 성과와 채널 ROI 분석"
+      }
+    },
+    "path": "./skills/acquisition/ad-delivery-analysis"
+  },
+  {
+    "id": "ae-freeze-inactive-dashboards",
+    "name": "ae-freeze-inactive-dashboards",
+    "display_name": "Freeze Inactive Dashboards",
+    "description": "Identify and freeze inactive dashboards",
+    "category": "automation",
+    "category_display_name": "自动化运营",
+    "tags": [
+      "ae"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "冻结闲置看板",
+        "description": "识别并冻结闲置看板"
+      },
+      "en": {
+        "name": "Freeze Inactive Dashboards",
+        "description": "Identify and freeze inactive dashboards"
+      },
+      "ja": {
+        "name": "非アクティブダッシュボード凍結",
+        "description": "非アクティブなダッシュボードを特定・凍結"
+      },
+      "ko": {
+        "name": "비활성 대시보드 동결",
+        "description": "비활성 대시보드 식별 및 동결"
+      }
+    },
+    "path": "./skills/automation/ae-freeze-inactive-dashboards"
+  },
+  {
+    "id": "ae-kb-discovery",
+    "name": "ae-kb-discovery",
+    "display_name": "ae-kb-discovery",
+    "description": "Search and read AE/TE knowledge base content",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "AE 知识库检索",
+        "description": "检索和阅读 AE/TE 知识库内容"
+      },
+      "en": {
+        "name": "AE Knowledge Base Discovery",
+        "description": "Search and read AE/TE knowledge base content"
+      },
+      "ja": {
+        "name": "AE ナレッジベース検索",
+        "description": "AE/TEのナレッジベースコンテンツを検索・閲覧します"
+      },
+      "ko": {
+        "name": "AE 지식베이스 검색",
+        "description": "AE/TE 지식베이스 콘텐츠를 검색하고 열람합니다"
+      }
+    },
+    "path": "./skills/analysis-guides/ae-kb-discovery"
+  },
+  {
+    "id": "analysis-scope-alignment",
+    "name": "analysis-scope-alignment",
+    "display_name": "Analysis Scope Alignment",
+    "description": "Align and confirm the statistical scope for analysis objects",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "analytics-guide"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "分析口径对齐",
+        "description": "对齐并确认分析对象的统计口径"
+      },
+      "en": {
+        "name": "Analysis Scope Alignment",
+        "description": "Align and confirm the statistical scope for analysis objects"
+      },
+      "ja": {
+        "name": "分析スコープ調整",
+        "description": "分析対象の統計スコープを調整・確認します"
+      },
+      "ko": {
+        "name": "분석 범위 정렬",
+        "description": "분석 대상의 통계 범위를 정렬하고 확인합니다"
+      }
+    },
+    "path": "./skills/analysis-guides/analysis-scope-alignment"
+  },
+  {
+    "id": "channel-quality-analysis",
+    "name": "channel-quality-analysis",
+    "display_name": "Channel Quality Analysis",
+    "description": "Evaluate channel acquisition performance and optimize ad spend",
+    "category": "acquisition",
+    "category_display_name": "获客增长",
+    "tags": [
+      "acquisition"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "渠道质量分析",
+        "description": "评估渠道获客效果，优化投放策略"
+      },
+      "en": {
+        "name": "Channel Quality Analysis",
+        "description": "Evaluate channel acquisition performance and optimize ad spend"
+      },
+      "ja": {
+        "name": "チャネル品質分析",
+        "description": "チャネルの獲得効果を評価し、広告費を最適化します"
+      },
+      "ko": {
+        "name": "채널 품질 분석",
+        "description": "채널 획득 성과를 평가하고 광고비를 최적화합니다"
+      }
+    },
+    "path": "./skills/acquisition/channel-quality-analysis"
+  },
+  {
+    "id": "churn-define",
+    "name": "churn-define",
+    "display_name": "Churn Definition Assistant",
+    "description": "Define churned user filtering conditions and segmentation assets",
+    "category": "retention",
+    "category_display_name": "留存与流失",
+    "tags": [
+      "churn"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "流失用户定义",
+        "description": "建立流失用户筛选条件与分群资产"
+      },
+      "en": {
+        "name": "Churn Definition Assistant",
+        "description": "Define churned user filtering conditions and segmentation assets"
+      },
+      "ja": {
+        "name": "離脱ユーザー定義",
+        "description": "離脱ユーザーのフィルタ条件とセグメント資産を定義"
+      },
+      "ko": {
+        "name": "이탈 사용자 정의",
+        "description": "이탈 사용자 필터 조건 및 세분화 자산 정의"
+      }
+    },
+    "path": "./skills/retention/churn-define"
+  },
+  {
+    "id": "community-analyzing-theme-comment",
+    "name": "community-analyzing-theme-comment",
+    "display_name": "Community comment analysis",
+    "description": "Analyze community topic comments and generate structured reports",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "社区评论分析",
+        "description": "分析社区主题评论并生成结构化报告"
+      },
+      "en": {
+        "name": "Community Comment Analysis",
+        "description": "Analyze community topic comments and generate structured reports"
+      },
+      "ja": {
+        "name": "コミュニティコメント分析",
+        "description": "コミュニティのトピックコメントを分析し、構造化レポートを生成します"
+      },
+      "ko": {
+        "name": "커뮤니티 댓글 분석",
+        "description": "커뮤니티 토픽 댓글을 분석하고 구조화된 보고서를 생성합니다"
+      }
+    },
+    "path": "./skills/user-insight/community-analyzing-theme-comment"
+  },
+  {
+    "id": "community-daily-report",
+    "name": "community-daily-report",
+    "display_name": "Community Daily Report",
+    "description": "Generate daily community operations flash reports",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "社区每日报告",
+        "description": "生成社区运营每日快报"
+      },
+      "en": {
+        "name": "Community Daily Report",
+        "description": "Generate daily community operations flash reports"
+      },
+      "ja": {
+        "name": "コミュニティ日次レポート",
+        "description": "コミュニティ運営の日次速報を生成します"
+      },
+      "ko": {
+        "name": "커뮤니티 일일 보고서",
+        "description": "커뮤니티 운영 일일 속보를 생성합니다"
+      }
+    },
+    "path": "./skills/user-insight/community-daily-report"
+  },
+  {
+    "id": "community-hottopic-insight",
+    "name": "community-hottopic-insight",
+    "display_name": "Community topic analysis",
+    "description": "Analyze community topic sentiment and produce insight reports",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "社区话题分析",
+        "description": "分析社区话题舆情并输出洞察报告"
+      },
+      "en": {
+        "name": "Community Topic Analysis",
+        "description": "Analyze community topic sentiment and produce insight reports"
+      },
+      "ja": {
+        "name": "コミュニティトピック分析",
+        "description": "コミュニティの話題の世論を分析し、インサイトレポートを出力します"
+      },
+      "ko": {
+        "name": "커뮤니티 토픽 분석",
+        "description": "커뮤니티 토픽 여론을 분석하고 인사이트 보고서를 산출합니다"
+      }
+    },
+    "path": "./skills/user-insight/community-hottopic-insight"
+  },
+  {
+    "id": "community-weekly-report",
+    "name": "community-weekly-report",
+    "display_name": "Review of Community Weekly Report",
+    "description": "Generate weekly community operations summary reports",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "社区周报复盘",
+        "description": "生成社区运营周总结报告"
+      },
+      "en": {
+        "name": "Community Weekly Report",
+        "description": "Generate weekly community operations summary reports"
+      },
+      "ja": {
+        "name": "コミュニティ週次レポート",
+        "description": "コミュニティ運営の週次サマリーレポートを生成します"
+      },
+      "ko": {
+        "name": "커뮤니티 주간 보고서",
+        "description": "커뮤니티 운영 주간 요약 보고서를 생성합니다"
+      }
+    },
+    "path": "./skills/user-insight/community-weekly-report"
+  },
+  {
+    "id": "dashboard-no-data-troubleshooting",
+    "name": "dashboard-no-data-troubleshooting",
+    "display_name": "Dashboard No-Data Troubleshoot",
+    "description": "Diagnose dashboards with no data, zeros, or abnormal drops",
+    "category": "data-troubleshooting",
+    "category_display_name": "数据排障",
+    "tags": [
+      "dashboard"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "看板无数据排查",
+        "description": "排查看板无数据、全零或异常下跌"
+      },
+      "en": {
+        "name": "Dashboard No-Data Troubleshoot",
+        "description": "Diagnose dashboards with no data, zeros, or abnormal drops"
+      },
+      "ja": {
+        "name": "ダッシュボード無データトラブルシュート",
+        "description": "データなし・ゼロ・異常低下のダッシュボードを診断"
+      },
+      "ko": {
+        "name": "대시보드 무데이터 해결",
+        "description": "데이터 없음, 전체 0, 비정상 하락 대시보드 진단"
+      }
+    },
+    "path": "./skills/data-troubleshooting/dashboard-no-data-troubleshooting"
+  },
+  {
+    "id": "data-inconsistency-debug",
+    "name": "data-inconsistency-debug",
+    "display_name": "Report Data Consistency Check",
+    "description": "Locate root causes of data discrepancies between reports and provide fixes",
+    "category": "data-troubleshooting",
+    "category_display_name": "数据排障",
+    "tags": [
+      "data-debug"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "报告数据一致性检查",
+        "description": "定位报告间数据不一致的根因并提供修复方案"
+      },
+      "en": {
+        "name": "Report Data Consistency Check",
+        "description": "Locate root causes of data discrepancies between reports and provide fixes"
+      },
+      "ja": {
+        "name": "レポートデータ整合性チェック",
+        "description": "レポート間のデータ不一致の根本原因を特定し、修正案を提示します"
+      },
+      "ko": {
+        "name": "리포트 데이터 일관성 검사",
+        "description": "리포트 간 데이터 불일치의 근본 원인을 파악하고 수정안을 제공합니다"
+      }
+    },
+    "path": "./skills/data-troubleshooting/data-inconsistency-debug"
+  },
+  {
+    "id": "data-integration-assistant",
+    "name": "data-integration-assistant",
+    "display_name": "data-integration-assistant",
+    "description": "Help solve ThinkingData SDK and data integration issues",
+    "category": "data-troubleshooting",
+    "category_display_name": "数据排障",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "数据集成助手",
+        "description": "帮助解决 ThinkingData 数据集成问题"
+      },
+      "en": {
+        "name": "Data Integration Assistant",
+        "description": "Help solve ThinkingData SDK and data integration issues"
+      },
+      "ja": {
+        "name": "データ連携アシスタント",
+        "description": "ThinkingDataのSDKおよびデータ連携の問題解決を支援します"
+      },
+      "ko": {
+        "name": "데이터 연동 어시스턴트",
+        "description": "ThinkingData SDK 및 데이터 연동 문제 해결을 지원합니다"
+      }
+    },
+    "path": "./skills/data-troubleshooting/data-integration-assistant"
+  },
+  {
+    "id": "device-performance-analysis",
+    "name": "device-performance-analysis",
+    "display_name": "APP Performance Analysis",
+    "description": "Analyze app crashes, lag, and loading performance",
+    "category": "performance",
+    "category_display_name": "业务表现与性能",
+    "tags": [
+      "performance"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "APP 性能分析",
+        "description": "分析 APP 崩溃、卡顿和加载性能"
+      },
+      "en": {
+        "name": "APP Performance Analysis",
+        "description": "Analyze app crashes, lag, and loading performance"
+      },
+      "ja": {
+        "name": "APPパフォーマンス分析",
+        "description": "アプリのクラッシュ、カクつき、読み込み性能を分析します"
+      },
+      "ko": {
+        "name": "앱 성능 분석",
+        "description": "앱 크래시, 지연 및 로딩 성능을 분석합니다"
+      }
+    },
+    "path": "./skills/performance/device-performance-analysis"
+  },
+  {
+    "id": "drama-retention-analyzer",
+    "name": "drama-retention-analyzer",
+    "display_name": "Drama Retention Analyzer",
+    "description": "Analyze short drama retention through a 5-layer funnel",
+    "category": "retention",
+    "category_display_name": "留存与流失",
+    "tags": [
+      "drama"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "短剧留存分析",
+        "description": "通过五层漏斗分析短剧留存与流失"
+      },
+      "en": {
+        "name": "Drama Retention Analyzer",
+        "description": "Analyze short drama retention through a 5-layer funnel"
+      },
+      "ja": {
+        "name": "ドラマリテンション分析",
+        "description": "5層ファネルでショートドラマのリテンションを分析"
+      },
+      "ko": {
+        "name": "드라마 리텐션 분석",
+        "description": "5단계 퍼널로 숏드라마 리텐션 분석"
+      }
+    },
+    "path": "./skills/retention/drama-retention-analyzer"
+  },
+  {
+    "id": "filter-result-deviation-troubleshooting",
+    "name": "filter-result-deviation-troubleshooting",
+    "display_name": "Filter Result Deviation Troubleshoot",
+    "description": "Investigate filter results inconsistent with expectations",
+    "category": "data-troubleshooting",
+    "category_display_name": "数据排障",
+    "tags": [
+      "filter"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "筛选结果偏差排查",
+        "description": "排查筛选结果与预期不一致的问题"
+      },
+      "en": {
+        "name": "Filter Result Deviation Troubleshoot",
+        "description": "Investigate filter results inconsistent with expectations"
+      },
+      "ja": {
+        "name": "フィルター結果偏差トラブルシュート",
+        "description": "期待と一致しないフィルター結果を調査"
+      },
+      "ko": {
+        "name": "필터 결과 편차 해결",
+        "description": "기대와 일치하지 않는 필터 결과 조사"
+      }
+    },
+    "path": "./skills/data-troubleshooting/filter-result-deviation-troubleshooting"
+  },
+  {
+    "id": "first-purchase-analysis",
+    "name": "first-purchase-analysis",
+    "display_name": "First Purchase Rate Analysis",
+    "description": "Diagnose first purchase conversion rate and optimize first purchase design",
+    "category": "monetization",
+    "category_display_name": "商业化与付费",
+    "tags": [
+      "monetization"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "首充率分析",
+        "description": "诊断首充转化率并优化首充设计"
+      },
+      "en": {
+        "name": "First Purchase Rate Analysis",
+        "description": "Diagnose first purchase conversion rate and optimize first purchase design"
+      },
+      "ja": {
+        "name": "初回決済率分析",
+        "description": "初回決済率を診断し、初回決済設計を最適化します"
+      },
+      "ko": {
+        "name": "최초 결제율 분석",
+        "description": "최초 결제 전환율을 진단하고 최초 결제 설계를 최적화합니다"
+      }
+    },
+    "path": "./skills/monetization/first-purchase-analysis"
+  },
+  {
+    "id": "funnel-misconceptions",
+    "name": "funnel-misconceptions",
+    "display_name": "Funnel Analysis Misconceptions",
+    "description": "Diagnose uncounted funnel conversions and explain common pitfalls",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "funnel"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "漏斗分析误区",
+        "description": "诊断漏斗转化未计入原因与常见误区"
+      },
+      "en": {
+        "name": "Funnel Analysis Misconceptions",
+        "description": "Diagnose uncounted funnel conversions and explain common pitfalls"
+      },
+      "ja": {
+        "name": "ファネル分析の誤解",
+        "description": "ファネル未計上の原因を診断し、よくある落と穴を解説"
+      },
+      "ko": {
+        "name": "퍼널 분석 오해",
+        "description": "퍼널 전환 미계산 원인 진단 및 일반적 함정 설명"
+      }
+    },
+    "path": "./skills/analysis-guides/funnel-misconceptions"
+  },
+  {
+    "id": "game-activity-evaluation",
+    "name": "game-activity-evaluation",
+    "display_name": "Game Activity Effectiveness Analysis",
+    "description": "Evaluate game event impact on user growth and payment",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "game-ops"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "游戏活动效果分析",
+        "description": "评估游戏活动对用户增长和付费的影响"
+      },
+      "en": {
+        "name": "Game Activity Effectiveness Analysis",
+        "description": "Evaluate game event impact on user growth and payment"
+      },
+      "ja": {
+        "name": "ゲームイベント効果分析",
+        "description": "ゲームイベントがユーザー成長と決済に与える影響を評価します"
+      },
+      "ko": {
+        "name": "게임 이벤트 효과 분석",
+        "description": "게임 이벤트가 사용자 성장 및 결제에 미치는 영향을 평가합니다"
+      }
+    },
+    "path": "./skills/game-operations/game-activity-evaluation"
+  },
+  {
+    "id": "game-economy-balance",
+    "name": "game-economy-balance",
+    "display_name": "Game Economy Balance Analysis",
+    "description": "Diagnose game economy inflation or deflation root causes",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "game"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "游戏经济平衡",
+        "description": "诊断游戏经济通胀与通缩根因"
+      },
+      "en": {
+        "name": "Game Economy Balance Analysis",
+        "description": "Diagnose game economy inflation or deflation root causes"
+      },
+      "ja": {
+        "name": "ゲーム経済バランス",
+        "description": "ゲーム経済のインフレ・デフレの根本原因を診断"
+      },
+      "ko": {
+        "name": "게임 경제 밸런스",
+        "description": "게임 경제 인플레이션/디플레이션 근본 원인 진단"
+      }
+    },
+    "path": "./skills/game-operations/game-economy-balance"
+  },
+  {
+    "id": "generate-sql",
+    "name": "generate-sql",
+    "display_name": "SQL Query Generator",
+    "description": "Generate accurate Trino SQL statements from user requirements",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "SQL 查询生成",
+        "description": "根据需求生成准确的 Trino SQL 语句"
+      },
+      "en": {
+        "name": "SQL Query Generator",
+        "description": "Generate accurate Trino SQL statements from user requirements"
+      },
+      "ja": {
+        "name": "SQLクエリ生成",
+        "description": "ユーザーの要件に基づき正確なTrino SQL文を生成します"
+      },
+      "ko": {
+        "name": "SQL 쿼리 생성",
+        "description": "사용자 요구사항에 맞는 정확한 Trino SQL 문을 생성합니다"
+      }
+    },
+    "path": "./skills/analysis-guides/generate-sql"
+  },
+  {
+    "id": "gift-pack-penetration-analysis",
+    "name": "gift-pack-penetration-analysis",
+    "display_name": "Gift Pack Penetration Rate Analysis",
+    "description": "Diagnose gift pack penetration rate and optimize gift pack design",
+    "category": "monetization",
+    "category_display_name": "商业化与付费",
+    "tags": [
+      "monetization"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "礼包渗透率分析",
+        "description": "诊断礼包渗透率并优化礼包设计"
+      },
+      "en": {
+        "name": "Gift Pack Penetration Analysis",
+        "description": "Diagnose gift pack penetration rate and optimize gift pack design"
+      },
+      "ja": {
+        "name": "ギフトパック浸透率分析",
+        "description": "ギフトパック浸透率を診断し、ギフトパック設計を最適化します"
+      },
+      "ko": {
+        "name": "기프트팩 침투율 분석",
+        "description": "기프트팩 침투율을 진단하고 기프트팩 설계를 최적화합니다"
+      }
+    },
+    "path": "./skills/monetization/gift-pack-penetration-analysis"
+  },
+  {
+    "id": "gift-push-strategy",
+    "name": "gift-push-strategy",
+    "display_name": "Game Gift Pack Push Strategy",
+    "description": "Design behavior-triggered gift pack push strategies",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "monetization",
+      "engagement"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "礼包推送策略",
+        "description": "设计行为触发的礼包推送策略"
+      },
+      "en": {
+        "name": "Gift Pack Push Strategy",
+        "description": "Design behavior-triggered gift pack push strategies"
+      },
+      "ja": {
+        "name": "ギフトパック推送戦略",
+        "description": "行動トリガー型のギフトパック推送戦略を設計します"
+      },
+      "ko": {
+        "name": "기프트팩 푸시 전략",
+        "description": "행동 트리거 기반 기프트팩 푸시 전략을 설계합니다"
+      }
+    },
+    "path": "./skills/game-operations/gift-push-strategy"
+  },
+  {
+    "id": "journey-intent-parser",
+    "name": "journey-intent-parser",
+    "display_name": "Engage Journey Creation",
+    "description": "Convert natural language descriptions into journey canvas",
+    "category": "automation",
+    "category_display_name": "自动化运营",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "运营创建流程画布",
+        "description": "将自然语言描述转换为运营流程画布"
+      },
+      "en": {
+        "name": "Engage Journey Creation",
+        "description": "Convert natural language descriptions into journey canvas"
+      },
+      "ja": {
+        "name": "ジャーニーキャンバス作成",
+        "description": "自然言語の記述をジャーニーキャンバスに変換します"
+      },
+      "ko": {
+        "name": "여정 캔버스 생성",
+        "description": "자연어 설명을 여정 캔버스로 변환합니다"
+      }
+    },
+    "path": "./skills/automation/journey-intent-parser"
+  },
+  {
+    "id": "level-churn-analyzer",
+    "name": "level-churn-analyzer",
+    "display_name": "Level Churn Analyzer",
+    "description": "Diagnose level chokepoints and provide churn optimization advice",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "level"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "关卡流失分析",
+        "description": "诊断关卡卡点并提供流失优化建议"
+      },
+      "en": {
+        "name": "Level Churn Analyzer",
+        "description": "Diagnose level chokepoints and provide churn optimization advice"
+      },
+      "ja": {
+        "name": "レベル離脱分析",
+        "description": "レベルのボトルネックを診断し離脱改善策を提案"
+      },
+      "ko": {
+        "name": "레벨 이탈 분석",
+        "description": "레벨 병목 진단 및 이탈 최적화 조언 제공"
+      }
+    },
+    "path": "./skills/game-operations/level-churn-analyzer"
+  },
+  {
+    "id": "ltv-analysis",
+    "name": "ltv-analysis",
+    "display_name": "LTV Analysis and Optimization",
+    "description": "Align LTV calculation definitions, diagnose declines, and recommend optimizations",
+    "category": "monetization",
+    "category_display_name": "商业化与付费",
+    "tags": [
+      "monetization",
+      "retention",
+      "ltv",
+      "monitoring"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "LTV 分析与优化",
+        "description": "对齐 LTV 计算定义，诊断下降根因并给出优化建议"
+      },
+      "en": {
+        "name": "LTV Analysis and Optimization",
+        "description": "Align LTV calculation definitions, diagnose declines, and recommend optimizations"
+      },
+      "ja": {
+        "name": "LTV分析と最適化",
+        "description": "LTVの計算定義を揃え、低下要因を診断し改善策を提示"
+      },
+      "ko": {
+        "name": "LTV 분석 및 최적화",
+        "description": "LTV 계산 정의를 맞추고 하락 원인을 진단해 개선안을 제시"
+      }
+    },
+    "path": "./skills/monetization/ltv-analysis"
+  },
+  {
+    "id": "ltv-prediction",
+    "name": "ltv-prediction",
+    "display_name": "LTV & LT Prediction",
+    "description": "Predict LTV and LT with multi-function fitting, payback analysis, mature cohort borrowing, and ML",
+    "category": "forecasting",
+    "category_display_name": "预测与规划",
+    "tags": [
+      "ltv",
+      "lt"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "LTV & LT 预测",
+        "description": "多函数拟合预测 LTV 与 LT，支持回本分析、成熟队列借衰减率与 ML 预测"
+      },
+      "en": {
+        "name": "LTV & LT Prediction",
+        "description": "Predict LTV and LT with multi-function fitting, payback analysis, mature cohort borrowing, and ML"
+      },
+      "ja": {
+        "name": "LTV & LT 予測",
+        "description": "多関数フィッティングでLTVとLTを予測、回収分析・成熟コホート借衰減率・ML予測に対応"
+      },
+      "ko": {
+        "name": "LTV & LT 예측",
+        "description": "다중 함수 피팅으로 LTV와 LT 예측, 회수 분석·성숙 코호트 차감율 차용·ML 예측 지원"
+      }
+    },
+    "path": "./skills/forecasting/ltv-prediction"
+  },
+  {
+    "id": "ltv-prediction-cli",
+    "name": "ltv-prediction-cli",
+    "display_name": "ltv-prediction-cli",
+    "description": "Predict LTV via ae-cli data and Python fitting, with RFM/pay-tier segmentation",
+    "category": "forecasting",
+    "category_display_name": "预测与规划",
+    "tags": [
+      "prediction",
+      "monetization"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "LTV 预测（CLI）",
+        "description": "通过 ae-cli 预测 LTV，支持分层分析"
+      },
+      "en": {
+        "name": "LTV Prediction (CLI)",
+        "description": "Predict LTV via ae-cli data and Python fitting, with RFM/pay-tier segmentation"
+      },
+      "ja": {
+        "name": "LTV予測（CLI）",
+        "description": "ae-cliデータとPythonフィッティングでLTVを予測、RFM/課金階層セグメンテーション対応"
+      },
+      "ko": {
+        "name": "LTV 예측 (CLI)",
+        "description": "ae-cli 데이터와 Python 피팅으로 LTV 예측, RFM/결제 계층 세분화 지원"
+      }
+    },
+    "path": "./skills/forecasting/ltv-prediction-cli"
+  },
+  {
+    "id": "mcp-trino",
+    "name": "mcp-trino",
+    "display_name": "Trino Inspection / Diagnostics",
+    "description": "Inspect Trino metadata, table schemas, and query execution plans",
+    "category": "automation",
+    "category_display_name": "自动化运营",
+    "tags": [],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "Trino 检查与诊断",
+        "description": "检查 Trino 元数据、表结构和执行计划"
+      },
+      "en": {
+        "name": "Trino Inspection / Diagnostics",
+        "description": "Inspect Trino metadata, table schemas, and query execution plans"
+      },
+      "ja": {
+        "name": "Trino検査・診断",
+        "description": "Trinoのメタデータ、テーブル構造、実行計画を検査します"
+      },
+      "ko": {
+        "name": "Trino 검사 및 진단",
+        "description": "Trino 메타데이터, 테이블 구조 및 실행 계획을 검사합니다"
+      }
+    },
+    "path": "./skills/automation/mcp-trino"
+  },
+  {
+    "id": "new-hero-insight",
+    "name": "new-hero-insight",
+    "display_name": "New Hero Performance Analysis",
+    "description": "Analyze new hero acquisition and performance data after launch",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "game-ops"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "新英雄数据分析",
+        "description": "分析新英雄上线后的获取与表现数据"
+      },
+      "en": {
+        "name": "New Hero Performance Analysis",
+        "description": "Analyze new hero acquisition and performance data after launch"
+      },
+      "ja": {
+        "name": "新ヒーローデータ分析",
+        "description": "新ヒーローの獲得率と性能データを分析します"
+      },
+      "ko": {
+        "name": "신규 영웅 데이터 분석",
+        "description": "신규 영웅 획득 및 성과 데이터를 분석합니다"
+      }
+    },
+    "path": "./skills/game-operations/new-hero-insight"
+  },
+  {
+    "id": "payment-attribution-analysis",
+    "name": "payment-attribution-analysis",
+    "display_name": "Payment Attribution Analysis",
+    "description": "Diagnose payment rate anomalies and attribute payment changes to root causes",
+    "category": "monetization",
+    "category_display_name": "商业化与付费",
+    "tags": [
+      "monetization",
+      "data-debug"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "付费归因分析",
+        "description": "诊断付费率异常，归因付费变化根因，提供多维度拆解与优化建议"
+      },
+      "en": {
+        "name": "Payment Attribution Analysis",
+        "description": "Diagnose payment rate anomalies and attribute payment changes to root causes with multi-dimension breakdown"
+      },
+      "ja": {
+        "name": "決済帰属分析",
+        "description": "決済率の異常を診断し、決済変動の根本原因を特定し、多次元分析と改善提案を提供します"
+      },
+      "ko": {
+        "name": "결제 기여 분석",
+        "description": "결제율 이상을 진단하고 결제 변화의 근본 원인을 파악하여 다차원 분석과 최적화 제안을 제공합니다"
+      }
+    },
+    "path": "./skills/monetization/payment-attribution-analysis"
+  },
+  {
+    "id": "payment-funnel-analysis",
+    "name": "payment-funnel-analysis",
+    "display_name": "Payment Funnel Analysis & Setup",
+    "description": "Build payment conversion funnels, diagnose churn nodes, and optimize payment paths",
+    "category": "monetization",
+    "category_display_name": "商业化与付费",
+    "tags": [
+      "monetization"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "付费漏斗分析与搭建",
+        "description": "搭建付费转化漏斗，诊断流失节点并优化付费路径"
+      },
+      "en": {
+        "name": "Payment Funnel Analysis & Setup",
+        "description": "Build payment conversion funnels, diagnose churn nodes, and optimize payment paths"
+      },
+      "ja": {
+        "name": "決済ファネル分析・構築",
+        "description": "決済コンバージョンファネルを構築し、離脱ノードを診断し、決済パスを最適化"
+      },
+      "ko": {
+        "name": "결제 퍼널 분석·구축",
+        "description": "결제 전환 퍼널을 구축하고 이탈 노드를 진단하며 결제 경로를 최적화"
+      }
+    },
+    "path": "./skills/monetization/payment-funnel-analysis"
+  },
+  {
+    "id": "pricing-evaluation",
+    "name": "pricing-evaluation",
+    "display_name": "Product Pricing Evaluation",
+    "description": "Evaluate pricing rationality and optimize price strategies",
+    "category": "monetization",
+    "category_display_name": "商业化与付费",
+    "tags": [
+      "monetization"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "产品定价评估",
+        "description": "评估定价合理性并优化价格策略"
+      },
+      "en": {
+        "name": "Product Pricing Evaluation",
+        "description": "Evaluate pricing rationality and optimize price strategies"
+      },
+      "ja": {
+        "name": "製品価格評価",
+        "description": "価格の妥当性を評価し、価格戦略を最適化します"
+      },
+      "ko": {
+        "name": "제품 가격 평가",
+        "description": "가격 합리성을 평가하고 가격 전략을 최적화합니다"
+      }
+    },
+    "path": "./skills/monetization/pricing-evaluation"
+  },
+  {
+    "id": "pvp-winrate-analyzer",
+    "name": "pvp-winrate-analyzer",
+    "display_name": "PVP Win Rate Analyzer",
+    "description": "Analyze PVP win rate impact on retention and payment",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "pvp"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "PVP 胜率分析",
+        "description": "分析PVP胜率对留存与付费的影响"
+      },
+      "en": {
+        "name": "PVP Win Rate Analyzer",
+        "description": "Analyze PVP win rate impact on retention and payment"
+      },
+      "ja": {
+        "name": "PVP勝率分析",
+        "description": "PVP勝率がリテンションと課金に与える影響を分析"
+      },
+      "ko": {
+        "name": "PVP 승률 분석",
+        "description": "PVP 승률이 리텐션과 결제에 미치는 영향 분석"
+      }
+    },
+    "path": "./skills/game-operations/pvp-winrate-analyzer"
+  },
+  {
+    "id": "repeat-purchase-analysis",
+    "name": "repeat-purchase-analysis",
+    "display_name": "Repeat Purchase Analysis",
+    "description": "Diagnose repeat purchase rate decline and optimize repurchase",
+    "category": "monetization",
+    "category_display_name": "商业化与付费",
+    "tags": [
+      "repeat"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "复购分析",
+        "description": "诊断复购率下降并优化复购行为"
+      },
+      "en": {
+        "name": "Repeat Purchase Analysis",
+        "description": "Diagnose repeat purchase rate decline and optimize repurchase"
+      },
+      "ja": {
+        "name": "リピート購買分析",
+        "description": "リピート購買率の低下を診断し最適化"
+      },
+      "ko": {
+        "name": "재구매 분석",
+        "description": "재구매율 하락 진단 및 재구매 최적화"
+      }
+    },
+    "path": "./skills/monetization/repeat-purchase-analysis"
+  },
+  {
+    "id": "retention-verification",
+    "name": "retention-verification",
+    "display_name": "Retention Verification",
+    "description": "Verify retention data accuracy and statistical logic",
+    "category": "retention",
+    "category_display_name": "留存与流失",
+    "tags": [
+      "retention"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "留存数据验证",
+        "description": "验证留存数据准确性与统计逻辑"
+      },
+      "en": {
+        "name": "Retention Verification",
+        "description": "Verify retention data accuracy and statistical logic"
+      },
+      "ja": {
+        "name": "リテンションデータ検証",
+        "description": "リテンションデータの正確性と統計ロジックを検証"
+      },
+      "ko": {
+        "name": "리텐션 데이터 검증",
+        "description": "리텐션 데이터 정확성과 통계 논리 검증"
+      }
+    },
+    "path": "./skills/retention/retention-verification"
+  },
+  {
+    "id": "revenue-forecast-model-cli",
+    "name": "revenue-forecast-model-cli",
+    "display_name": "revenue-forecast-model-cli",
+    "description": "Forecast game dynamic revenue trends",
+    "category": "forecasting",
+    "category_display_name": "预测与规划",
+    "tags": [
+      "prediction",
+      "monetization"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "收入预测模型",
+        "description": "预测游戏动态收入趋势"
+      },
+      "en": {
+        "name": "Revenue Forecast Model",
+        "description": "Forecast game dynamic revenue trends"
+      },
+      "ja": {
+        "name": "収益予測モデル",
+        "description": "ゲームの動的収益トレンドを予測します"
+      },
+      "ko": {
+        "name": "수익 예측 모델",
+        "description": "게임 동적 수익 트렌드를 예측합니다"
+      }
+    },
+    "path": "./skills/forecasting/revenue-forecast-model-cli"
+  },
+  {
+    "id": "single-user-inspector",
+    "name": "single-user-inspector",
+    "display_name": "Single User Behavior Analysis",
+    "description": "Query user profiles, track behavior events, and diagnose churn reasons",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "user-profile"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "单用户行为分析",
+        "description": "查询用户画像、追踪行为并诊断流失原因"
+      },
+      "en": {
+        "name": "Single User Behavior Analysis",
+        "description": "Query user profiles, track behavior events, and diagnose churn reasons"
+      },
+      "ja": {
+        "name": "個別ユーザー行動分析",
+        "description": "ユーザープロファイルを照会し、行動を追跡し、離脱原因を診断します"
+      },
+      "ko": {
+        "name": "개별 사용자 행동 분석",
+        "description": "사용자 프로필을 조회하고 행동을 추적하며 이탈 원인을 진단합니다"
+      }
+    },
+    "path": "./skills/user-insight/single-user-inspector"
+  },
+  {
+    "id": "sql-performance-optimizer",
+    "name": "sql-performance-optimizer",
+    "display_name": "SQL Performance Optimization",
+    "description": "Identify slow queries and provide SQL rewrite solutions",
+    "category": "performance",
+    "category_display_name": "业务表现与性能",
+    "tags": [
+      "performance",
+      "data-debug"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "SQL 性能优化",
+        "description": "识别慢查询并提供 SQL 改写方案"
+      },
+      "en": {
+        "name": "SQL Performance Optimization",
+        "description": "Identify slow queries and provide SQL rewrite solutions"
+      },
+      "ja": {
+        "name": "SQLパフォーマンス最適化",
+        "description": "スロークエリを特定し、SQL書き換え案を提示します"
+      },
+      "ko": {
+        "name": "SQL 성능 최적화",
+        "description": "슬로우 쿼리를 식별하고 SQL 재작성 방안을 제공합니다"
+      }
+    },
+    "path": "./skills/performance/sql-performance-optimizer"
+  },
+  {
+    "id": "system-field-reference",
+    "name": "system-field-reference",
+    "display_name": "System Field Reference",
+    "description": "Help reference system preset fields in analysis models",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "system"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "系统字段引用",
+        "description": "帮助在分析模型中引用系统预置字段"
+      },
+      "en": {
+        "name": "System Field Reference",
+        "description": "Help reference system preset fields in analysis models"
+      },
+      "ja": {
+        "name": "システムフィールド参照",
+        "description": "分析モデルでシステムプリセットフィールドを参照"
+      },
+      "ko": {
+        "name": "시스템 필드 참조",
+        "description": "분석 모델에서 시스템 사전 설정 필드 참조"
+      }
+    },
+    "path": "./skills/analysis-guides/system-field-reference"
+  },
+  {
+    "id": "te-model-selector",
+    "name": "te-model-selector",
+    "display_name": "TE Analysis Model Selection",
+    "description": "Recommend the best TE analysis model and guide configuration",
+    "category": "automation",
+    "category_display_name": "自动化运营",
+    "tags": [
+      "analytics-guide"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "TE 模型选择助手",
+        "description": "推荐最合适的 TE 分析模型并指导配置"
+      },
+      "en": {
+        "name": "TE Analysis Model Selection",
+        "description": "Recommend the best TE analysis model and guide configuration"
+      },
+      "ja": {
+        "name": "TE分析モデル選択",
+        "description": "最適なTE分析モデルを推奨し、設定をガイドします"
+      },
+      "ko": {
+        "name": "TE 분석 모델 선택",
+        "description": "최적의 TE 분석 모델을 추천하고 설정을 안내합니다"
+      }
+    },
+    "path": "./skills/automation/te-model-selector"
+  },
+  {
+    "id": "te-user-id-debug",
+    "name": "te-user-id-debug",
+    "display_name": "TE User ID Binding Diagnosis",
+    "description": "Diagnose user fragmentation caused by multi-platform reporting",
+    "category": "data-troubleshooting",
+    "category_display_name": "数据排障",
+    "tags": [
+      "data-debug"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "TE 用户 ID 绑定诊断",
+        "description": "诊断多端上报导致的用户碎片化问题"
+      },
+      "en": {
+        "name": "TE User ID Binding Diagnosis",
+        "description": "Diagnose user fragmentation caused by multi-platform reporting"
+      },
+      "ja": {
+        "name": "TEユーザーID紐付け診断",
+        "description": "マルチプラットフォーム報告によるユーザー断片化問題を診断します"
+      },
+      "ko": {
+        "name": "TE 사용자 ID 연동 진단",
+        "description": "다중 플랫폼 리포트로 인한 사용자 분화 문제를 진단합니다"
+      }
+    },
+    "path": "./skills/data-troubleshooting/te-user-id-debug"
+  },
+  {
+    "id": "user-tag-system-designer",
+    "name": "user-tag-system-designer",
+    "display_name": "User Tag System Design",
+    "description": "Design hierarchical tag systems based on tracking data",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "user-profile"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "用户标签系统设计",
+        "description": "基于埋点数据设计分层标签体系"
+      },
+      "en": {
+        "name": "User Tag System Design",
+        "description": "Design hierarchical tag systems based on tracking data"
+      },
+      "ja": {
+        "name": "ユーザータグシステム設計",
+        "description": "トラッキングデータに基づく階層型タグ体系を設計します"
+      },
+      "ko": {
+        "name": "사용자 태그 시스템 설계",
+        "description": "트래킹 데이터 기반의 계층형 태그 체계를 설계합니다"
+      }
+    },
+    "path": "./skills/user-insight/user-tag-system-designer"
+  }
+]

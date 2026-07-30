@@ -1,0 +1,12 @@
+zh:
+  name: "数据集成助手"
+  description: "帮助解决 ThinkingData 数据集成问题"
+en:
+  name: "Data Integration Assistant"
+  description: "Help solve ThinkingData SDK and data integration issues"
+ja:
+  name: "データ連携アシスタント"
+  description: "ThinkingDataのSDKおよびデータ連携の問題解決を支援します"
+ko:
+  name: "데이터 연동 어시스턴트"
+  description: "ThinkingData SDK 및 데이터 연동 문제 해결을 지원합니다"

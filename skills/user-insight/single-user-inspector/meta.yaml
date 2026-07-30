@@ -1,0 +1,24 @@
+id: single-user-inspector
+name: single-user-inspector
+kind: scenario
+display_name: Single User Behavior Analysis
+description: Query user profiles, track behavior events, and diagnose churn reasons
+category: user-insight
+tags:
+  - user-profile
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 96
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T07:02:16.000Z"

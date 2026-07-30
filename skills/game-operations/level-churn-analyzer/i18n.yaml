@@ -1,0 +1,12 @@
+zh:
+  name: "关卡流失分析"
+  description: "诊断关卡卡点并提供流失优化建议"
+en:
+  name: "Level Churn Analyzer"
+  description: "Diagnose level chokepoints and provide churn optimization advice"
+ja:
+  name: "レベル離脱分析"
+  description: "レベルのボトルネックを診断し離脱改善策を提案"
+ko:
+  name: "레벨 이탈 분석"
+  description: "레벨 병목 진단 및 이탈 최적화 조언 제공"

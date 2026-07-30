@@ -1,0 +1,12 @@
+zh:
+  name: "报告数据一致性检查"
+  description: "定位报告间数据不一致的根因并提供修复方案"
+en:
+  name: "Report Data Consistency Check"
+  description: "Locate root causes of data discrepancies between reports and provide fixes"
+ja:
+  name: "レポートデータ整合性チェック"
+  description: "レポート間のデータ不一致の根本原因を特定し、修正案を提示します"
+ko:
+  name: "리포트 데이터 일관성 검사"
+  description: "리포트 간 데이터 불일치의 근본 원인을 파악하고 수정안을 제공합니다"

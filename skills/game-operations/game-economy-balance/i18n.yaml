@@ -1,0 +1,12 @@
+zh:
+  name: "游戏经济平衡"
+  description: "诊断游戏经济通胀与通缩根因"
+en:
+  name: "Game Economy Balance Analysis"
+  description: "Diagnose game economy inflation or deflation root causes"
+ja:
+  name: "ゲーム経済バランス"
+  description: "ゲーム経済のインフレ・デフレの根本原因を診断"
+ko:
+  name: "게임 경제 밸런스"
+  description: "게임 경제 인플레이션/디플레이션 근본 원인 진단"

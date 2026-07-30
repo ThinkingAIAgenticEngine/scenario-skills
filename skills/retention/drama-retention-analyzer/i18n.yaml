@@ -1,0 +1,12 @@
+zh:
+  name: "短剧留存分析"
+  description: "通过五层漏斗分析短剧留存与流失"
+en:
+  name: "Drama Retention Analyzer"
+  description: "Analyze short drama retention through a 5-layer funnel"
+ja:
+  name: "ドラマリテンション分析"
+  description: "5層ファネルでショートドラマのリテンションを分析"
+ko:
+  name: "드라마 리텐션 분석"
+  description: "5단계 퍼널로 숏드라마 리텐션 분석"

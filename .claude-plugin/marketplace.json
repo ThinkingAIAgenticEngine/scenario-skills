@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "pluginRoot": "./"
+  },
+  "plugins": [
+    {
+      "name": "acquisition-获客增长",
+      "description": "获客增长 / acquisition",
+      "source": "./",
+      "skills": [
+        "./skills/acquisition/ad-delivery-analysis",
+        "./skills/acquisition/channel-quality-analysis"
+      ]
+    },
+    {
+      "name": "automation-自动化运营",
+      "description": "自动化运营 / automation",
+      "source": "./",
+      "skills": [
+        "./skills/automation/ae-freeze-inactive-dashboards",
+        "./skills/automation/journey-intent-parser",
+        "./skills/automation/mcp-trino",
+        "./skills/automation/te-model-selector"
+      ]
+    },
+    {
+      "name": "analysis-guides-分析方法",
+      "description": "分析方法 / analysis-guides",
+      "source": "./",
+      "skills": [
+        "./skills/analysis-guides/ae-kb-discovery",
+        "./skills/analysis-guides/analysis-scope-alignment",
+        "./skills/analysis-guides/funnel-misconceptions",
+        "./skills/analysis-guides/generate-sql",
+        "./skills/analysis-guides/system-field-reference"
+      ]
+    },
+    {
+      "name": "retention-留存与流失",
+      "description": "留存与流失 / retention",
+      "source": "./",
+      "skills": [
+        "./skills/retention/churn-define",
+        "./skills/retention/drama-retention-analyzer",
+        "./skills/retention/retention-verification"
+      ]
+    },
+    {
+      "name": "user-insight-用户洞察",
+      "description": "用户洞察 / user-insight",
+      "source": "./",
+      "skills": [
+        "./skills/user-insight/community-analyzing-theme-comment",
+        "./skills/user-insight/community-daily-report",
+        "./skills/user-insight/community-hottopic-insight",
+        "./skills/user-insight/community-weekly-report",
+        "./skills/user-insight/single-user-inspector",
+        "./skills/user-insight/user-tag-system-designer"
+      ]
+    },
+    {
+      "name": "data-troubleshooting-数据排障",
+      "description": "数据排障 / data-troubleshooting",
+      "source": "./",
+      "skills": [
+        "./skills/data-troubleshooting/dashboard-no-data-troubleshooting",
+        "./skills/data-troubleshooting/data-inconsistency-debug",
+        "./skills/data-troubleshooting/data-integration-assistant",
+        "./skills/data-troubleshooting/filter-result-deviation-troubleshooting",
+        "./skills/data-troubleshooting/te-user-id-debug"
+      ]
+    },
+    {
+      "name": "performance-业务表现与性能",
+      "description": "业务表现与性能 / performance",
+      "source": "./",
+      "skills": [
+        "./skills/performance/device-performance-analysis",
+        "./skills/performance/sql-performance-optimizer"
+      ]
+    },
+    {
+      "name": "monetization-商业化与付费",
+      "description": "商业化与付费 / monetization",
+      "source": "./",
+      "skills": [
+        "./skills/monetization/first-purchase-analysis",
+        "./skills/monetization/gift-pack-penetration-analysis",
+        "./skills/monetization/ltv-analysis",
+        "./skills/monetization/payment-attribution-analysis",
+        "./skills/monetization/payment-funnel-analysis",
+        "./skills/monetization/pricing-evaluation",
+        "./skills/monetization/repeat-purchase-analysis"
+      ]
+    },
+    {
+      "name": "game-operations-游戏运营",
+      "description": "游戏运营 / game-operations",
+      "source": "./",
+      "skills": [
+        "./skills/game-operations/game-activity-evaluation",
+        "./skills/game-operations/game-economy-balance",
+        "./skills/game-operations/gift-push-strategy",
+        "./skills/game-operations/level-churn-analyzer",
+        "./skills/game-operations/new-hero-insight",
+        "./skills/game-operations/pvp-winrate-analyzer"
+      ]
+    },
+    {
+      "name": "forecasting-预测与规划",
+      "description": "预测与规划 / forecasting",
+      "source": "./",
+      "skills": [
+        "./skills/forecasting/ltv-prediction",
+        "./skills/forecasting/ltv-prediction-cli",
+        "./skills/forecasting/revenue-forecast-model-cli"
+      ]
+    }
+  ]
+}

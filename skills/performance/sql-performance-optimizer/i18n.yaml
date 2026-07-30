@@ -1,0 +1,12 @@
+zh:
+  name: "SQL 性能优化"
+  description: "识别慢查询并提供 SQL 改写方案"
+en:
+  name: "SQL Performance Optimization"
+  description: "Identify slow queries and provide SQL rewrite solutions"
+ja:
+  name: "SQLパフォーマンス最適化"
+  description: "スロークエリを特定し、SQL書き換え案を提示します"
+ko:
+  name: "SQL 성능 최적화"
+  description: "슬로우 쿼리를 식별하고 SQL 재작성 방안을 제공합니다"

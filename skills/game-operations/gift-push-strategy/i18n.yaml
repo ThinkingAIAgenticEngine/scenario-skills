@@ -1,0 +1,12 @@
+zh:
+  name: "礼包推送策略"
+  description: "设计行为触发的礼包推送策略"
+en:
+  name: "Gift Pack Push Strategy"
+  description: "Design behavior-triggered gift pack push strategies"
+ja:
+  name: "ギフトパック推送戦略"
+  description: "行動トリガー型のギフトパック推送戦略を設計します"
+ko:
+  name: "기프트팩 푸시 전략"
+  description: "행동 트리거 기반 기프트팩 푸시 전략을 설계합니다"

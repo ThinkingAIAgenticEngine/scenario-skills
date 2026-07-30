@@ -1,0 +1,27 @@
+id: ltv-analysis
+name: ltv-analysis
+kind: scenario
+display_name: LTV Analysis and Optimization
+description: Align LTV calculation definitions, diagnose declines, and recommend optimizations
+category: monetization
+tags:
+  - monetization
+  - retention
+  - ltv
+  - monitoring
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 76
+  version_seq: 6
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-29T07:45:00.000Z"

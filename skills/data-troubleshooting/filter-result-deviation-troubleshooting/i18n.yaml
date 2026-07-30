@@ -1,0 +1,12 @@
+zh:
+  name: "筛选结果偏差排查"
+  description: "排查筛选结果与预期不一致的问题"
+en:
+  name: "Filter Result Deviation Troubleshoot"
+  description: "Investigate filter results inconsistent with expectations"
+ja:
+  name: "フィルター結果偏差トラブルシュート"
+  description: "期待と一致しないフィルター結果を調査"
+ko:
+  name: "필터 결과 편차 해결"
+  description: "기대와 일치하지 않는 필터 결과 조사"

@@ -1,0 +1,12 @@
+zh:
+  name: "首充率分析"
+  description: "诊断首充转化率并优化首充设计"
+en:
+  name: "First Purchase Rate Analysis"
+  description: "Diagnose first purchase conversion rate and optimize first purchase design"
+ja:
+  name: "初回決済率分析"
+  description: "初回決済率を診断し、初回決済設計を最適化します"
+ko:
+  name: "최초 결제율 분석"
+  description: "최초 결제 전환율을 진단하고 최초 결제 설계를 최적화합니다"

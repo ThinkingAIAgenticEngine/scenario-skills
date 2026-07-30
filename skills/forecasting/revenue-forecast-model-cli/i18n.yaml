@@ -1,0 +1,12 @@
+zh:
+  name: "收入预测模型"
+  description: "预测游戏动态收入趋势"
+en:
+  name: "Revenue Forecast Model"
+  description: "Forecast game dynamic revenue trends"
+ja:
+  name: "収益予測モデル"
+  description: "ゲームの動的収益トレンドを予測します"
+ko:
+  name: "수익 예측 모델"
+  description: "게임 동적 수익 트렌드를 예측합니다"

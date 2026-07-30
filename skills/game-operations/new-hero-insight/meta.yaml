@@ -1,0 +1,24 @@
+id: new-hero-insight
+name: new-hero-insight
+kind: scenario
+display_name: New Hero Performance Analysis
+description: Analyze new hero acquisition and performance data after launch
+category: game-operations
+tags:
+  - game-ops
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 79
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T07:02:16.000Z"

@@ -1,0 +1,25 @@
+id: gift-push-strategy
+name: gift-push-strategy
+kind: scenario
+display_name: Game Gift Pack Push Strategy
+description: Design behavior-triggered gift pack push strategies
+category: game-operations
+tags:
+  - monetization
+  - engagement
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 81
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T07:02:16.000Z"

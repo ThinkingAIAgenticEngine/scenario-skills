@@ -1,0 +1,12 @@
+zh:
+  name: "社区每日报告"
+  description: "生成社区运营每日快报"
+en:
+  name: "Community Daily Report"
+  description: "Generate daily community operations flash reports"
+ja:
+  name: "コミュニティ日次レポート"
+  description: "コミュニティ運営の日次速報を生成します"
+ko:
+  name: "커뮤니티 일일 보고서"
+  description: "커뮤니티 운영 일일 속보를 생성합니다"

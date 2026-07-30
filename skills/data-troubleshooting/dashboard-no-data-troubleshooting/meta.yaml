@@ -1,0 +1,24 @@
+id: dashboard-no-data-troubleshooting
+name: dashboard-no-data-troubleshooting
+kind: scenario
+display_name: Dashboard No-Data Troubleshoot
+description: Diagnose dashboards with no data, zeros, or abnormal drops
+category: data-troubleshooting
+tags:
+  - dashboard
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 195
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-29T07:45:00.000Z"
