@@ -1,0 +1,12 @@
+zh:
+  name: "PVP 胜率分析"
+  description: "分析PVP胜率对留存与付费的影响"
+en:
+  name: "PVP Win Rate Analyzer"
+  description: "Analyze PVP win rate impact on retention and payment"
+ja:
+  name: "PVP勝率分析"
+  description: "PVP勝率がリテンションと課金に与える影響を分析"
+ko:
+  name: "PVP 승률 분석"
+  description: "PVP 승률이 리텐션과 결제에 미치는 영향 분석"

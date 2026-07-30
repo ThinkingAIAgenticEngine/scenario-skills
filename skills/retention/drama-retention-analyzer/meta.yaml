@@ -1,0 +1,24 @@
+id: drama-retention-analyzer
+name: drama-retention-analyzer
+kind: scenario
+display_name: Drama Retention Analyzer
+description: Analyze short drama retention through a 5-layer funnel
+category: retention
+tags:
+  - drama
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 240
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-29T07:45:00.000Z"

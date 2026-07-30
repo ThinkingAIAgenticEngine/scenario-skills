@@ -1,0 +1,12 @@
+zh:
+  name: "AE 知识库检索"
+  description: "检索和阅读 AE/TE 知识库内容"
+en:
+  name: "AE Knowledge Base Discovery"
+  description: "Search and read AE/TE knowledge base content"
+ja:
+  name: "AE ナレッジベース検索"
+  description: "AE/TEのナレッジベースコンテンツを検索・閲覧します"
+ko:
+  name: "AE 지식베이스 검색"
+  description: "AE/TE 지식베이스 콘텐츠를 검색하고 열람합니다"

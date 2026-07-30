@@ -1,0 +1,12 @@
+zh:
+  name: "付费漏斗分析与搭建"
+  description: "搭建付费转化漏斗，诊断流失节点并优化付费路径"
+en:
+  name: "Payment Funnel Analysis & Setup"
+  description: "Build payment conversion funnels, diagnose churn nodes, and optimize payment paths"
+ja:
+  name: "決済ファネル分析・構築"
+  description: "決済コンバージョンファネルを構築し、離脱ノードを診断し、決済パスを最適化"
+ko:
+  name: "결제 퍼널 분석·구축"
+  description: "결제 전환 퍼널을 구축하고 이탈 노드를 진단하며 결제 경로를 최적화"

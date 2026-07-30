@@ -1,0 +1,12 @@
+zh:
+  name: "产品定价评估"
+  description: "评估定价合理性并优化价格策略"
+en:
+  name: "Product Pricing Evaluation"
+  description: "Evaluate pricing rationality and optimize price strategies"
+ja:
+  name: "製品価格評価"
+  description: "価格の妥当性を評価し、価格戦略を最適化します"
+ko:
+  name: "제품 가격 평가"
+  description: "가격 합리성을 평가하고 가격 전략을 최적화합니다"

@@ -1,0 +1,24 @@
+id: game-activity-evaluation
+name: game-activity-evaluation
+kind: scenario
+display_name: Game Activity Effectiveness Analysis
+description: Evaluate game event impact on user growth and payment
+category: game-operations
+tags:
+  - game-ops
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 83
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T07:02:16.000Z"

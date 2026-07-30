@@ -1,0 +1,24 @@
+id: churn-define
+name: churn-define
+kind: scenario
+display_name: Churn Definition Assistant
+description: Define churned user filtering conditions and segmentation assets
+category: retention
+tags:
+  - churn
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 161
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-29T07:45:00.000Z"

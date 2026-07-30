@@ -1,0 +1,25 @@
+id: payment-attribution-analysis
+name: payment-attribution-analysis
+kind: scenario
+display_name: Payment Attribution Analysis
+description: Diagnose payment rate anomalies and attribute payment changes to root causes
+category: monetization
+tags:
+  - monetization
+  - data-debug
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 77
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T07:02:16.000Z"

@@ -1,0 +1,12 @@
+zh:
+  name: "社区评论分析"
+  description: "分析社区主题评论并生成结构化报告"
+en:
+  name: "Community Comment Analysis"
+  description: "Analyze community topic comments and generate structured reports"
+ja:
+  name: "コミュニティコメント分析"
+  description: "コミュニティのトピックコメントを分析し、構造化レポートを生成します"
+ko:
+  name: "커뮤니티 댓글 분석"
+  description: "커뮤니티 토픽 댓글을 분석하고 구조화된 보고서를 생성합니다"

@@ -1,0 +1,24 @@
+id: pvp-winrate-analyzer
+name: pvp-winrate-analyzer
+kind: scenario
+display_name: PVP Win Rate Analyzer
+description: Analyze PVP win rate impact on retention and payment
+category: game-operations
+tags:
+  - pvp
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 7
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-29T07:45:00.000Z"

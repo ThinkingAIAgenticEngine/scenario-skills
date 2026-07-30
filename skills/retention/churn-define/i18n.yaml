@@ -1,0 +1,12 @@
+zh:
+  name: "流失用户定义"
+  description: "建立流失用户筛选条件与分群资产"
+en:
+  name: "Churn Definition Assistant"
+  description: "Define churned user filtering conditions and segmentation assets"
+ja:
+  name: "離脱ユーザー定義"
+  description: "離脱ユーザーのフィルタ条件とセグメント資産を定義"
+ko:
+  name: "이탈 사용자 정의"
+  description: "이탈 사용자 필터 조건 및 세분화 자산 정의"

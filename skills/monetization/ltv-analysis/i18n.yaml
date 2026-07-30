@@ -1,0 +1,12 @@
+zh:
+  name: "LTV 分析与优化"
+  description: "对齐 LTV 计算定义，诊断下降根因并给出优化建议"
+en:
+  name: "LTV Analysis and Optimization"
+  description: "Align LTV calculation definitions, diagnose declines, and recommend optimizations"
+ja:
+  name: "LTV分析と最適化"
+  description: "LTVの計算定義を揃え、低下要因を診断し改善策を提示"
+ko:
+  name: "LTV 분석 및 최적화"
+  description: "LTV 계산 정의를 맞추고 하락 원인을 진단해 개선안을 제시"

@@ -1,0 +1,12 @@
+zh:
+  name: "Trino 检查与诊断"
+  description: "检查 Trino 元数据、表结构和执行计划"
+en:
+  name: "Trino Inspection / Diagnostics"
+  description: "Inspect Trino metadata, table schemas, and query execution plans"
+ja:
+  name: "Trino検査・診断"
+  description: "Trinoのメタデータ、テーブル構造、実行計画を検査します"
+ko:
+  name: "Trino 검사 및 진단"
+  description: "Trino 메타데이터, 테이블 구조 및 실행 계획을 검사합니다"

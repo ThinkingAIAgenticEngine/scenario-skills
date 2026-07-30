@@ -1,0 +1,24 @@
+id: level-churn-analyzer
+name: level-churn-analyzer
+kind: scenario
+display_name: Level Churn Analyzer
+description: Diagnose level chokepoints and provide churn optimization advice
+category: game-operations
+tags:
+  - level
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 176
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-29T07:45:00.000Z"

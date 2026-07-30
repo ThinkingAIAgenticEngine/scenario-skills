@@ -1,0 +1,12 @@
+zh:
+  name: "礼包渗透率分析"
+  description: "诊断礼包渗透率并优化礼包设计"
+en:
+  name: "Gift Pack Penetration Analysis"
+  description: "Diagnose gift pack penetration rate and optimize gift pack design"
+ja:
+  name: "ギフトパック浸透率分析"
+  description: "ギフトパック浸透率を診断し、ギフトパック設計を最適化します"
+ko:
+  name: "기프트팩 침투율 분석"
+  description: "기프트팩 침투율을 진단하고 기프트팩 설계를 최적화합니다"

@@ -1,0 +1,24 @@
+id: channel-quality-analysis
+name: channel-quality-analysis
+kind: scenario
+display_name: Channel Quality Analysis
+description: Evaluate channel acquisition performance and optimize ad spend
+category: acquisition
+tags:
+  - acquisition
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 82
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T07:02:16.000Z"

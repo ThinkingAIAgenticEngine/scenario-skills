@@ -1,0 +1,12 @@
+zh:
+  name: "单用户行为分析"
+  description: "查询用户画像、追踪行为并诊断流失原因"
+en:
+  name: "Single User Behavior Analysis"
+  description: "Query user profiles, track behavior events, and diagnose churn reasons"
+ja:
+  name: "個別ユーザー行動分析"
+  description: "ユーザープロファイルを照会し、行動を追跡し、離脱原因を診断します"
+ko:
+  name: "개별 사용자 행동 분석"
+  description: "사용자 프로필을 조회하고 행동을 추적하며 이탈 원인을 진단합니다"

@@ -1,0 +1,25 @@
+id: ltv-prediction-cli
+name: ltv-prediction-cli
+kind: scenario
+display_name: ltv-prediction-cli
+description: Predict LTV via ae-cli data and Python fitting, with RFM/pay-tier segmentation
+category: forecasting
+tags:
+  - prediction
+  - monetization
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 197
+  version_seq: 21
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-27T11:48:47.808Z"

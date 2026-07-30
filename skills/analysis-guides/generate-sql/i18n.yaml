@@ -1,0 +1,12 @@
+zh:
+  name: "SQL 查询生成"
+  description: "根据需求生成准确的 Trino SQL 语句"
+en:
+  name: "SQL Query Generator"
+  description: "Generate accurate Trino SQL statements from user requirements"
+ja:
+  name: "SQLクエリ生成"
+  description: "ユーザーの要件に基づき正確なTrino SQL文を生成します"
+ko:
+  name: "SQL 쿼리 생성"
+  description: "사용자 요구사항에 맞는 정확한 Trino SQL 문을 생성합니다"

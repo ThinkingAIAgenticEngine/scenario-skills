@@ -1,0 +1,24 @@
+id: payment-funnel-analysis
+name: payment-funnel-analysis
+kind: scenario
+display_name: Payment Funnel Analysis & Setup
+description: Build payment conversion funnels, diagnose churn nodes, and optimize payment paths
+category: monetization
+tags:
+  - monetization
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 75
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T09:00:00.000Z"

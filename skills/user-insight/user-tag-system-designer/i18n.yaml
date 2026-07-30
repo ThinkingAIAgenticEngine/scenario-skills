@@ -1,0 +1,12 @@
+zh:
+  name: "用户标签系统设计"
+  description: "基于埋点数据设计分层标签体系"
+en:
+  name: "User Tag System Design"
+  description: "Design hierarchical tag systems based on tracking data"
+ja:
+  name: "ユーザータグシステム設計"
+  description: "トラッキングデータに基づく階層型タグ体系を設計します"
+ko:
+  name: "사용자 태그 시스템 설계"
+  description: "트래킹 데이터 기반의 계층형 태그 체계를 설계합니다"

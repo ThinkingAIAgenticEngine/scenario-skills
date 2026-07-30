@@ -1,0 +1,25 @@
+id: sql-performance-optimizer
+name: sql-performance-optimizer
+kind: scenario
+display_name: SQL Performance Optimization
+description: Identify slow queries and provide SQL rewrite solutions
+category: performance
+tags:
+  - performance
+  - data-debug
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 61
+  version_seq: 8
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-27T11:48:47.808Z"

@@ -1,0 +1,25 @@
+id: revenue-forecast-model-cli
+name: revenue-forecast-model-cli
+kind: scenario
+display_name: revenue-forecast-model-cli
+description: Forecast game dynamic revenue trends
+category: forecasting
+tags:
+  - prediction
+  - monetization
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 200
+  version_seq: 22
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-27T11:48:47.808Z"

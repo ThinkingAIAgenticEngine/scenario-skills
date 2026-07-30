@@ -1,0 +1,12 @@
+zh:
+  name: "冻结闲置看板"
+  description: "识别并冻结闲置看板"
+en:
+  name: "Freeze Inactive Dashboards"
+  description: "Identify and freeze inactive dashboards"
+ja:
+  name: "非アクティブダッシュボード凍結"
+  description: "非アクティブなダッシュボードを特定・凍結"
+ko:
+  name: "비활성 대시보드 동결"
+  description: "비활성 대시보드 식별 및 동결"

@@ -1,0 +1,12 @@
+zh:
+  name: "新英雄数据分析"
+  description: "分析新英雄上线后的获取与表现数据"
+en:
+  name: "New Hero Performance Analysis"
+  description: "Analyze new hero acquisition and performance data after launch"
+ja:
+  name: "新ヒーローデータ分析"
+  description: "新ヒーローの獲得率と性能データを分析します"
+ko:
+  name: "신규 영웅 데이터 분석"
+  description: "신규 영웅 획득 및 성과 데이터를 분석합니다"

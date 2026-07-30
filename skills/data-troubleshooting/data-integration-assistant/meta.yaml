@@ -1,0 +1,24 @@
+id: data-integration-assistant
+name: data-integration-assistant
+kind: scenario
+display_name: "data-integration-assistant"
+description: Help solve ThinkingData SDK and data integration issues
+category: data-troubleshooting
+tags: []
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: manual
+  repository: te-ai/te-claude
+  ref: release/6.0
+  commit: 44ffc78fd4b398aed9ddfda23ee9245d070a2a57
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-27T07:14:47.608Z"

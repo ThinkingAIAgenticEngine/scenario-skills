@@ -1,0 +1,10 @@
+{
+  "name": "level-churn-analyzer",
+  "displayName": "Level Churn Analyzer",
+  "version": "2.4.1",
+  "language": "en",
+  "installedAt": 1776063717579,
+  "source": "import",
+  "refinedAt": 1777953600000,
+  "refinementNotes": "v2.4.0: Separated recommendations library into standalone template, unified template variable naming (level_id), added Quick Start section with examples. v2.3.0: Added confidence-weighted root cause inference, separated comparison mode template, added statistical significance framework. v2.2.0: Added genre-specific severity thresholds, simplified event confirmation, unified sample size templates, added compound error handling, added impact estimate disclaimers"
+}

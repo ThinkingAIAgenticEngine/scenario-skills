@@ -1,0 +1,12 @@
+zh:
+  name: "付费归因分析"
+  description: "诊断付费率异常，归因付费变化根因，提供多维度拆解与优化建议"
+en:
+  name: "Payment Attribution Analysis"
+  description: "Diagnose payment rate anomalies and attribute payment changes to root causes with multi-dimension breakdown"
+ja:
+  name: "決済帰属分析"
+  description: "決済率の異常を診断し、決済変動の根本原因を特定し、多次元分析と改善提案を提供します"
+ko:
+  name: "결제 기여 분석"
+  description: "결제율 이상을 진단하고 결제 변화의 근본 원인을 파악하여 다차원 분석과 최적화 제안을 제공합니다"

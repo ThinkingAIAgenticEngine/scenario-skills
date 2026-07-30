@@ -1,0 +1,12 @@
+zh:
+  name: "APP 性能分析"
+  description: "分析 APP 崩溃、卡顿和加载性能"
+en:
+  name: "APP Performance Analysis"
+  description: "Analyze app crashes, lag, and loading performance"
+ja:
+  name: "APPパフォーマンス分析"
+  description: "アプリのクラッシュ、カクつき、読み込み性能を分析します"
+ko:
+  name: "앱 성능 분석"
+  description: "앱 크래시, 지연 및 로딩 성능을 분석합니다"

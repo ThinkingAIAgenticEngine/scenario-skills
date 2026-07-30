@@ -1,0 +1,12 @@
+zh:
+  name: "看板无数据排查"
+  description: "排查看板无数据、全零或异常下跌"
+en:
+  name: "Dashboard No-Data Troubleshoot"
+  description: "Diagnose dashboards with no data, zeros, or abnormal drops"
+ja:
+  name: "ダッシュボード無データトラブルシュート"
+  description: "データなし・ゼロ・異常低下のダッシュボードを診断"
+ko:
+  name: "대시보드 무데이터 해결"
+  description: "데이터 없음, 전체 0, 비정상 하락 대시보드 진단"

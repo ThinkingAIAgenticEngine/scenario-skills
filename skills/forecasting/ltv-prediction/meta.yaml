@@ -1,0 +1,25 @@
+id: ltv-prediction
+name: ltv-prediction
+kind: scenario
+display_name: LTV & LT Prediction
+description: Predict LTV and LT with multi-function fitting, payback analysis, mature cohort borrowing, and ML
+category: forecasting
+tags:
+  - ltv
+  - lt
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 203
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T00:00:00.000Z"

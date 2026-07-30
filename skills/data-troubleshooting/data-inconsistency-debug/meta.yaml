@@ -1,0 +1,24 @@
+id: data-inconsistency-debug
+name: data-inconsistency-debug
+kind: scenario
+display_name: Report Data Consistency Check
+description: Locate root causes of data discrepancies between reports and provide fixes
+category: data-troubleshooting
+tags:
+  - data-debug
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 87
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-07-30T07:02:16.000Z"
