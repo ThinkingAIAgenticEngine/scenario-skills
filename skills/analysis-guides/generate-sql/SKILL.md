@@ -1,6 +1,6 @@
 ---
 name: generate-sql
-description: Write Trino SQL statements based on requirements and system data specifications. Triggered only under the following conditions >> 1. When users need SQL code, such as "help me write a SQL", "generate SQL statement", "how to write this SQL", "give me a query statement". 2. When users need to query a list of players meeting certain conditions or query a player's behavior list, used to generate SQL and then initiate query requests through "SQL custom query" related MCP. 3. If the data users need can be obtained through MCP (such as dashboards, reports), prioritize using the ae-analysis skill to complete the full query execution process, do not use this skill
+description: Write Trino SQL statements based on requirements and system data specifications. Triggered only under the following conditions >> 1. When users need SQL code, such as "help me write a SQL", "generate SQL statement", "how to write this SQL", "give me a query statement". 2. When users need to query a list of players meeting certain conditions or query a player's behavior list, used to generate SQL and then initiate query requests through `ae-cli analysis adhoc run` with `--model-type sql`. 3. If the data users need can be obtained through ae-analysis (such as dashboards, reports), prioritize using the ae-analysis skill to complete the full query execution process, do not use this skill
 ---
 
 # Key Input Parameters
@@ -13,7 +13,7 @@ description: Write Trino SQL statements based on requirements and system data sp
   - If querying data for the date range from 2026-01-01 to 2026-01-07, the generated filter condition fragment example is: "$part_date" between '2026-01-01' and '2026-01-07'
   - Only required for <Event Table>
 - **$part_event**:
-  - The event range to query. Confirm valid event names by combining context or using "query event list within project" related MCP. Do not guess or randomly generate
+  - The event range to query. Confirm valid event names by combining context or using `ae-cli analysis-meta event list`. Do not guess or randomly generate
   - If querying a single event 'register', the filter condition fragment example is: "$part_event" in ('register')
   - If querying multiple events like 'login' and 'logout', the filter condition fragment example is: "$part_event" in ('login', 'logout')
   - Only required for <Event Table>
@@ -30,7 +30,7 @@ description: Write Trino SQL statements based on requirements and system data sp
     - #event_time: Records the time when the player triggered the event, needed when querying player lists or player behavior lists
     - $part_event: Event name partition, must be used in SQL to ensure query efficiency, can pass single or multiple events as needed
     - $part_date: Event date partition, must be used in SQL to ensure query efficiency, can pass date range as needed. If querying only 1 day of data, the start and end points of the date range are the same
-  - Each event has corresponding event properties. Confirm valid event property names and types by combining context or using "query property list of a certain event within project" related MCP. Do not guess or randomly generate
+  - Each event has corresponding event properties. Confirm valid event property names and types by combining context or using `ae-cli analysis-meta property list`. Do not guess or randomly generate
     - Related event properties are usually used for displaying fields in results or filtering data
     - Example scenario:
       - When checking the registration channel of a player, usually add after the select statement for display
@@ -44,7 +44,7 @@ description: Write Trino SQL statements based on requirements and system data sp
     - #user_id: Unique player identifier in the system, can be used as a join key with <Event Table>. Usually not needed in SQL when not performing join queries
     - #distinct_id: Usually records player's device ID, needed when querying player lists
     - #account_id: Usually records player's account ID, needed when querying player lists
-  - The project may have other business-related user properties. Confirm valid event property names and types by combining context or using "query user property list within project" related MCP. Do not guess or randomly generate
+  - The project may have other business-related user properties. Confirm valid event property names and types by combining context or using `ae-cli analysis-meta property list --scope user`. Do not guess or randomly generate
   - If the query scenario requires user property related content, please query and display them together in the SQL
 
 # General SQL Specifications

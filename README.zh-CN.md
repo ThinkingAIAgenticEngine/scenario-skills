@@ -14,7 +14,7 @@ npx skills@latest add ThinkingAIAgenticEngine/scenario-skills
 安装指定集群版本线的最新内容：
 
 ```bash
-npx skills@latest add ThinkingAIAgenticEngine/scenario-skills#release/6.1
+npx skills@latest add "ThinkingAIAgenticEngine/scenario-skills#release/6.1"
 ```
 
 只查看可安装的 Skill：

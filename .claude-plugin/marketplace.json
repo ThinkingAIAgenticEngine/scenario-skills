@@ -51,9 +51,8 @@
       "source": "./",
       "skills": [
         "./skills/user-insight/community-analyzing-theme-comment",
-        "./skills/user-insight/community-daily-report",
         "./skills/user-insight/community-hottopic-insight",
-        "./skills/user-insight/community-weekly-report",
+        "./skills/user-insight/community-ops-report",
         "./skills/user-insight/single-user-inspector",
         "./skills/user-insight/user-tag-system-designer"
       ]
@@ -112,7 +111,6 @@
       "source": "./",
       "skills": [
         "./skills/forecasting/ltv-prediction",
-        "./skills/forecasting/ltv-prediction-cli",
         "./skills/forecasting/revenue-forecast-model-cli"
       ]
     }

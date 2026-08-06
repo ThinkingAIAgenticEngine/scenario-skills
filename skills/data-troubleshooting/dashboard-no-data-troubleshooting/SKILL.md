@@ -30,7 +30,7 @@ Goal: **Locate the root cause with the fewest steps. No unnecessary exploration.
 1. **Check config first, then data.**
 2. **Verify one key object at a time.** Check the dashboard first, then spot-check the first report — don't iterate through all reports upfront.
 3. **Stop when root cause is found.** Don't continue unrelated checks.
-4. **Only use real, available te-mcp-analysis tools.** Don't fabricate commands.
+4. **Only use real, available ae-cli commands.** Don't fabricate commands.
 5. **Conclusions must be clearly categorized** into one of:
    - Time range error
    - Filter or metric configuration error

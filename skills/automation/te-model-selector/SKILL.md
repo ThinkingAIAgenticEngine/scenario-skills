@@ -1,10 +1,6 @@
 ---
 name: te-model-selector
-description: |
-  Intelligently identify user data analysis intent, recommend the most suitable AE (AgenticEngine) analysis model, and generate precise configurations based on real tracking metadata.
-
-  TRIGGER when: User describes data analysis scenario and explicitly expresses doubt or request for help with "model selection" (e.g., "which model to use", "which one should I choose", "can retention analysis do this")
-  DO NOT TRIGGER when: Simple data query requests, explicit commands to execute specific business investigations, direct requests to write code, configuration requests with known model names
+description: Recommend the most suitable AE (AgenticEngine) analysis model from 12 models and generate its configuration. Use when users are unsure which analysis model to choose, ask "which model to use / which one should I choose", ask whether a model fits a scenario (e.g. "can retention analysis do this"), ask which model to use for LTV / ROI / revenue, or want configuration guidance for a chosen model — with precise field mapping when a project is available, or a generic-example configuration for consultation when no project is provided. Do not use for simple data queries, executing a specific investigation, writing SQL/code, or configuring a model whose name is already known (route those to ae-analysis).
 ---
 
 # AE Model Selection & Configuration Assistant
@@ -46,20 +42,29 @@ Based on user's data analysis requirements, intelligently recommend the most sui
 
 # 🔄 Core Workflow
 
-> ⚠️ **Mandatory Requirement**: Phase 1 resolution must complete before Phase 2. Do not skip compiler resolution or clarification.
+> ⚠️ **Requirement**: Phase 1 (metadata resolution) is required only for a *precise* configuration bound to real fields. **Model selection itself does not require a projectId** — the decision tree can always run. When no project is available or the user only wants model selection, proceed in consultation mode (generic-example configuration).
 
 ### 🚫 Prohibited Actions
-- ❌ Do not recommend models or output configurations without querying metadata
+- ❌ Do not fabricate real event/property names as if verified. Without project metadata, use `[to-replace: xxx]` placeholders and label them as examples, never as the project's actual fields
 - ❌ Do not guess or fabricate event names/property names (e.g., writing "payment" as `pay_event` without verification)
-- ❌ Do not skip by claiming "user didn't provide projectId" (must actively ask)
+- ❌ Do not refuse or block model-selection consultation just because no projectId was provided — offer project candidates via `ae-cli team +list-projects`, and if the user declines, proceed in consultation mode
 
 ---
 
-## Phase 1: Metadata Query & Field Mapping【Mandatory, No Exceptions】
+## Phase 1: Metadata Query & Field Mapping【Required only for precise configuration】
 
 ### 1.1 Confirm projectId
-- If user provided projectId, use directly
-- If user didn't provide, **must ask**: `Please provide AE project ID (projectId)`
+- **If the user provided a projectId** → use it directly, go to 1.2 for field resolution.
+- **If the user did NOT provide a projectId** → do NOT hard-ask. Instead:
+  1. Run `ae-cli team +list-projects` to fetch the projects the current user can access.
+  2. Present the choices via **AskUserQuestion**. The picker shows at most 4 options, so take the **first 3 projects** as candidates plus a fixed trailing option **"No project needed — consultation only"** (3 projects + 1 fixed option = 4). If fewer than 3 projects are available, list the actual number plus the trailing "No project needed" option. If more than 3 projects exist, tell the user only the first 3 are shown and they may reply with a specific projectId instead. If the list is empty (no accessible project), skip the picker and go straight to consultation mode.
+  3. Based on the user's choice:
+     - **Picks a specific project** → take its projectId, go to 1.2 for field resolution (precise mode).
+     - **Picks "No project needed — consultation only"** → skip 1.2, go straight to Phase 2. In the configuration template, fill every event/property field with a `[to-replace: xxx]` placeholder, and note in the output that this is **consultation mode — project fields not verified**; providing a projectId later yields a precise configuration (see 2.3 Case D).
+
+- **Branch contract**:
+  - Picks a project → must complete 1.2 field resolution before Phase 2.
+  - Picks "consultation only" → skip 1.2, go to Phase 2 and handle via 2.3 Case D.
 
 ### 1.2 Resolve Tracking Fields
 
@@ -194,9 +199,26 @@ ORDER BY 1
   4. Use this cluster for comparison in event analysis
 ```
 
+#### Case D: Consultation Mode (user chose "No project needed" in 1.1)
+**Detection**: In 1.1 the user picked "No project needed — consultation only" (or no accessible project exists).
+**Handling**:
+1. Do NOT trigger 1.2 field resolution.
+2. Still run the full decision tree and give the model recommendation + reasoning normally.
+3. In the configuration template, fill every event / property field with a `[to-replace: xxx]` placeholder (e.g., `[to-replace: register event]`, `[to-replace: channel property]`).
+4. In Notes, state that this is consultation mode — project fields are NOT verified — and that providing a projectId (or picking a project) enables the precise Case A / B flow with real field mapping.
+
+**Example**:
+```
+ℹ️ Consultation mode — no project queried, fields not verified
+- Select Event: [to-replace: registration event, e.g. register]
+- Calculation Method: Triggering User Count
+- Group By (optional): [to-replace: channel property, e.g. channel]
+⚠️ To map real fields, provide a projectId and I'll switch to precise configuration
+```
+
 ---
 
-## AE Analysis Model System Introduction (11 Models Total)
+## AE Analysis Model System Introduction (12 Models Total)
 
 ### 1. Event Analysis (event) — Default/Most Common Model
 
@@ -227,11 +249,11 @@ ORDER BY 1
 
 **Retention Types**: N-day retention, N-week/N-month retention, unbounded retention, custom retention
 
-**Extended Functions**: Simultaneously display LTV (Lifetime Value) and ROI (Return on Investment)
+**Extended Functions**: Can display LTV / ROI as an add-on on the retention curve. ⚠️ When LTV / ROI / payment revenue is the primary analysis goal, use the **revenue** model instead (see Model 12).
 
-**Strong Signal Keywords**: retention, retention rate, LTV, lifetime value, ROI (N-day ROI/calculate ROI), churn, churn rate, churned users, churned count, next-day retention, N-day retention, revisit, decay, day-1 retention, day-3 retention, day-7 retention
+**Strong Signal Keywords**: retention, retention rate, churn, churn rate, churned users, churned count, next-day retention, N-day retention, revisit, decay, day-1 retention, day-3 retention, day-7 retention (note: LTV / ROI now route to the revenue model by default — see Model 12)
 
-**⚠️ Core Rule: LTV is always retention, churn is always retention, ROI defaults to retention**
+**⚠️ Core Rule: churn is always retention. LTV / ROI / payment rate now default to the revenue model (the dedicated cohort revenue & cost-recovery model); use retention for LTV/ROI only when the user explicitly wants them as an add-on on a retention curve.**
 
 **Typical Questions**: Query user retention this month / LTV for last 7 days / 7-day ROI for last 10 days / 7-day churned users / 30-day retention for paying users
 
@@ -349,7 +371,33 @@ ORDER BY 1
 
 ---
 
-### 11. SQL Query (sql)
+### 11. Revenue Analysis (revenue)
+
+**Core Positioning**: Track how a cohort's paid revenue, payment conversion, and cost recovery evolve over time after an initial event. Divide cohorts by an initial event, then combine payment event, revenue caliber, and cost data to observe each cohort's revenue on the initial day and subsequent observation days. This is the dedicated model for cohort LTV / ROI / payback analysis.
+
+**Core Concepts**:
+- **Initial Event**: Defines the cohort (e.g., register). Each date row = the batch of subjects who completed the initial event that day.
+- **Payment Event**: Determines whether a subject paid (e.g., pay_success).
+- **Revenue Caliber**: How revenue is computed — payment event + numeric property + calculation method (Sum / Per-user / Period-cumulative sum / Period-cumulative per-user); supports formula.
+- **Cost Data** (optional): Cost event + numeric property + calculation method; required for ROI.
+- **Observation Window**: Days to track after the initial event (e.g., 30 → shows Day 0 to Day 30).
+
+**9 Result Metrics** (three groups):
+- **Revenue**: LTV, Payment Amount, Cumulative Payment Amount
+- **Payment Conversion**: Payers, Cumulative Payers, Payment Rate, Cumulative Payment Rate
+- **Cost Recovery**: LTV Multiple, ROI
+
+**Strong Signal Keywords**: LTV (cohort context), payment amount, payment rate, cumulative payment, ROI, payback / payback period, LTV multiple, Day-N LTV, D7/D30 LTV, revenue by cohort, channel ROI, cost recovery
+
+**⚠️ Distinction from Retention Analysis**: Retention answers "did users come back" (retention rate, churn); Revenue answers "how much did users pay and did we recoup cost" (LTV, payment rate, ROI). When LTV/ROI is the primary ask, use **revenue**; when it is an add-on displayed on top of a retention curve, use retention.
+
+**⚠️ Distinction from Event Analysis**: Event analysis aggregates a metric over calendar time (e.g., daily total revenue trend); Revenue analysis tracks a fixed cohort across observation days (Day 0, Day 7, Day N per cohort).
+
+**Typical Questions**: D7/D30 LTV of daily new users / Payment rate and amount difference across channels / When does each channel's ROI hit target / Which cohort dates have abnormal revenue
+
+---
+
+### 12. SQL Query (sql)
 
 **Core Positioning**: Directly query underlying data through SQL. "Universal fallback" of analysis system, meeting custom requirements not covered by above models.
 
@@ -357,6 +405,7 @@ ORDER BY 1
 
 **Typical Questions**: Help me query users with balance > 1000 / Cross-model complex calculation / Metrics requiring special statistical definition
 
+---
 ---
 
 
@@ -385,12 +434,16 @@ Step 3: Contains funnel related keywords or conversion description?
   → YES → If also contains "retention" → RETENTION
           → Otherwise → FUNNEL
 
-Step 4: Contains retention related keywords?
-  Judgment conditions: Appears "retention", "day-1 retention", "next-day retention", "N-day retention", "LTV", "churn", "decay"
-  → YES → RETENTION
+Step 4: Contains revenue / payment-value / payback keywords?
+  Judgment conditions: Appears "LTV", "ROI", "payback", "payment rate", "payment amount",
+    "cumulative payment", "LTV multiple", "Day-N LTV", "cohort revenue", "channel ROI", "cost recovery"
+  → YES → Is it explicitly an add-on on a retention curve (e.g., "retention curve with LTV")?
+          → YES → RETENTION
+          → NO  → REVENUE
 
-Step 5: Contains "ROI"?
-  → YES → RETENTION (ROI is derived metric of retention model in AE)
+Step 5: Contains retention related keywords?
+  Judgment conditions: Appears "retention", "day-1 retention", "next-day retention", "N-day retention", "churn", "decay", "revisit"
+  → YES → RETENTION
 
 Step 6: Contains heatmap related keywords?
   Judgment conditions: Appears "heatmap", "hot area", "coordinate distribution", "position distribution", "map heat"
@@ -438,9 +491,9 @@ Core disambiguation rules summarized from 500+ real cases:
 | 8 | "Highest paying game" | rank | Game is analysis dimension |
 | 9 | "First A then B" + no model keyword | funnel | Sequential actions imply conversion |
 | 10 | "First A then B" + "retention" | retention | Explicit model keyword priority |
-| 11 | LTV (any form) | retention | 100% rule, no exception |
+| 11 | LTV (cohort/revenue context) | revenue | Dedicated cohort revenue model (Model 12) |
 | 12 | Churn (any form) | retention | Churn is opposite of retention |
-| 13 | ROI (any form) | retention | AE calculates ROI through retention model |
+| 13 | ROI (any form) | revenue | ROI is a native cost-recovery metric of the revenue model |
 | 14 | User list/filter/cluster requirement | other | Not analysis model scope |
 | 15 | Prediction type requirement | other | AE doesn't support prediction analysis |
 | 16 | "Session distribution" / "User count distribution" | distribution | "distribution" keyword determines |
@@ -449,6 +502,10 @@ Core disambiguation rules summarized from 500+ real cases:
 | 19 | "Day-1 retention" / "Next-day retention" / "N-day retention" | retention | Retention keyword variant |
 | 20 | "Position distribution" / "Coordinate distribution" / "Hot area" | heatmap | Space position related, priority over distribution |
 | 21 | "Which model" + any analysis scenario | trigger skill | Force trigger word, no other condition needed |
+| 22 | "Payment rate" / "payment amount" in cohort/LTV context | revenue | Native payment-conversion metric of revenue model |
+| 23 | "LTV multiple" / "payback period" | revenue | Native cost-recovery metric |
+| 24 | LTV/ROI explicitly as add-on on a retention curve | retention | User pins retention as the base model |
+| 25 | "Payback" / "when do we recoup cost" | revenue | Cost recovery is a revenue-model goal |
 
 ---
 
@@ -941,6 +998,66 @@ Set global analysis window: [e.g.: Last 7 days / This Month]
   - Prompt user can use bottom-right corner control to adjust 「Heat Radius」 and 「Transparency」 to prevent heat points from blurring together.
   - If enabled multi-group comparison, strongly suggest remind user to check 「Sync Zoom」, so as to align view specific local map difference (e.g., certain specific bush/BOSS room).
 ```
+---
+
+### 【Revenue Analysis (revenue) Configuration Method】
+
+#### Pre-data Mapping Requirements (Agent Must Read):
+- **Initial Event & Payment Event**: Must map to real Events.
+- **Revenue Caliber**: Must map the payment event's numeric property (e.g., pay_amount) + calculation method.
+- **Cost Data** (for ROI): Must map a cost event + numeric property; if absent, ROI cannot be computed — inform the user.
+- **Grouping constraint**: Same as retention — when grouping by event property, can only use the **Initial Event** property.
+
+```
+## Analysis Subject
+Select calculation perspective: [matched real analysis subject, e.g.: User (user_id) / Role (role_id) / Visitor (distinct_id), if not found prompt user to create]
+
+## Cohort Initial Event
+Initial Event: [matched real event, e.g.: Register (register)] — each date row = cohort that completed this event that day
+
+## Payment Behavior
+Payment Event: [matched real event, e.g.: pay_success], used to determine whether the analysis subject made a payment
+Revenue Metric: Composed of the payment event, a numeric property, and a calculation method. [Matched payment event + numeric event property + calculation method, e.g.: "Sum" of "Pay Amount (pay_amount)" of "Payment (payment)"]
+  Calculation Method: [Sum / Per-user / Period-cumulative sum / Period-cumulative per-user] (or custom formula)
+
+## Cost Data (Optional, required for ROI)
+When enabled, configure: Cost Event [matched event] + Numeric Property [matched numeric property] + Calculation Method [Sum / Average Per User, etc.]
+(Cost data is used only for ROI and LTV multiplier metrics; if not enabled, these two metrics are unavailable)
+
+## Observation Duration
+Set the number of days to track after the initial event occurs: [e.g.: 30] (The result table will display from "Day 0" through "Day 30")
+⚠️ Newer cohorts have not yet completed the full observation cycle, so later dates may temporarily have no data (e.g., a cohort formed today has no Day 7 / Day 30 results)
+
+
+## Global Filter (Optional; defines the overall analysis sample scope)
+Select Filter: [Matched Event Property / Common Event Property / User Property / User Tag / User Cluster]
+Select Logic: [Equals / Not Equals / Greater Than or Equal / Less Than or Equal / Range / Has Value / No Value, etc.]
+Set Value: [Specific numeric value or string]
+Example: Source Channel (channel) Equals Official Website
+
+## Group By (Optional; ⚠️ initial-event property only)
+Group By Dimension: [matched Initial Event property / User Property / User Tag / User Cluster]
+Example: Group by channel (initial event property)
+
+## Time Range
+Cohort initial-event date range: [e.g.: Last 30 Days / This Month]
+(Available values: Yesterday, Today, Last Week, This Week, Last Month, This Month, Past 7 Days, Recent 7 Days, Past 30 Days, Recent 30 Days, Since a Specific Date, Custom, etc.)
+
+## Result Metrics (Choose from the 9 below as needed; multi-select allowed)
+- Revenue Metrics: LTV / Payment Amount / Cumulative Payment Amount
+- Payment Conversion Metrics: Paying Users / Cumulative Paying Users / Payment Rate / Cumulative Payment Rate
+- Cost Recovery Metrics: LTV Multiplier / ROI (depend on cost data)
+```
+
+> Chart interpretation tips:
+  - To analyze revenue growth / cost recovery trends → read horizontally across the same cohort on different observation days
+  - To compare user quality across different acquisition dates → compare vertically across different date rows
+  - After configuring a Group By, click the plus sign at the start of a date row to expand and view the performance of different group values under that date
+
+> **ae-cli mapping**: `analysis adhoc run --model-type revenue`; the AI-facing definition uses
+> `initial_event` / `pay_event` / `revenue_metric` / `observation_days` / `selected_metrics`.
+> Route actual execution to `ae-analysis`; this Skill only provides the configuration guide.
+
 ---
 
 ### 【SQL Query (sql) Method】

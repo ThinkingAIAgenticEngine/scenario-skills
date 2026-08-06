@@ -52,7 +52,7 @@ repeat_trigger (Daily 20:00 · Users inactive for last 14 days)
 | --------------------- | -------------------------------------------------------------------- | ----------------------------------- |
 | `flow_type`           | "Churn recall"                                                       | `CHURN_RECALL`                      |
 | `entry.type`          | "Every day at 8 PM"                                                  | `repeat_trigger`                    |
-| `entry.schedule`      | "Every day at 8 PM"                                                  | `"每天20:00"`                       |
+| `entry.schedule`      | "Every day at 8 PM"                                                  | `"Daily 20:00"`                     |
 | `entry.trigger_event` | CHURN_RECALL auto-inferred                                           | `login`                             |
 | n1                    | "First check if user has paid" → Check user property, no wait window | `feature_judge`                     |
 | n2                    | "Paid users go through SMS channel" → Webhook/SMS                    | `webhook_push`, channel_name="SMS"  |

@@ -3,8 +3,7 @@ name: filter-result-deviation-troubleshooting
 version: 3.1.0
 description: Investigates filter result deviations layer by layer based on report definition, time, dedup, properties, and detail evidence to locate root causes. Use when TE/TA analysis shows filter results inconsistent with expectations, cross-report results don't match, filter results are abnormally high or low, results are empty, or show abnormal fluctuations.
 metadata:
-  requires:
-    mcp_servers: ["te-mcp-analysis"]
+  requires: []
 ---
 
 # Filter Result Deviation Troubleshooting

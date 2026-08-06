@@ -16,14 +16,13 @@ metadata:
     - comments
     - deep-analysis
   dependencies:
-    - community-mcp-content
+    - ae-community
   compatible-tools:
     - claude-code
   commercial:
     target-persona: Operations or analyst
     value-proposition: High
     pricing-tier: M1
-    requires-mcp: apollo-mcp
     demo-scenario: Direct use
 ---
 
@@ -35,7 +34,7 @@ This skill performs deep analysis of comment threads for a specified post or vid
 
 ## Prerequisites
 
-- **MCP:** community-mcp-content (community content MCP)
+- **Tool:** ae-community (ae-cli community commands)
 - **gameId:** Must be explicit
 - **Channel:** Know which channel hosts the target post/video
 
@@ -64,37 +63,32 @@ Confirm the user provided:
 
 #### 1.2 Search when no target is given
 
-Use community-mcp-content `search_posts`:
+Use `ae-cli community +search_posts`:
 
-**Payload:**
-
-```json
-{
-  "gameId": "<game ID>",
-  "startTime": "<start>",
-  "endTime": "<end>",
-  "searchWord": "<keyword>",
-  "channelIdList": [<channel IDs>],
-  "resourceType": [0, 1],
-  "pagerHeader": {
-    "pageNum": 1,
-    "pageSize": 20,
-    "orderBy": 4
-  }
-}
+```bash
+ae-cli community +search_posts \
+  --space-id <space_id> --game-id <game_id> \
+  --start-time <yyyy-MM-dd> --end-time <yyyy-MM-dd> \
+  --search-word "<keyword>" \
+  --channel-id-list 1,2 \
+  --resource-type 0,1 \
+  --order-by 4 --page-num 1 --page-size 100
 ```
 
-**Parameters:**
+**Key parameters:**
 
-| Field         | Required | Notes                     |
-| ------------- | -------- | ------------------------- |
-| gameId        | Yes      | Game ID                   |
-| startTime     | Yes      | Lower bound, `yyyy-MM-dd` |
-| endTime       | Yes      | Upper bound, `yyyy-MM-dd` |
-| searchWord    | No       | Keyword                   |
-| channelIdList | No       | Channel filter            |
-| resourceType  | No       | `0` post, `1` video       |
-| orderBy       | No       | `4` = hotness desc        |
+| Flag           | Required | Notes                     |
+| -------------- | -------- | ------------------------- |
+| `--space-id`   | Yes      | Space ID                  |
+| `--game-id`    | Yes      | Game ID                   |
+| `--start-time` | Yes      | Lower bound, `yyyy-MM-dd` |
+| `--end-time`   | Yes      | Upper bound, `yyyy-MM-dd` |
+| `--search-word`| No       | Keyword                   |
+| `--channel-id-list` | No | Comma-separated channel IDs, for example `1,2` |
+| `--resource-type`   | No | Comma-separated types: `0` post, `1` video; for example `0,1` |
+| `--order-by`        | No | Use `4` to sort by heat descending |
+| `--page-num`        | No | Page number, starting at `1` |
+| `--page-size`       | No | Page size, maximum `10000` |
 
 **Channel reference:**
 
@@ -123,35 +117,33 @@ Use community-mcp-content `search_posts`:
 
 #### 2.1 Post/video detail
 
-Use `get_post_detail`:
+Use `ae-cli community +get_post_detail`:
 
-```json
-{
-  "gameId": "<game ID>",
-  "channelId": "<channel ID>",
-  "uuid": "<content UUID>",
-  "resourceType": <0 post, 1 video>,
-  "replyPagerHeader": {
-    "pageNum": 1,
-    "pageSize": 100,
-    "orderBy": 0
-  }
-}
+```bash
+ae-cli community +get_post_detail \
+  --space-id <space_id> --game-id <game_id> \
+  --channel-id <channel_id> --uuid <content_uuid> \
+  --resource-type <0_or_1> \
+  --reply-order-by 0 --reply-page-num 1 --reply-page-size 100
 ```
 
-| Field            | Required | Notes               |
+| Flag             | Required | Notes               |
 | ---------------- | -------- | ------------------- |
-| gameId           | Yes      | Game ID             |
-| channelId        | Yes      | Channel ID          |
-| uuid             | Yes      | Content UUID        |
-| resourceType     | Yes      | `0` post, `1` video |
-| replyPagerHeader | No       | Comment paging      |
+| `--space-id`     | Yes      | Space ID            |
+| `--game-id`      | Yes      | Game ID             |
+| `--channel-id`   | Yes      | Channel ID          |
+| `--uuid`         | Yes      | Content UUID        |
+| `--resource-type`| Yes      | `0` post, `1` video |
+| `--reply-order-by` | No     | `0` newest first, `1` oldest first |
+| `--reply-page-num` | No     | Comment page number, starting at `1` |
+| `--reply-page-size`| No     | Comment page size, maximum `10000` |
 
 #### 2.2 Paginate to completeness
 
-1. First page (pageSize ~100)
-2. If `hasMore`, fetch next page
-3. Repeat until complete
+1. Fetch the first page with `--reply-page-num 1 --reply-page-size 100`.
+2. If the response indicates more comments, rerun the same command with `--reply-page-num` incremented by one.
+3. Repeat until the response indicates no next page; do not claim completeness before then.
+4. For video danmu, paginate independently with `--danmu-page-num` and `--danmu-page-size` when danmu is part of the requested analysis.
 
 **Filter out low-value replies:**
 
@@ -309,10 +301,10 @@ Use `get_post_detail`:
 
 ## Tool dependencies
 
-| Tool                 | Role              |
-| -------------------- | ----------------- |
-| search_posts         | Find posts/videos |
-| get_post_detail      | Detail + comments |
-| get_comments_summary | Optional assist   |
+| Tool                              | Role              |
+| --------------------------------- | ----------------- |
+| ae-cli community +search_posts    | Find posts/videos |
+| ae-cli community +get_post_detail | Detail + comments |
+| ae-cli community +get_comments_summary | Optional assist   |
 
 ---

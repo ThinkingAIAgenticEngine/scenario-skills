@@ -5,7 +5,7 @@ Core value: Design truly business-insightful exclusive tags according to industr
 metadata:
   version: 2.1.0
   dependencies:
-    - te-mcp-analysis
+    - ae-analysis
   knowledge_files:
     - references/industry-dict.md
     - references/tag-framework.md
@@ -21,7 +21,7 @@ metadata:
 | Type | Description |
 |-----|------|
 | ✅ Trigger scenarios | Consulting on design solutions, seeking methodology guidance, not knowing how to design tag system |
-| ❌ Forbidden triggers | User explicitly requests [build] [create] [configure] specific tags → Please invoke MCP `create_tag` tool |
+| ❌ Forbidden triggers | User explicitly requests [build] [create] [configure] specific tags → Please invoke `ae-cli analysis user-tag create` |
 
 ---
 
@@ -43,9 +43,9 @@ metadata:
 
 ### ❌ Counter-examples (Should not trigger)
 
-- "Create an active days tag" → Invoke `create_tag`
-- "Help me configure payment tiering tag" → Invoke `create_tag`
-- "Build RFM tag" → Invoke `create_tag`
+- "Create an active days tag" → Invoke `ae-cli analysis user-tag create`
+- "Help me configure payment tiering tag" → Invoke `ae-cli analysis user-tag create`
+- "Build RFM tag" → Invoke `ae-cli analysis user-tag create`
 
 ### Intent Clarification (When input is ambiguous)
 

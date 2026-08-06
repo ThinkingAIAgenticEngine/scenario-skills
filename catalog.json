@@ -234,38 +234,6 @@
     "path": "./skills/user-insight/community-analyzing-theme-comment"
   },
   {
-    "id": "community-daily-report",
-    "name": "community-daily-report",
-    "display_name": "Community Daily Report",
-    "description": "Generate daily community operations flash reports",
-    "category": "user-insight",
-    "category_display_name": "用户洞察",
-    "tags": [],
-    "cluster_versions": [
-      "6.0",
-      "6.1"
-    ],
-    "i18n": {
-      "zh": {
-        "name": "社区每日报告",
-        "description": "生成社区运营每日快报"
-      },
-      "en": {
-        "name": "Community Daily Report",
-        "description": "Generate daily community operations flash reports"
-      },
-      "ja": {
-        "name": "コミュニティ日次レポート",
-        "description": "コミュニティ運営の日次速報を生成します"
-      },
-      "ko": {
-        "name": "커뮤니티 일일 보고서",
-        "description": "커뮤니티 운영 일일 속보를 생성합니다"
-      }
-    },
-    "path": "./skills/user-insight/community-daily-report"
-  },
-  {
     "id": "community-hottopic-insight",
     "name": "community-hottopic-insight",
     "display_name": "Community topic analysis",
@@ -298,36 +266,41 @@
     "path": "./skills/user-insight/community-hottopic-insight"
   },
   {
-    "id": "community-weekly-report",
-    "name": "community-weekly-report",
-    "display_name": "Review of Community Weekly Report",
-    "description": "Generate weekly community operations summary reports",
+    "id": "community-ops-report",
+    "name": "community-ops-report",
+    "display_name": "Community Operations Report",
+    "description": "Generate community operations sentiment reports, daily flash or weekly summary",
     "category": "user-insight",
     "category_display_name": "用户洞察",
-    "tags": [],
+    "tags": [
+      "daily-report",
+      "weekly-report",
+      "community-operations",
+      "sentiment-monitoring"
+    ],
     "cluster_versions": [
       "6.0",
       "6.1"
     ],
     "i18n": {
       "zh": {
-        "name": "社区周报复盘",
-        "description": "生成社区运营周总结报告"
+        "name": "社区运营报告",
+        "description": "生成社区运营舆情报告，支持日报与周报"
       },
       "en": {
-        "name": "Community Weekly Report",
-        "description": "Generate weekly community operations summary reports"
+        "name": "Community Operations Report",
+        "description": "Generate community operations sentiment reports, daily or weekly"
       },
       "ja": {
-        "name": "コミュニティ週次レポート",
-        "description": "コミュニティ運営の週次サマリーレポートを生成します"
+        "name": "コミュニティ運営レポート",
+        "description": "コミュニティ運営の世論レポートを生成、日次と週次に対応"
       },
       "ko": {
-        "name": "커뮤니티 주간 보고서",
-        "description": "커뮤니티 운영 주간 요약 보고서를 생성합니다"
+        "name": "커뮤니티 운영 보고서",
+        "description": "커뮤니티 운영 여론 보고서 생성, 일간 및 주간 지원"
       }
     },
-    "path": "./skills/user-insight/community-weekly-report"
+    "path": "./skills/user-insight/community-ops-report"
   },
   {
     "id": "dashboard-no-data-troubleshooting",
@@ -875,45 +848,12 @@
     "id": "ltv-prediction",
     "name": "ltv-prediction",
     "display_name": "LTV & LT Prediction",
-    "description": "Predict LTV and LT with multi-function fitting, payback analysis, mature cohort borrowing, and ML",
+    "description": "Predict LTV and LT from direct data or ae-cli, with segmentation",
     "category": "forecasting",
     "category_display_name": "预测与规划",
     "tags": [
       "ltv",
-      "lt"
-    ],
-    "cluster_versions": [
-      "6.0",
-      "6.1"
-    ],
-    "i18n": {
-      "zh": {
-        "name": "LTV & LT 预测",
-        "description": "多函数拟合预测 LTV 与 LT，支持回本分析、成熟队列借衰减率与 ML 预测"
-      },
-      "en": {
-        "name": "LTV & LT Prediction",
-        "description": "Predict LTV and LT with multi-function fitting, payback analysis, mature cohort borrowing, and ML"
-      },
-      "ja": {
-        "name": "LTV & LT 予測",
-        "description": "多関数フィッティングでLTVとLTを予測、回収分析・成熟コホート借衰減率・ML予測に対応"
-      },
-      "ko": {
-        "name": "LTV & LT 예측",
-        "description": "다중 함수 피팅으로 LTV와 LT 예측, 회수 분석·성숙 코호트 차감율 차용·ML 예측 지원"
-      }
-    },
-    "path": "./skills/forecasting/ltv-prediction"
-  },
-  {
-    "id": "ltv-prediction-cli",
-    "name": "ltv-prediction-cli",
-    "display_name": "ltv-prediction-cli",
-    "description": "Predict LTV via ae-cli data and Python fitting, with RFM/pay-tier segmentation",
-    "category": "forecasting",
-    "category_display_name": "预测与规划",
-    "tags": [
+      "lt",
       "prediction",
       "monetization"
     ],
@@ -923,23 +863,23 @@
     ],
     "i18n": {
       "zh": {
-        "name": "LTV 预测（CLI）",
-        "description": "通过 ae-cli 预测 LTV，支持分层分析"
+        "name": "LTV & LT 预测",
+        "description": "预测 LTV 与 LT，支持数据直传与 ae-cli 取数分层"
       },
       "en": {
-        "name": "LTV Prediction (CLI)",
-        "description": "Predict LTV via ae-cli data and Python fitting, with RFM/pay-tier segmentation"
+        "name": "LTV & LT Prediction",
+        "description": "Predict LTV and LT from direct data or ae-cli, with segmentation"
       },
       "ja": {
-        "name": "LTV予測（CLI）",
-        "description": "ae-cliデータとPythonフィッティングでLTVを予測、RFM/課金階層セグメンテーション対応"
+        "name": "LTV & LT 予測",
+        "description": "データ直接入力またはae-cliでLTVとLTを予測、分層対応"
       },
       "ko": {
-        "name": "LTV 예측 (CLI)",
-        "description": "ae-cli 데이터와 Python 피팅으로 LTV 예측, RFM/결제 계층 세분화 지원"
+        "name": "LTV & LT 예측",
+        "description": "직접 입력 또는 ae-cli 데이터로 LTV와 LT 예측, 세분화 지원"
       }
     },
-    "path": "./skills/forecasting/ltv-prediction-cli"
+    "path": "./skills/forecasting/ltv-prediction"
   },
   {
     "id": "mcp-trino",

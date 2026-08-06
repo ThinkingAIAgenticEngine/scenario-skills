@@ -17,8 +17,8 @@ languages:
 source:
   type: skill-hub
   skill_hub_id: 74
-  version_seq: 12
+  version_seq: 13
 owners: []
 status: approved
 translation_status: approved
-updated_at: "2026-07-30T07:02:16.000Z"
+updated_at: "2026-07-31T00:00:00.000Z"

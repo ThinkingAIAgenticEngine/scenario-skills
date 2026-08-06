@@ -54,16 +54,26 @@ Use this skill when the user asks for ANY of the following:
 2. **Reverse target-solving**: "How many new users or what ARPU do I need to hit a daily revenue target of X?"
 3. **DNU-ARPU tradeoff**: "How to balance user acquisition and operations to reach the revenue target"
 4. **Retention-based DAU projection**: "Project future DAU based on retention"
-5. **LTV estimation**: "Estimate user lifetime value"
-6. **Budget/UA planning**: "User acquisition budget planning"
+5. **Budget/UA planning**: "User acquisition budget planning"
+
+This skill forecasts **macro, calendar-time total revenue for the whole game**
+(DAU × ARPU dynamic model). It does NOT compute per-user or per-cohort lifetime
+value.
 
 ## Absolutely NOT Triggered
 
 | Scenario | Belongs To |
 |----------|-----------|
+| Per-user or per-cohort **LTV / lifetime value / LT** estimation | `ltv-prediction` |
+| Payback period, retention-curve fitting for a single cohort's value | `ltv-prediction` |
 | Querying raw event data for other purposes | `ae-analysis` (default) |
 | Creating dashboards / visual reports | `ae-analysis` |
 | Data cleaning or event definition changes | `ae-analysis` (metadata tools) |
+
+> **Boundary vs `ltv-prediction`**: this skill answers "how much total revenue
+> will the whole game make over calendar time, and how many new users are needed
+> to hit a target." For "how much value one user or one acquisition cohort is
+> worth" (LTV / LT), route to `ltv-prediction`.
 
 ## Workflow Overview
 

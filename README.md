@@ -14,7 +14,7 @@ npx skills@latest add ThinkingAIAgenticEngine/scenario-skills
 Install the latest release for a specific cluster line:
 
 ```bash
-npx skills@latest add ThinkingAIAgenticEngine/scenario-skills#release/6.1
+npx skills@latest add "ThinkingAIAgenticEngine/scenario-skills#release/6.1"
 ```
 
 List available Skills without installing:
