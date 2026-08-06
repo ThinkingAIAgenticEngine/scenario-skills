@@ -39,7 +39,7 @@ You are a game economy system balance analysis expert, focused on helping game o
 
 Based on the type of data needed, first select the correct ae-cli subcommand to fetch data; proactively query. Only guide the user to provide data when the correct data cannot be retrieved.
 
-> ae-cli command syntax follows the pattern "domain + subcommand + `run`/`export`"; the `+` prefix indicates a direct capability call (no `run` needed). When ae-cli returns "capability not found" / "not implemented", fall back to the thinkingengine-mcp MCP tool and note the fallback reason.
+> ae-cli command syntax follows the pattern "domain + subcommand + `run`/`export`"; the `+` prefix indicates a direct capability call (no `run` needed). When ae-cli returns "capability not found" / "not implemented", report the capability gap or degrade to framework-level analysis suggestions.
 
 **Using ae-cli analysis (dashboard/report aggregate data):**
 - View aggregate metrics for a time range (production-consumption totals, DAU, Payment Rate, etc.) → `ae-cli analysis report-data run -p <pid> --report-ids <ids>`
@@ -50,7 +50,9 @@ Based on the type of data needed, first select the correct ae-cli subcommand to 
 - Custom event analysis (daily-aggregated production total, consumption total, etc.) → `ae-cli analysis adhoc run -p <pid> --model-type event --definition '<json>'`
 - View per-source-point details grouped by resource change reason → `ae-cli analysis event-detail run`
 - Compare production-consumption differences by user tier (High Spender / Mid Spender / Low Spender / Non-Spender) → `ae-cli analysis entity-detail run`
-- Query player resource acquisition details, anomalous behavior details → `ae-cli analysis drilldown-users run` → `ae-cli analysis drilldown-user-events run`
+- Query player resource acquisition details or anomalous behavior details:
+  - For a confirmed resource event and user identifier, call `ae-cli analysis event-detail run` with that event, time range, and user filter.
+  - For cell-based user sequence drilldown, call `ae-cli analysis adhoc run` or `ae-cli analysis report-data run` first, then `ae-cli analysis drilldown-entities run`, then `ae-cli analysis drilldown-user-events run`. Pass only the `query_context_id`, source/coordinate, `drilldown_context_id`, and canonical `user_id` returned by the preceding commands; never substitute an entity-detail row or a guessed identifier.
 - Other custom dimension analysis (Retention, Funnel, Distribution, etc.) → `ae-cli analysis adhoc run --model-type <retention|funnel|distribution|...>`
 - Large dataset export (>1000 rows) → `ae-cli analysis adhoc export` / `ae-cli analysis event-detail export`
 
@@ -107,7 +109,7 @@ This skill uses a multi-turn dialogue approach, progressively guiding the user t
 
 ⚠️ Alerts (if any):
 - Resource-related events < 3 → Insufficient tracking data; production-consumption analysis may be incomplete.
-- ae-cli call failed → Judge by error type: if "capability not found" / "not implemented" → fall back to thinkingengine-mcp MCP tool and note the fallback reason; if auth/network error → degrade to framework-level analysis suggestions.
+- ae-cli call failed → Judge by error type: if "capability not found" / "not implemented" → report the capability gap or degrade to framework-level analysis suggestions; if auth/network error → degrade to framework-level analysis suggestions.
 
 ---
 
@@ -127,7 +129,7 @@ F. 🔄 Comprehensive Full-Link Diagnosis — full analysis of economy system he
 
 > **Exception Handling**:
 > - Invalid projectId → Stop and inform the user.
-> - ae-cli call failed → Judge by error type: if "capability not found" / "not implemented" → fall back to thinkingengine-mcp MCP tool and note the fallback reason; if auth/network error → degrade to framework-level analysis suggestions.
+> - ae-cli call failed → Judge by error type: if "capability not found" / "not implemented" → report the capability gap or degrade to framework-level analysis suggestions; if auth/network error → degrade to framework-level analysis suggestions.
 
 ---
 
@@ -323,7 +325,7 @@ Confirm with the user:
 
 #### Localization Method
 
-1. Filter the user list matching suspicious features via `ae-cli analysis drilldown-users run`.
+1. Filter the user list matching suspicious features via `ae-cli analysis entity-detail run`.
 2. Perform behavior sequence analysis on suspicious users (behavior path over the last 7 days).
 3. Compute the contribution share of suspicious users to the total production-consumption imbalance.
 
@@ -589,7 +591,7 @@ Step F3 = Step D (Intervention Strategy Design)
 **Confirm the following before outputting a plan:**
 
 ### Data Acquisition Layer
-- [ ] ae-cli called to fetch real metadata (fall back to thinkingengine-mcp on ae-cli capability not found, and note the fallback reason)
+- [ ] ae-cli called to fetch real metadata (if ae-cli capability not found, report the capability gap or degrade to framework-level analysis suggestions)
 - [ ] Exceptions handled (no data / call failed)
 - [ ] Category identification performed and confirmed by the user
 - [ ] Resource type confirmed by the user

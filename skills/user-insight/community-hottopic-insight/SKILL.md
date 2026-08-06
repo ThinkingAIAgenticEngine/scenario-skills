@@ -1,6 +1,6 @@
 ---
 name: community-hottopic-insight
-description: Generates a structured topic analysis report including executive summary, public-sentiment overview and timeline, key discussion hotspots, sentiment slices, cross-channel social insights, and actionable operational recommendations by automatically invoking MCP tools to collect corpus data and adapting to industry context. Use when users ask to analyze a topic, generate a topic analysis report, or perform topic analysis for a community project.
+description: Generates a structured topic analysis report including executive summary, public-sentiment overview and timeline, key discussion hotspots, sentiment slices, cross-channel social insights, and actionable operational recommendations by automatically invoking ae-cli community commands to collect corpus data and adapting to industry context. Use when users ask to analyze a topic, generate a topic analysis report, or perform topic analysis for a community project.
 version: 1.0.0
 author: Ethan
 created_at: 2026-03-17
@@ -21,11 +21,11 @@ You are a senior **community operations expert** and **PR / public-sentiment ana
 
 # Context & tools
 
-Use these MCP tools in order before writing:
+Use these ae-cli community commands in order before writing:
 
-1. **`get_hot_topic_detail`** — Base metadata for one hot topic.
-2. **`search_posts`** — Posts for the topic. **Core:** capture publish time, totals, and channel mix to build the timeline.
-3. **`get_post_detail`** — Full text, engagement, and comments for specific items.
+1. **`ae-cli community +get_hot_topics`** then **`+get_topic_detail`** — Base metadata for one hot topic.
+2. **`ae-cli community +search_posts`** — Posts for the topic. **Core:** capture publish time, totals, and channel mix to build the timeline.
+3. **`ae-cli community +get_post_detail`** — Full text, engagement, and comments for specific items.
 
 # Core workflow
 
@@ -33,9 +33,24 @@ When the user gives a topic name or ID:
 
 ### Step 1: Fetch and drill in
 
-1. Call `get_hot_topic` to resolve `topicId`, `startTime`, `endTime`.
-2. Call `search_posts` with `gameId`, time range, and `topicIdList=[topicId]`. Record totals, channel split, and per-post timestamps.
-3. Call `get_post_detail` on up to ~10 high-heat items.
+1. Call `ae-cli community +get_hot_topics` then `+get_topic_detail` to resolve `topicId`, `startTime`, `endTime`.
+2. Call `ae-cli community +search_posts` with the resolved topic title and time range:
+
+   ```bash
+   ae-cli community +search_posts \
+     --space-id <space_id> \
+     --game-id <game_id> \
+     --start-time <yyyy-MM-dd> \
+     --end-time <yyyy-MM-dd> \
+     --search-word "<topic title>" \
+     --search-mode 0 \
+     --order-by 4 \
+     --page-num 1 \
+     --page-size 100
+   ```
+
+   `+search_posts` cannot filter by topic ID. Use the verified topic title as the search word; use `--search-mode 1` only when an exact substring match is required. If title search cannot represent the requested topic, report the CLI capability gap instead of inventing a topic-ID flag. Record totals, channel split, and per-post timestamps.
+3. Call `ae-cli community +get_post_detail` on up to ~10 high-heat items.
 
 ### Step 2: Clean and narrate the arc
 
@@ -122,7 +137,7 @@ Sort by time. Extract **what happened when, what people discussed, and how mood 
 # Constraints
 
 1. **Timeline truth:** Section II must follow real post times. If timestamps are missing, say so—do not invent history.
-2. **Quantification:** Counts must come from MCP outputs or be clearly estimated from them.
+2. **Quantification:** Counts must come from ae-cli community command outputs or be clearly estimated from them.
 3. **Tools first:** Run the toolchain before long prose.
 4. **Domain fit:** Interpret slang and mechanics in the right game/product context.
 5. **Graceful failure:** If tools fail or return nothing, report the error and stop—no filler report.

@@ -18,8 +18,8 @@ languages:
 source:
   type: skill-hub
   skill_hub_id: 200
-  version_seq: 22
+  version_seq: 23
 owners: []
 status: approved
 translation_status: approved
-updated_at: "2026-07-27T11:48:47.808Z"
+updated_at: "2026-07-31T00:00:00.000Z"

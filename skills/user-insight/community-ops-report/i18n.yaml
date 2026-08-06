@@ -1,0 +1,12 @@
+zh:
+  name: "社区运营报告"
+  description: "生成社区运营舆情报告，支持日报与周报"
+en:
+  name: "Community Operations Report"
+  description: "Generate community operations sentiment reports, daily or weekly"
+ja:
+  name: "コミュニティ運営レポート"
+  description: "コミュニティ運営の世論レポートを生成、日次と週次に対応"
+ko:
+  name: "커뮤니티 운영 보고서"
+  description: "커뮤니티 운영 여론 보고서 생성, 일간 및 주간 지원"

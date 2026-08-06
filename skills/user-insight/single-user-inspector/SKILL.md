@@ -45,27 +45,41 @@ This skill is activated when users ask the following types of questions:
 
 ---
 
-## MCP Capabilities Required
+## ae-cli Capabilities
 
-This skill requires the following types of MCP tool support. The system will automatically match suitable MCP services:
+This skill requires the following ae-cli commands (provided by the ae-analysis product skill):
 
-| Capability Type | Purpose | Reference |
-|-----------------|---------|-----------|
-| User Profile Query | Get user registration info, level, payment basics | [references/mcp_profile.md](references/mcp_profile.md) |
-| Behavior Event Query | Get user behavior events in time series | [references/mcp_events.md](references/mcp_events.md) |
-| Economy Flow Query | Get user recharge and consumption records | [references/mcp_economy.md](references/mcp_economy.md) |
-| Game Progress Query | Get user level, stage, achievement progress | [references/mcp_progress.md](references/mcp_progress.md) |
-| Login Session Query | Get user login records, online time | [references/mcp_sessions.md](references/mcp_sessions.md) |
+| Capability Type | ae-cli Command | Required Flags |
+|-----------------|---------------|----------------|
+| User Profile Query | `ae-cli analysis entity-detail run` | `--project-id`, `--definition` (entity="user", cohort filter by the confirmed user identifier field, properties from discovered user properties) |
+| Behavior Event Query | `ae-cli analysis event-detail run` | `--project-id`, `--definition` (event name, time_range, filters, properties from discovered event properties) |
+| Economy Flow Query | `ae-cli analysis event-detail run` | `--project-id`, `--definition` (payment event name, time_range, user filter, properties from discovered event properties) |
+| Game Progress Query | `ae-cli analysis entity-detail run` | `--project-id`, `--definition` (entity="user", cohort filter by the confirmed user identifier field, properties from discovered user properties) |
+| Login Session Query | `ae-cli analysis event-detail run` | `--project-id`, `--definition` (login event name, time_range, user filter, properties from discovered event properties) |
 
-### MCP Tool Naming Conventions
+### ae-cli Command Conventions
 
-The system will automatically find MCP tools with the following keywords:
+- All commands require `--project-id` to specify the target project.
+- All commands require `--definition` (JSON) with the AI-facing contract. Do not pass raw QP or event_view.
+- `entity-detail run`: `--definition` must include `entity` ("user"), `cohort` (user_property/tag/cluster filter), and optionally `properties` (user property names to project). User rows always include `#user_id`, `#account_id`, `#distinct_id`.
+- `event-detail run`: `--definition` must include `event` (event name), `time_range`, and optionally `filters` and `properties`. Event and property names must be discovered first.
+- Build entity cohorts and event filters with the identifier field confirmed for the supplied value. Never treat an opaque player ID as `#user_id` by default.
+- Event names and property names must be discovered first via `ae-cli analysis-meta event list` or `ae-cli analysis-meta property list` before using them in queries. Do not guess or assume names.
+- For command details, refer to the ae-analysis product skill.
 
-- **User Profile**: Contains keywords like `profile`, `user`, `info`
-- **Behavior Events**: Contains keywords like `events`, `behavior`, `logs`, `actions`
-- **Economy Flow**: Contains keywords like `economy`, `payment`, `recharge`, `transaction`
-- **Game Progress**: Contains keywords like `progress`, `level`, `stage`, `achievement`
-- **Login Sessions**: Contains keywords like `session`, `login`, `online`
+### Execution Prerequisites
+
+Before executing any data query, the following contracts must be confirmed through ae-analysis. **Do not proceed with queries if any contract cannot be confirmed.**
+
+1. **Project contract**: `--project-id` is available and the project exists in ae-analysis.
+2. **User identifier contract**: Confirm what kind of value the user supplied, then verify the matching project field (e.g. `#user_id`, `#account_id`, `#distinct_id`, or a project user property) via `ae-cli analysis-meta property list --scope user`. If the identifier field is unknown or ambiguous, ask the user to specify it.
+3. **Event and property contract**: Event names and their property names used in the query scenario (e.g. payment events, login events, battle events) are confirmed via `ae-cli analysis-meta event list` and `ae-cli analysis-meta property list`. Do not guess event names or property names.
+
+**Failure closure when contracts cannot be confirmed**:
+
+- If ae-analysis returns "capability not found" or "not implemented" for a required command → report the capability gap and do not fabricate query results.
+- If the project does not exist or the user cannot provide a valid `project-id` → ask the user to provide it; do not guess or use a default.
+- If event or property names cannot be confirmed for the target project → ask the user to specify the correct names; do not assume names from other projects or generic examples.
 
 ---
 
@@ -78,7 +92,9 @@ User Input
     ↓
 [Step 2: Parameter Extraction] → Extract user_id, time range
     ↓
-[Step 3: MCP Call] → Call corresponding data query tools
+[Step 2.5: Contract Verification] → Confirm project, user identifier, event/property contracts via ae-analysis
+    ↓                                  (If any contract cannot be confirmed → failure closure, do not proceed)
+[Step 3: ae-cli Query] → Call corresponding ae-cli commands
     ↓
 [Step 4: Business Processing] → Aggregate, analyze, calculate derived metrics
     ↓
@@ -169,28 +185,31 @@ Parse time range based on keywords:
 **Execution Logic**:
 
 ```
-1. Call MCP: Find user profile query tool
-   - Match keywords: profile, user, info
-   - Call params: { "user_id": "12345" }
+1. Query user entity details: `ae-cli analysis entity-detail run --project-id <pid> --definition '<json>'`
+   - definition: entity="user", cohort filter by the confirmed identifier field = "12345"
+   - properties: include user properties discovered via `ae-cli analysis-meta property list --scope user`
+     (e.g. payment-related, activity-related, registration-related properties — exact names depend on the project)
 
-2. After receiving data, calculate derived metrics:
+2. After receiving data, calculate derived metrics using the properties returned by the query.
+   Property names below are illustrative — replace with actual project property names:
 
-   a) Payment Tier Calculation:
-      IF total_recharge == 0 → "⚪ Non-paying User"
-      ELIF total_recharge < 10000 (cents) → "🟢 Minnow" (<$10)
-      ELIF total_recharge < 100000 → "🔵 Dolphin" ($10-$100)
-      ELIF total_recharge < 1000000 → "🟣 Whale" ($100-$1000)
-      ELIF total_recharge < 10000000 → "🟡 Super Whale" ($1000-$10000)
+   a) Payment Tier Calculation (using the project's total payment property):
+      IF total_payment == 0 → "⚪ Non-paying User"
+      ELIF total_payment < 10000 (cents) → "🟢 Minnow" (<$10)
+      ELIF total_payment < 100000 → "🔵 Dolphin" ($10-$100)
+      ELIF total_payment < 1000000 → "🟣 Whale" ($100-$1000)
+      ELIF total_payment < 10000000 → "🟡 Super Whale" ($1000-$10000)
       ELSE → "💎 Ultra Whale" (>$10000)
 
-   b) Activity Status Calculation:
-      Current time - last_active_time = days_diff
+   b) Activity Status Calculation (using the project's last activity time property):
+      Current time - last_activity_property = days_diff
       IF days_diff < 1 → "🟢 Active Today"
       ELIF days_diff < 3 → "🟡 Recently Active"
       ELIF days_diff < 7 → "🟠 Declining Activity"
       ELSE → "🔴 Churned"
 
-   c) Registration Duration: Current time - register_time
+   c) Registration Duration (using the project's registration time property):
+      Current time - registration_time_property
 
 3. Format output (see Step 5)
 ```
@@ -206,16 +225,15 @@ Parse time range based on keywords:
 ```
 1. Parse time range → { start: "2024-03-19T00:00:00", end: "2024-03-20T00:00:00" }
 
-2. Call MCP: Find behavior event query tool
-   - Match keywords: events, behavior, logs, actions
-   - Call params: {
-       "user_id": "12345",
-       "start_time": "2024-03-19T00:00:00",
-       "end_time": "2024-03-20T00:00:00",
-       "limit": 100
-   }
+2. Determine the relevant event set for the requested behavior trace and confirm every event name through analysis metadata. Do not guess event names.
 
-3. After receiving event list, perform aggregation:
+3. Query each confirmed event separately: `ae-cli analysis event-detail run --project-id <pid> --definition '<json>'`
+   - definition: one confirmed event name, the parsed time_range, and a filter using the confirmed identifier field
+   - use the same time range and user filter for every event query
+
+4. Merge all returned rows and sort the combined sequence by event time before aggregation. A single `event-detail run` covers only one event and must not be presented as the user's complete behavior trace.
+
+5. After receiving the merged event list, perform aggregation:
 
    a) Sort by time descending
 
@@ -227,7 +245,7 @@ Parse time range based on keywords:
    c) Calculate online duration:
       Last event time - First event time
 
-4. Format output (see Step 5)
+6. Format output (see Step 5)
 ```
 
 **Event Emoji Mapping**:
@@ -254,13 +272,12 @@ Parse time range based on keywords:
 **Execution Logic**:
 
 ```
-1. Call MCP: Find economy flow query tool
-   - Match keywords: economy, payment, recharge, transaction
-   - Call params: { "user_id": "12345" }
+1. Query economy flow: `ae-cli analysis event-detail run --project-id <pid> --definition '<json>'`
+   - definition: payment event name from discovered events, time_range, and a filter using the confirmed identifier field
 
-2. After receiving data, calculate:
+2. After receiving data, calculate using the properties returned by the query:
 
-   a) Total recharge = recharge.total (unit: cents → convert to dollars)
+   a) Total payment = sum of payment amount property (unit from project metadata → convert as needed)
 
    b) Payment tier (same as Scenario A)
 
@@ -281,13 +298,13 @@ Parse time range based on keywords:
 **Execution Logic**:
 
 ```
-1. Call MCP: Find user profile query tool
-   - Match keywords: profile, user, info
-   - Call params: { "user_id": "12345" }
+1. Query user entity details: `ae-cli analysis entity-detail run --project-id <pid> --definition '<json>'`
+   - definition: entity="user", cohort filter by the confirmed identifier field = "12345"
+   - properties: include activity-related and payment-related properties discovered via `ae-cli analysis-meta property list --scope user`
 
-2. Determine churn status:
+2. Determine churn status (using the project's last activity time property — exact name from metadata):
 
-   last_active = profile.last_active_time
+   last_active = profile[<project's last activity property name>]
    days_inactive = Current time - last_active
 
    IF days_inactive < 7:
@@ -296,14 +313,7 @@ Parse time range based on keywords:
 
    is_churned = true
 
-3. Call MCP: Find behavior event query tool
-   - Match keywords: events, behavior, logs, actions
-   - Call params: {
-       "user_id": "12345",
-       "start_time": last_active - 24 hours,  // 24 hours before churn
-       "end_time": last_active,
-       "limit": 50
-   }
+3. Confirm the event set needed by the enabled churn rules (for example login/logout, battle outcome, payment, progress, and social events when those concepts exist in project metadata). Query each confirmed event separately with `ae-cli analysis event-detail run --project-id <pid> --definition '<json>'`, using the same time range around last activity and a filter on the confirmed identifier field. Merge and sort all returned rows before applying any churn rule. Skip rules whose required events or properties cannot be confirmed; never substitute example names.
 
 4. Execute churn reason identification algorithm:
 
@@ -421,7 +431,7 @@ Parse time range based on keywords:
    - Parse all user IDs from input
    - Limit to max_users_per_batch (default 10)
 
-2. For each user, call relevant MCP tools in parallel
+2. For each user, call relevant ae-cli commands with `--project-id` and `--definition` in parallel
 
 3. Aggregate and compare data:
    - Create comparison table
@@ -575,7 +585,7 @@ Typical "paid but still frustrated" churn pattern.
 
 ## Error Handling
 
-Handling strategies when MCP query fails:
+Handling strategies when ae-cli query fails:
 
 ### 1. User Not Found
 ```
@@ -596,7 +606,7 @@ Scenario: Can query user profile but not behavior events
 Output: "✓ User profile query successful, but no behavior records in this time period"
 ```
 
-### 4. MCP Service Unavailable
+### 4. ae-cli Command Unavailable
 ```
 Output: "❌ Data service temporarily unavailable, please try again later"
 ```
@@ -641,8 +651,4 @@ The following sensitive fields will be automatically masked:
 
 ## Reference Documents
 
-- [MCP Profile Interface](references/mcp_profile.md)
-- [MCP Events Interface](references/mcp_events.md)
-- [MCP Economy Interface](references/mcp_economy.md)
-- [MCP Progress Interface](references/mcp_progress.md)
-- [MCP Sessions Interface](references/mcp_sessions.md)
+- ae-analysis skill commands (see ae-analysis product skill references)

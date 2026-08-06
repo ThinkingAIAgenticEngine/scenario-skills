@@ -34,6 +34,7 @@ author: Silas Ge
 - Asking about non-game verticals → "This skill is optimized for game industry scenarios. Please provide game context."
 - Asking about overall LTV, not specifically first purchase → use ltv-analysis skill
 - Only asking for raw data export → provide CLI commands directly, no need for full workflow
+- Asking to build/analyze the **step-by-step first-purchase path funnel** (registration → tutorial → unlock → click → pay, locating which node users drop off) → use payment-funnel-analysis skill (it has a dedicated First Purchase Conversion Funnel template). This skill instead diagnoses the first-purchase **rate** itself (why the ratio is low/dropping across user quality, product, pricing, and external factors).
 
 ## Role Definition
 

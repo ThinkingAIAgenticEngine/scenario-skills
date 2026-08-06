@@ -1,10 +1,14 @@
-id: community-hottopic-insight
-name: community-hottopic-insight
+id: community-ops-report
+name: community-ops-report
 kind: scenario
-display_name: "Community topic analysis"
-description: Analyze community topic sentiment and produce insight reports
+display_name: "Community Operations Report"
+description: Generate community operations sentiment reports, daily flash or weekly summary
 category: user-insight
-tags: []
+tags:
+  - daily-report
+  - weekly-report
+  - community-operations
+  - sentiment-monitoring
 cluster_versions:
   - "6.0"
   - "6.1"

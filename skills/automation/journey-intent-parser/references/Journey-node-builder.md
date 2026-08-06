@@ -595,14 +595,14 @@ When data source is `qp.eventCondition mapping`, **only map fields listed in the
 - Save returned results as `$qpMap: { "<condition key>": <qp structure> }`, inject into corresponding fields as needed
 
 **When tool unavailable (skip):**
-- `targetClusterQp` 填默认空值（必须是完整标准格式的 JSON 序列化字符串）：
+- `targetClusterQp` fill with the default empty value (must be a JSON-serialized string in complete standard format):
 ````
 
 "{\"totalCFilter\":{\"relation\":1,\"filts\":[],\"events\":[],\"eventRelation\":1,\"userEventRelation\":1,\"behaviorSeqDefs\":[]},\"totalOutCFilter\":{\"relation\":1,\"filts\":[]}}"
 
 ```
-> ⚠️ `relation` 必须为数字 `1`，**不得写成字符串 `"1"`**。必须包含 `events`、`eventRelation`、`userEventRelation`、`behaviorSeqDefs`、`totalOutCFilter` 字段，缺少任一字段会导致前端解析崩溃。
-> ⚠️ 禁止使用旧格式（含 `userCondition` / `conditionType` 字段），该格式前端无法解析。
+> ⚠️ `relation` must be the number `1`, **not the string `"1"`**. Must include the `events`, `eventRelation`, `userEventRelation`, `behaviorSeqDefs`, and `totalOutCFilter` fields; missing any one of them will crash frontend parsing.
+> ⚠️ Do not use the old format (containing `userCondition` / `conditionType` fields); the frontend cannot parse that format.
 - `triggerRule[].events[]` use event info from intent JSON, without qp additional fields
 - Continue with subsequent steps, do not interrupt flow
 

@@ -2,11 +2,13 @@ id: ltv-prediction
 name: ltv-prediction
 kind: scenario
 display_name: LTV & LT Prediction
-description: Predict LTV and LT with multi-function fitting, payback analysis, mature cohort borrowing, and ML
+description: Predict LTV and LT from direct data or ae-cli, with segmentation
 category: forecasting
 tags:
   - ltv
   - lt
+  - prediction
+  - monetization
 cluster_versions:
   - "6.0"
   - "6.1"
@@ -18,8 +20,8 @@ languages:
 source:
   type: skill-hub
   skill_hub_id: 203
-  version_seq: 2
+  version_seq: 3
 owners: []
 status: approved
 translation_status: approved
-updated_at: "2026-07-30T00:00:00.000Z"
+updated_at: "2026-08-05T00:00:00.000Z"

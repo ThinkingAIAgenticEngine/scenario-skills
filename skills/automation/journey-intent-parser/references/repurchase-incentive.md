@@ -65,7 +65,7 @@ repeat_trigger (Daily 09:00 · Yesterday's paid users)
 | ---------------- | ----------------------------------------------------------------------- | -------------------------------- |
 | `flow_type`      | "Repurchase incentive for paid users"                                   | `REPURCHASE_INCENTIVE`           |
 | `entry.type`     | "Every day at 9 AM"                                                     | `repeat_trigger`                 |
-| `entry.schedule` | "Every day at 9 AM"                                                     | `"每天09:00"`                    |
+| `entry.schedule` | "Every day at 9 AM"                                                     | `"Daily 09:00"`                  |
 | `entry.segment`  | "Users who paid yesterday"                                              | Yesterday's paid users segment   |
 | n1               | "Segment by user payment capability into three groups" → Property split | `feature_split_flow`, 3 branches |
 | n2               | High-value branch → Premium gift                                        | `webhook_push`                   |

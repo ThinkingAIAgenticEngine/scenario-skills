@@ -15,8 +15,8 @@ metadata:
 compatibility:
   dependencies:
     - lark-wiki
-    - te-analysis-mcp
-    - te-engage-mcp-task
+    - ae-analysis
+    - ae-engage
   tools:
     - claude-code
 ---
@@ -40,7 +40,7 @@ Operators need to create refined gift pack push strategies for numeric progressi
 
 **Input sources**:
 1. Feishu document/link provided by user (read using lark-wiki)
-2. TE system tracking data (query via `te-analysis-mcp`)
+2. TE system tracking data (query via `ae-cli analysis-meta event list` / `ae-cli analysis-meta property list`)
 3. Content directly input by user
 
 **Project context persistence**:
@@ -48,7 +48,7 @@ Operators need to create refined gift pack push strategies for numeric progressi
 - Clear command: "forget" clears all, "forget {field}" clears specified field
 
 **Genre identification**:
-1. Determine via `te-analysis-mcp` query of TE project name and tracking field list
+1. Determine via `ae-cli analysis-meta event list` query of TE project name and tracking field list
 2. Load corresponding template after user confirms genre
 
 **Genre options**: SLG / MMORPG / Card / Casual / Racing / Shooter / Tower Defense / Other
@@ -56,7 +56,7 @@ Operators need to create refined gift pack push strategies for numeric progressi
 **Output**:
 - Progression system list, gameplay classification list
 - Gameplay output/associated gift pack information (user-provided takes priority)
-- Existing gift pack configuration (pull via `te-engage-mcp-task`)
+- Existing gift pack configuration (pull via `ae-cli engage-scene config-item list` / `ae-cli engage-scene strategy list`)
 
 ---
 
@@ -122,7 +122,7 @@ Operators need to create refined gift pack push strategies for numeric progressi
 - Table columns: Strategy name, Progression line/Gameplay, Lifecycle (if enabled), User tier (if enabled), Trigger scenario, Scenario type, Trigger channel, Gift pack ID, Recommended gift pack, Price tier, Value ratio, Display duration
 
 **Output method**:
-1. Direct creation: Create on TE platform via `te-engage-mcp-task`
+1. Direct creation: Create on TE platform via `ae-cli engage-task task save` (save draft) then `ae-cli engage-task task submit-approval` (submit for approval). If ae-engage has no verified command mapping for the required operation, report the capability gap and fall back to document output.
 2. Document output: Generate Markdown strategy document
 
 **Safety strategy**:

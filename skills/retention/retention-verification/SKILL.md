@@ -246,6 +246,6 @@ attribution and retention-window boundaries.
 
 ---
 
-## MCP Fallback (Only When ae-cli Fails or Has No Matching Capability)
+## ae-cli Capability Gap Handling
 
-When ae-cli repeatedly fails for confirmed non-parameter reasons, or has no matching capability, discover the currently available MCP analysis tools instead of hardcoding retired tool names. Do NOT mix ae-cli and MCP calls in the same diagnostic flow — use one or the other consistently for a given operation.
+When ae-cli repeatedly fails for confirmed non-parameter reasons, or has no matching capability, report the capability gap or degrade to framework-level analysis suggestions. Do NOT attempt to use retired MCP tools.

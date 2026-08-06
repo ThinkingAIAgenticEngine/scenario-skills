@@ -75,7 +75,7 @@ Basic information collected. Next steps:
 
 ### Phase 2: Missing Ratio Statistics
 
-**Objective**: Automatically execute SQL to calculate Account ID/Distinct ID missing ratio, call te-mcp-analysis to execute query.
+**Objective**: Automatically execute SQL to calculate Account ID/Distinct ID missing ratio, call `ae-cli analysis adhoc run` to execute query.
 
 #### Step 2.1: Execute Missing Ratio SQL
 
@@ -138,7 +138,7 @@ Ask user:
 
 ### Phase 3: Sample Behavior Sequence Analysis
 
-**Objective**: Extract missing user samples, analyze behavior sequences to identify fragmentation root cause, call te-mcp-analysis to execute query.
+**Objective**: Extract missing user samples, analyze behavior sequences to identify fragmentation root cause, call `ae-cli analysis adhoc run` to execute query.
 
 #### Step 3.1: Extract did Missing User Samples
 
@@ -432,7 +432,7 @@ Root cause diagnosis and solutions provided.
 > The issue you described may not be a User ID Binding issue.
 >
 > Suggestions:
-> - If it's a data query issue → Use te-mcp-analysis
+> - If it's a data query issue → Use `ae-cli analysis adhoc run`
 > - If it's another data issue → Provide more detailed information
 
 **[LANGUAGE CONSTRAINT]**: Generate your response in the EXACT SAME LANGUAGE as the user's input. If user queries in Chinese, respond entirely in Chinese. If user queries in English, respond in English. Do not mix languages unless explicitly translating terms.

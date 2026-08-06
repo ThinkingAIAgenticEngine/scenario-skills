@@ -26,7 +26,7 @@ This section answers three questions:
   - Ensuring scope is confirmed before continuing into report generation, SQL rewriting, or analysis logic adjustment, so analysis does not proceed on the wrong definition.
 
 - Applicable objects:
-  - Analysis objects the customer can access in the current MCP or current conversation context, including:
+  - Analysis objects the customer can access in the current ae-cli or current conversation context, including:
     - Project
     - Dashboard
     - Report
@@ -103,7 +103,7 @@ This section answers three questions:
 - Ways this capability can be triggered:
   - Customer’s natural-language request;
   - The customer provides project_id / dashboard_id / report_id and asks for scope explanation;
-  - The customer provides SQL, or the agent retrieves query / adhoc_query conditions from MCP tools, and the customer asks for explanation of the current statistical logic;
+  - The customer provides SQL, or the agent retrieves query / adhoc_query conditions from ae-cli commands, and the customer asks for explanation of the current statistical logic;
   - The customer references a previous agent-generated analysis result and asks to explain or confirm its scope;
   - The agent proactively asks whether the customer wants to align / explain analytical scope, and this capability is triggered after a positive response;
   - Before report generation, SQL rewriting, or analysis logic reconstruction, the system or execution flow determines that scope should be confirmed first;
@@ -193,7 +193,7 @@ This section answers three questions:
   - dashboard_id
   - report_id
   - SQL query conditions
-- If the customer cannot provide complete information, or cannot clearly describe object context, MCP tools should be used to supplement:
+- If the customer cannot provide complete information, or cannot clearly describe object context, ae-cli commands should be used to supplement:
   - qp
   - adhoc_query
   - related configuration or object information
@@ -305,7 +305,7 @@ This section defines the principles the agent should follow once this capability
 
 - Default priority order:
   1. **Identify the analysis object first**
-  2. **Ask the customer for information first, then consider MCP-assisted retrieval**
+  2. **Ask the customer for information first, then consider ae-cli-assisted retrieval**
   3. **Confirm the current implementation scope first, then decide whether to enter the definition layer**
   4. **Ensure correctness before pursuing completeness**
   5. **Separate known, unknown, and inferred information before giving a conclusion**
@@ -321,7 +321,7 @@ This section defines the principles the agent should follow once this capability
       - dashboard_id
       - report_id
       - SQL query conditions
-    - If the customer cannot provide complete information, then use MCP tools to supplement qp, adhoc_query, or related configuration.
+    - If the customer cannot provide complete information, then use ae-cli commands to supplement qp, adhoc_query, or related configuration.
   - **SQL evidence takes priority over generalized understanding**
     - If the customer provides SQL, prioritize explaining the current implementation scope based on SQL.
   - **Current implementation takes priority over definition layer**
@@ -387,7 +387,7 @@ This section defines the principles the agent should follow once this capability
     - this is inference
     - this is pending confirmation
     - more information is needed from the customer
-  - If MCP retrieval results conflict with customer-provided information, go back to customer confirmation rather than arbitrating on the customer’s behalf.
+  - If ae-cli retrieval results conflict with customer-provided information, go back to customer confirmation rather than arbitrating on the customer’s behalf.
 
 ### 2.5 Default Operating Behaviors
 
@@ -405,7 +405,7 @@ This section defines the principles the agent should follow once this capability
 
 - By default, pause deeper analysis in the following situations:
   - The object is not identified;
-  - SQL is not available and MCP cannot reliably supplement it;
+  - SQL is not available and ae-cli cannot reliably supplement it;
   - Definition SQL or configuration is missing for tags / cohorts / virtual attributes;
   - Granularity judgment or field-source judgment can only rely on guessing;
   - The customer has not clearly requested drill-down into finer layers.
@@ -418,7 +418,7 @@ This section defines the principles the agent should follow once this capability
   - display timezone vs settlement timezone
   - current result-page refresh vs object recomputation
   - current query logic vs standard product semantics
-  - customer statement vs MCP retrieval result
+  - customer statement vs ae-cli retrieval result
 
 - Handling method:
   - First state both sides separately;
@@ -471,7 +471,7 @@ By default, follow this process:
 Default overall principles:
 
 - **customer-provided object info / SQL first**
-- **MCP-assisted retrieval second**
+- **ae-cli-assisted retrieval second**
 - **SQL-first**
 - **reference-validated**
 - **customer-confirmed**
@@ -866,13 +866,13 @@ When information is insufficient to support judgment or explanation at the curre
    - definition-layer material
    - customer intent layer
 2. **Prioritize asking the customer for supplementary information**
-3. If the customer cannot provide it, cannot access it, or cannot clearly describe it, then **attempt MCP-assisted retrieval**:
+3. If the customer cannot provide it, cannot access it, or cannot clearly describe it, then **attempt ae-cli-assisted retrieval**:
    - query
    - adhoc_query
    - report / dashboard configuration
    - object-related context
    - other materials usable for explaining current scope
-4. If both the customer and MCP still cannot provide enough information, then output only:
+4. If both the customer and ae-cli still cannot provide enough information, then output only:
    - preliminary explanation
    - pending items
    - inferred items
@@ -881,7 +881,7 @@ When information is insufficient to support judgment or explanation at the curre
 #### Hard requirements
 - Do not pretend that high-confidence scope confirmation has been completed when information is insufficient;
 - Do not write inference as fact before enough evidence has been obtained;
-- If the customer cannot provide further information and MCP also cannot reliably supplement it, clearly state that the current result can only remain at a “preliminary explanation / pending confirmation” state.
+- If the customer cannot provide further information and ae-cli also cannot reliably supplement it, clearly state that the current result can only remain at a “preliminary explanation / pending confirmation” state.
 
 ### 3.15 Conflict Resolution in Workflow
 
@@ -892,7 +892,7 @@ If conflicts appear during the workflow, they must be explicitly separated:
 - display timezone vs settlement timezone
 - current result-page refresh vs object recomputation
 - current query logic vs standard product semantics
-- customer statement vs MCP retrieval result
+- customer statement vs ae-cli retrieval result
 
 Handling steps:
 1. State both sides separately
@@ -930,7 +930,7 @@ Its job is to define the execution framework of the capability, not to carry all
 The agent should use this guide first to determine:
 - layered explanation strategy (L1 / L2 / L3)
 - the execution sequence of SQL-first, reference-validated, customer-confirmed
-- object identification first, customer request first, MCP supplementation second
+- object identification first, customer request first, ae-cli supplementation second
 - hard rules for insufficient information
 - the fixed confirmation action after each round of scope explanation
 - the logic for recommended scope options when the current scope does not match expectation
@@ -1073,7 +1073,7 @@ When this capability is triggered, resources should be consulted in the followin
    - screenshots
    - original historical analysis results
 
-2. **If information is insufficient, then use MCP supplementation**
+2. **If information is insufficient, then use ae-cli supplementation**
    - query
    - adhoc_query
    - report / dashboard configuration
@@ -1231,7 +1231,7 @@ Only under the following conditions should the extra layer of “final front-end
 #### 5.2.5 Default supplementation handling for system context
 - `dashboard / report / query` context should not be treated as information that is requested from the customer by default.
 - By default, customers usually cannot directly provide this kind of context.
-- This kind of information should first be supplemented via MCP by the system.
+- This kind of information should first be supplemented via ae-cli by the system.
 - If the system can retrieve it, continue the explanation based on the retrieved result.
 - If the system cannot retrieve enough information, then first output what is confirmable based on currently obtained information, and clearly mark which parts are inferred.
 
@@ -1290,7 +1290,7 @@ When information is insufficient, proceed in the following order:
 
 3. Request more information from the customer only when necessary
 
-4. If the customer cannot provide it, use system-side MCP supplementation
+4. If the customer cannot provide it, use system-side ae-cli supplementation
 
 5. If still insufficient, output a downgraded conclusion:
    - currently confirmed content
@@ -1408,7 +1408,7 @@ These should later connect directly into:
 
 - If there is no identification information and no SQL / query / report context, no high-confidence scope conclusion may be given.
 - If the customer does not state how deep the alignment should go, default to only L1 current implementation layer.
-- If input is insufficient, request supplementation first; if the customer cannot provide it, then use system-side MCP supplementation.
+- If input is insufficient, request supplementation first; if the customer cannot provide it, then use system-side ae-cli supplementation.
 - After every round of scope explanation, the customer must be asked whether the explanation matches expectation.
 - If the customer thinks the current scope does not match expectation, recommended scope options should be given instead of only asking the customer back.
 - The final output must be reusable as input for the next analysis step.

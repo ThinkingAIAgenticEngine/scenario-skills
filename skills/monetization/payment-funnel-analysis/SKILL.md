@@ -439,6 +439,7 @@ When no existing dashboard is found:
 | No dashboard/no events | No funnel-related dashboard or events found, recommend manual creation |
 | ae-cli call failure | Preserve the request ID and confirm project ID, permissions, and builder error |
 | Issue beyond funnel scope | Involves overall payment rate metrics, recommend using corresponding analysis skill |
+| User wants first-purchase **rate** root-cause diagnosis (why first-purchase rate = first-time payers / new users is low or dropping), not path drop-off | Route to first-purchase-analysis skill; this skill covers the first-purchase **funnel** path (node-by-node drop-off), not rate attribution |
 
 ---
 

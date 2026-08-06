@@ -5,12 +5,35 @@ description: >
   retention and revenue data. Use when the user asks about LTV, user lifetime
   value, LT, user lifecycle, lifecycle forecast, payback period, retention
   fitting, retention decay, retention curve, channel quality assessment,
-  product revenue forecast, user value estimation, or active days forecast —
-  for games, tools, social, e-commerce, or any internet product.
+  per-user or per-cohort value estimation, cohort revenue projection, active
+  days forecast, LTV segmentation — for games, tools, social, e-commerce, or
+  any internet product. Supports both directly provided data and automated
+  ae-cli data retrieval from a TE project, including RFM / pay-tier / VIP
+  stratified LTV. For macro calendar-time total-revenue forecasting and
+  acquisition-budget / DNU-ARPU target-solving, use revenue-forecast-model-cli.
 ---
 
 
 # LTV & LT Prediction for the Internet Industry
+
+## Execution Modes (Choose First)
+
+This skill has two execution modes. Pick the mode that matches how the user's
+data is available; both share the same fitting and reporting methodology.
+
+| Mode | When to use | Data source | Go to |
+|------|-------------|-------------|-------|
+| **Mode A — Direct data** | User pastes retention/LTV series, provides a raw event table, or wants payback / mature-cohort borrowing / ML user-level prediction | Data supplied by the user, or pulled ad hoc via ae-cli/SQL | Sections I–VII below (the primary methodology) |
+| **Mode B — ae-cli automated** | User has a TE project reachable through `ae-cli` and wants automated data retrieval, or needs RFM / pay-tier / VIP **stratified** LTV | `ae-cli` queries against the live project | Section VIII (ae-cli edition) + `references/` |
+
+**Mode selection rules:**
+
+- If the user has a **TE project + ae-cli access** and asks for prediction → **Mode B** for data retrieval, then reuse Mode A's fitting/extrapolation (Sections I–V) on the retrieved series.
+- If the user **directly provides data** (pasted series, event table, no TE project) → **Mode A**.
+- **Stratified LTV** (RFM / pay-tier / VIP) is a **Mode B** capability (B3). **Payback analysis, mature-cohort decay borrowing, multi-function comparison (Power/Log/Exp), and ML user-level prediction** are **Mode A** capabilities.
+- The two modes are complementary, not exclusive: it is normal to use **Mode B to fetch the cohort LTV series, then Mode A** to fit multiple functions, compute payback, and borrow a mature cohort's decay rate.
+
+> Sections I–VII document Mode A in full. Section VIII documents Mode B (the ae-cli edition), backed by the detailed runbooks in `references/`.
 
 ## AI Execution Workflow (Must Read)
 
@@ -25,7 +48,7 @@ Confirm with the user or identify from user input:
    - **LT** (user lifecycle, average active days) → requires retention data only
    - If the user is unclear, ask
 
-2. **What is the data?** Retention rate series / daily LTV series / retention + ARPU / raw event table / semi-structured data pulled via MCP / user feature table
+2. **What is the data?** Retention rate series / daily LTV series / retention + ARPU / raw event table / semi-structured data pulled via ae-cli / user feature table
 3. **How many days are available?** This directly determines the safe range of the prediction window (see the table below)
 4. **Which day do you need to predict to?** D30 / D60 / D90 / D180 / D365?
 5. **Do you have CAC?** Required if payback analysis is needed (LTV only)
@@ -44,8 +67,8 @@ Confirm with the user or identify from user input:
 - Different registration dates produce different numbers of retention days:
   - Example: Today is February 1, analyzing January → earliest 1/1 has D1~D31, latest 1/31 only D1
 - **Data acquisition priority**:
-  1. Preferentially pull weighted retention rates for each sub-cohort via MCP/API
-  2. If no MCP interface is available, fall back to the appendix SQL (weighted retention)
+  1. Preferentially pull weighted retention rates for each sub-cohort via ae-cli
+  2. If ae-cli has no matching capability, fall back to the appendix SQL (weighted retention)
 - **Calculate the effective cohort count for each retention point**:
   - For each retention point D_N, count how many sub-cohorts contribute: `effective cohort count = number of dates in the registration interval that are >= N days ago from today`
   - Example: For January, D30 has data only for 1/1 and 1/2 cohorts → effective cohort count = 2
@@ -139,7 +162,7 @@ Use the report template below. The key is to fill in the numbers. **The report m
 - **LT is the retention-only half of LTV**: LTV = LT × ARPU
 
 > Use this path when the user provides ready-made retention/LTV series.
-> **If the user only has a raw event table or needs to pull data via MCP (Path B)**: extract the data first, then return to this path. Use the SQL in Appendix A for raw event tables; for MCP, call the query tools provided by the platform to pull retention/LTV metrics, parse them, and then use them.
+> **If the user only has a raw event table or needs to pull data via ae-cli (Path B)**: extract the data first, then return to this path. Use the SQL in Appendix A for raw event tables. For ae-cli, follow Mode B Phase 2 and `references/data-source.md`; a retention query must include every required flag: `ae-cli analysis adhoc run --project-id <project_id> --model-type retention --definition '<retention_definition_json>'`. Retention supplies R(i), not ARPU/LTV by itself, so retrieve the confirmed revenue or ARPU series separately before calculating LTV.
 > **If the user provides multiple cohorts/channels at once**: fit each channel separately and produce a separate report. If different cohorts belong to the same version, you can borrow the decay rate (see Section II), but a and ARPU are computed independently for each cohort.
 
 ### Step 1: Parse User Input
@@ -352,8 +375,8 @@ if overridden:
 **CAC acquisition priority**:
 
 1. Provided directly by the user → use it
-2. Not provided but MCP can query cost data → try to pull the spend for the corresponding date/channel via MCP, then divide by the number of new users
-3. MCP cannot find it either → ask the user; if the user genuinely does not know, skip payback analysis and only output the LTV estimate
+2. Not provided but ae-cli can query cost data → try to pull the spend for the corresponding date/channel via ae-cli, then divide by the number of new users
+3. ae-cli cannot find it either → ask the user; if the user genuinely does not know, skip payback analysis and only output the LTV estimate
 
 ```python
 def calc_payback(ltv_daily, cac):
@@ -399,7 +422,7 @@ Experimental validation: the borrowed-b scheme yields long-term prediction error
 
 ### Step 1: Check Version Consistency
 
-**If the user provides a raw event table or MCP is queryable**:
+**If the user provides a raw event table or ae-cli can query the data**:
 
 ```sql
 -- First check whether the app_version field exists, and list the user counts per version
@@ -905,15 +928,147 @@ ORDER BY "$part_date";
 
 ---
 
+## VIII. Mode B: ae-cli Automated Edition
+
+> Use this mode when the user has a TE project reachable through `ae-cli` and
+> wants automated data retrieval, or needs **stratified LTV by RFM / pay-tier /
+> VIP** (B3). After retrieving the cohort LTV series here, you may hand off to
+> Mode A (Sections I–V) for multi-function fitting, payback, and mature-cohort
+> borrowing.
+
+### Language Policy (Mode B)
+
+Mode B runbooks default to English output. If the user explicitly requests
+Chinese, comply. Chart and table labels follow the user's language.
+
+### Mode B Methodologies
+
+| Method | ID | Model | Input | Output |
+|--------|----|-------|-------|--------|
+| Cohort LTV Curve | B2 | Shifted exponential decay | Historical cohort LTV data (from ae-cli) | LTV_inf, k, fitted curve, predictions |
+| Stratified LTV | B3 | Segment aggregation | RFM / pay-tier / VIP groups | Per-segment LTV table |
+
+> B2 here uses a **shifted exponential** model via the packaged fitter
+> (`scripts/fit_ltv.py`). When the user wants **multi-function comparison**
+> (Power / Log / Exp) or **segmented fitting**, use Mode A Section I Step 2–3
+> instead — feed it the series retrieved by ae-cli.
+
+### Key AE Data Assets
+
+| Asset | Semantic Example | Type | Purpose |
+|-------|-------------|------|---------|
+| Cohort event | `register` | Event | Defines the initial cohort |
+| Payment event | `payment` | Event | Revenue source |
+| Payment amount | `pay_amount` | Event property (number) | Monetary value |
+| First pay flag | `is_first_pay` | Event property (bool) | First purchase detection |
+| Total pay amount | `total_pay_amount` | Optional user property (number) | Pay-tier grouping when compiler-resolved |
+| First pay time | `first_pay_time` | User property (datetime) | Conversion timing |
+| VIP level | `vip_level` | User property (number) | Tier stratification |
+| Pay tier tag | `pay_stratum` / `pay_layer` | Tag / Virtual property | Payment segmentation |
+| RFM tag | `rfm` / `付费RFM标签` | Tag | RFM segmentation |
+| LTV reports | Various (D7/D14/D30) | Report | Existing LTV data |
+| LTV metrics | `day_1_ltv`, `ltv_7`, `d30_ltv` | Metric | Saved LTV values |
+
+Names in this table are semantic examples, not project defaults. Verify the
+compiler's resolved names.
+
+### Mode B Workflow
+
+```
+Gate G1: Data Mapping → Gate G2: LTV Report Check → Gate G3: Python Env Check
+    ↓
+Phase 2: Data Collection (ae-cli three-path priority)
+    ↓
+Phase 3: Execute B2 and/or B3
+    ↓
+Phase 4: Output — Parameters + Predictions + Charts + Recommendations
+```
+
+#### Phase 1: Prerequisite Check (MANDATORY interactive gates)
+
+Execute all three gates before any analysis. **Stop and ask the user if any gate fails.**
+
+- **G1 — Data Mapping**: Resolve `COHORT_EVENT`, `PAYMENT_EVENT`, and `PAY_AMOUNT_PROP` (plus `VIP_LEVEL_PROP` / `RFM_TAG` / `PAY_TIER_TAG` for B3) by submitting the semantic `revenue`/`event` AI-facing definition first; only inspect `analysis-meta` when compilation returns clarification candidates or a resolution error. Never proceed without confirmed mapping.
+- **G2 — LTV Report Check**: Search existing LTV reports/dashboards (`analysis report list --query LTV`, `analysis dashboard list --query LTV`). If found, ask whether to reuse them or run fresh ad-hoc queries; if empty/incomplete, fall back to ad-hoc.
+- **G3 — Python Environment Check**: Verify `numpy`/`scipy` (`python3 -c "import numpy; import scipy; print('OK')"`). If missing, ask before creating a skill-local `.venv`. Never use `--break-system-packages` or modify the system Python. If install fails, ask whether to proceed with B3 only.
+
+> Full G1–G3 procedures: `references/workflow-phases12.md`.
+
+#### Phase 2: Data Collection
+
+Follow the ae-cli three-path priority (reuse report/dashboard → ad-hoc revenue
+analysis → save verified analysis). Full command contracts, ad-hoc definitions,
+and segmentation queries: `references/data-source.md` and
+`references/workflow-phases12.md`. Minimum 6 points (D0, D1, D3, D7, D14, D30)
+for B2 fitting; more points yield a better fit.
+
+#### Phase 3: Computation
+
+- **B2 — Cohort LTV curve**: run the packaged fitter.
+
+  ```bash
+  "$SKILL_DIR/.venv/bin/python" "$SKILL_DIR/scripts/fit_ltv.py" \
+    --points '[[0,1.2],[1,1.8],[3,2.4],[7,3.1],[14,3.8],[30,4.5]]'
+  ```
+
+  The script (`scripts/fit_ltv.py`) validates inputs and returns parameters,
+  covariance, R², MAE, predictions (D60/D90/D180/D365), half-life, and the 90%
+  steady-state day. Model: `LTV(n) = LTV_base + (LTV_inf − LTV_base) × (1 − e^(−k·n))`.
+
+- **B3 — Stratified LTV**: for each RFM / VIP / pay-tier segment compute
+  `avg_ltv = total_revenue / user_count` and `revenue_share_pct`. Full
+  computation steps, pay-tier auto-classification (percentile thresholds), and
+  output structures: `references/workflow-phase3.md`.
+
+#### Phase 4: Output
+
+Deliver parameters, predictions, charts, tables, and actionable
+recommendations. B2/B3 output JSON structures and the recommendations template:
+`references/workflow-phase3.md`. CLI command quick reference, industry LTV
+benchmarks, Python troubleshooting, and model-selection guidance:
+`references/references.md`.
+
+### Mode B Absolutely NOT Triggered
+
+- Query a single data value (e.g. "what is today's revenue?") → route to an analysis/query skill, not prediction
+- Create a report/dashboard without prediction intent → analysis skill
+- General data exploration without LTV context → analysis skill
+- Retention rate alone without LTV intent → analysis skill
+- ML-based early LTV prediction (XGBoost) or survival analysis (Cox) → not supported in Mode B; for user-level ML prediction use **Mode A Path C (RandomForest)** or recommend an external ML tool
+
+### Mode B Dependencies
+
+- `ae-cli`: all data queries
+- Python 3 + numpy + scipy: curve fitting (B2)
+- Installation mirror: https://pypi.tuna.tsinghua.edu.cn/simple
+
+---
+
 ## Skill Boundaries
 
-This skill covers LTV and LT prediction methodology (curve fitting, payback analysis, ML prediction, mature cohort borrowing). For the following scenarios, route to the companion skill:
+This skill covers the full LTV and LT prediction methodology across two
+execution modes:
 
-- **User has a TE project and needs ae-cli automated data retrieval** → `ltv-prediction-cli`
-- **User needs stratified LTV by RFM / pay-tier / VIP segments** → `ltv-prediction-cli` (B3 methodology)
-- **User needs ae-cli report/dashboard creation for LTV results** → `ltv-prediction-cli`
+- **Mode A (Sections I–VII)** — direct-data methodology: multi-function curve
+  fitting (Power/Log/Exp), segmented fitting, LT area-under-curve, payback
+  analysis, mature-cohort decay-rate borrowing, and ML user-level prediction
+  (RandomForest, Path C). Use when the user supplies data directly or has no TE
+  project.
+- **Mode B (Section VIII + `references/`)** — ae-cli automated edition:
+  interactive data-mapping gates, automated data retrieval, shifted-exponential
+  fitting (B2), and RFM / pay-tier / VIP stratified LTV (B3). Use when the user
+  has a TE project reachable via ae-cli, or needs stratified LTV.
 
-This skill is preferred when the user directly provides data, needs payback analysis, wants to borrow mature cohort decay rates, or requires ML-based user-level prediction.
+Out of scope for both modes: single-metric queries, dashboard-only work, and
+retention analysis with no LTV/LT forecasting intent — route those to the
+appropriate analysis skill.
+
+> **Boundary vs `revenue-forecast-model-cli`**: this skill predicts the value of
+> **one user or one acquisition cohort** (LTV / LT) via curve fitting. For
+> **macro, calendar-time total revenue of the whole game** — forward revenue
+> forecasting, acquisition-budget planning, or reverse-solving how many new
+> users / what ARPU is needed to hit a revenue target (DNU-ARPU dual-drive) —
+> route to `revenue-forecast-model-cli`.
 
 ---
 

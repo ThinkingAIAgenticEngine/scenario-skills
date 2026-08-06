@@ -78,7 +78,7 @@ If the customer has not yet provided enough information to identify the object, 
 
 Always follow this order:
 
-**customer-provided object info / SQL first → MCP-assisted retrieval second → SQL-first → reference-validated → customer-confirmed**
+**customer-provided object info / SQL first → ae-cli-assisted retrieval second → SQL-first → reference-validated → customer-confirmed**
 
 And always follow this output strategy:
 
@@ -86,7 +86,7 @@ And always follow this output strategy:
 
 That means:
 1. first request and identify the concrete analytical object from the customer;
-2. if the customer cannot provide complete information, then use MCP tools to supplement object and query information;
+2. if the customer cannot provide complete information, then use ae-cli commands to supplement object and query information;
 3. then extract the current implementation scope from SQL / query / dashboard;
 4. then validate its definition-layer semantics against product reference documents;
 5. then provide the customer with a medium-granularity scope explanation;
@@ -240,7 +240,7 @@ Before beginning scope alignment, the executor should first request information 
 
 If the customer can directly provide SQL query conditions, scope alignment may start from SQL.  
 If the customer cannot provide SQL but can provide project / dashboard / report information, the executor may continue object identification based on that information.  
-Only when the customer cannot provide SQL and also cannot provide complete object-identification information should the executor try MCP tools to retrieve qp, adhoc_query, or related configuration.
+Only when the customer cannot provide SQL and also cannot provide complete object-identification information should the executor try ae-cli commands to retrieve qp, adhoc_query, or related configuration.
 
 If the object still cannot be identified:
 - the executor should not directly give a high-confidence scope conclusion
@@ -840,7 +840,7 @@ If these are unavailable, request:
 - previously generated output text
 - report / dashboard links or screenshots
 
-Only if the customer still cannot provide complete information should the executor use MCP tools to retrieve query, adhoc_query, or configuration information.
+Only if the customer still cannot provide complete information should the executor use ae-cli commands to retrieve query, adhoc_query, or configuration information.
 
 Suggested wording:
 

@@ -77,7 +77,7 @@
 
 始终遵循以下顺序：
 
-**customer-provided object info / SQL first → MCP-assisted retrieval second → SQL-first → reference-validated → customer-confirmed**
+**customer-provided object info / SQL first → ae-cli-assisted retrieval second → SQL-first → reference-validated → customer-confirmed**
 
 并遵循以下输出策略：
 
@@ -85,7 +85,7 @@
 
 也就是：
 1. 先优先向客户请求并定位具体分析对象；
-2. 若客户无法提供完整信息，再通过 MCP 工具补充收集对象与查询条件；
+2. 若客户无法提供完整信息，再通过 ae-cli 命令补充收集对象与查询条件；
 3. 再从 SQL / query / dashboard 中提取当前实现口径；
 4. 再结合产品 reference 文档验证其定义语义；
 5. 先给客户一个中等粒度的口径说明；
@@ -240,7 +240,7 @@ L2 输出后，执行体仍必须再次请示客户是否已满足需求。
 
 如果客户能直接提供 SQL 查询条件，则可优先基于 SQL 对齐口径。  
 如果客户无法提供 SQL，但能提供 project / dashboard / report 信息，则可据此继续定位对象。  
-如果客户既无法提供 SQL，也无法完整提供对象定位信息，执行体才尝试通过 MCP 工具补查对应的 qp、adhoc_query 或相关配置。
+如果客户既无法提供 SQL，也无法完整提供对象定位信息，执行体才尝试通过 ae-cli 命令补查对应的 qp、adhoc_query 或相关配置。
 
 如果对象仍未定位成功：
 - 执行体不应直接给出高确定性的口径结论
@@ -839,7 +839,7 @@ L2 输出后，执行体仍必须再次请示客户是否已满足需求。
 - 之前生成的输出原文
 - 报表 / 看板链接或截图
 
-如果客户暂时无法提供完整信息，执行体才可尝试通过 MCP 工具补充收集对应的 query、adhoc_query 或配置结果。
+如果客户暂时无法提供完整信息，执行体才可尝试通过 ae-cli 命令补充收集对应的 query、adhoc_query 或配置结果。
 
 推荐话术：
 
