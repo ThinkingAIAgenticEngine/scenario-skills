@@ -1,0 +1,30 @@
+id: ae-risk-monitoring
+name: ae-risk-monitoring
+kind: scenario
+display_name: AE Risk Monitoring
+description: Monitor game operations and risk signals from AE data with read-only queries and external scheduled alerts.
+category: game-operations
+tags:
+  - risk-monitoring
+  - account-burst
+  - traffic-drop
+  - withdrawal-alert
+  - custom-rules
+  - external-scheduler
+  - game-operations
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 274
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-08-19T09:46:27.313Z"

@@ -1,0 +1,31 @@
+version: '3.24'
+# Single multi-value RFM tag.
+# Every universe member receives exactly one tag_value equal to their lifecycle
+# segment key. The platform tag is one record (rfm_segment) with N enumerated
+# values; it is NOT one tag per segment.
+#
+# Per-value (segment) display names are conversational labels localized at
+# render time per references/output_format.md §7. They are NOT stored here and
+# are NOT platform tag display names.
+#
+# The single platform tag display name is fixed below.
+tag:
+  tag_name: rfm_segment
+  tag_display_name: RFM-Segment
+  value_field: tag_value
+  # Exhaustive lifecycle value enumeration. Stable keys; do not localize.
+  values:
+    - value: champions
+    - value: lost_high_value
+    - value: loyal
+    - value: potential
+    - value: promising
+    - value: hibernating
+    - value: at_risk
+# Optional 5-band-native extension values. Emit ONLY when R, F, and M all have
+# effective_bands=5 AND the business explicitly approves the extension. These
+# split users INSIDE the already-assigned default lifecycle cohorts; they must
+# not change the seven default lifecycle boundaries.
+extension_values:
+  - value: champions_elite
+  - value: loyal_premium

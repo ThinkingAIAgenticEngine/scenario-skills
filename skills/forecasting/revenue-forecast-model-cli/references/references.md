@@ -70,8 +70,8 @@ ae-cli analysis-meta event list --project-id <id> --format table
 ae-cli analysis-meta property list --project-id <id> --event-name "<event>" --format table
 
 # Search existing reports and dashboards
-ae-cli analysis report list --project-id <id> --query "dau" --format table
-ae-cli analysis dashboard list --project-id <id> --query "revenue" --format table
+ae-cli analysis report list --project-id <id> --queries '["dau"]' --format table
+ae-cli analysis dashboard list --project-id <id> --queries '["revenue"]' --format table
 ```
 
 ### DAU / DNU / Revenue (Event Analysis)
@@ -102,8 +102,8 @@ ae-cli analysis adhoc run --project-id <id> --model-type retention --definition 
 
 ```bash
 # Check if DAU/DNU/revenue dashboards already exist
-ae-cli analysis dashboard list --project-id <id> --query "dau" --format table
-ae-cli analysis report list --project-id <id> --query "dau" --format table
+ae-cli analysis dashboard list --project-id <id> --queries '["dau"]' --format table
+ae-cli analysis report list --project-id <id> --queries '["dau"]' --format table
 
 # If found, query directly
 ae-cli analysis dashboard-report-data run \

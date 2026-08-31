@@ -45,7 +45,7 @@ Confirm with the user which definition to use, or use the standard definition if
 # Search for first purchase related dashboards
 ae-cli analysis dashboard list \
   --project-id <project_id> \
-  --query "<first_purchase_keyword>" \
+  --queries '["<first_purchase_keyword>"]' \
   --format json
 ```
 

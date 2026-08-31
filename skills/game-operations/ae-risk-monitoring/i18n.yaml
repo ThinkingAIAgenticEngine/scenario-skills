@@ -1,0 +1,12 @@
+zh:
+  name: AE 风险监测
+  description: 通过只读查询和外部定时告警，监测来自 AE 数据的游戏运营与风险信号。
+en:
+  name: AE Risk Monitoring
+  description: Monitor game operations and risk signals from AE data with read-only queries and external scheduled alerts.
+ja:
+  name: AEリスクモニタリング
+  description: AEデータからゲーム運用とリスクシグナルを読み取り専用クエリと外部スケジュールアラートで監視します。
+ko:
+  name: AE 리스크 모니터링
+  description: AE 데이터에서 게임 운영 및 리스크 신호를 읽기 전용 쿼리와 외부 예약 알림으로 모니터링합니다.

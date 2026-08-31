@@ -1,0 +1,12 @@
+zh:
+  name: 比率变化显著性分析
+  description: 判断两个时期或群体间的二元比率变化是否具有统计显著性和实际意义。
+en:
+  name: Rate Change Significance Analysis
+  description: Assess whether a binary rate changed significantly and meaningfully across two periods or groups.
+ja:
+  name: 比率変化の有意性分析
+  description: 2つの期間またはグループ間の二値比率の変化が、統計的・実務的に有意かを判定します。
+ko:
+  name: 비율 변화 유의성 분석
+  description: 두 기간 또는 그룹 간 이진 비율 변화가 통계적·실질적으로 유의한지 판단합니다.

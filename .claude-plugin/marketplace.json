@@ -24,14 +24,32 @@
       ]
     },
     {
+      "name": "game-operations-游戏运营",
+      "description": "游戏运营 / game-operations",
+      "source": "./",
+      "skills": [
+        "./skills/game-operations/ae-risk-monitoring",
+        "./skills/game-operations/game-activity-evaluation",
+        "./skills/game-operations/game-economy-balance",
+        "./skills/game-operations/game-economy-inspection",
+        "./skills/game-operations/game-testing-first-day-report",
+        "./skills/game-operations/gift-push-strategy",
+        "./skills/game-operations/level-churn-analyzer",
+        "./skills/game-operations/new-hero-insight",
+        "./skills/game-operations/puzzle-iaa-analytics",
+        "./skills/game-operations/pvp-winrate-analyzer"
+      ]
+    },
+    {
       "name": "analysis-guides-分析方法",
       "description": "分析方法 / analysis-guides",
       "source": "./",
       "skills": [
-        "./skills/analysis-guides/ae-kb-discovery",
         "./skills/analysis-guides/analysis-scope-alignment",
+        "./skills/analysis-guides/drama-quality-assessment",
         "./skills/analysis-guides/funnel-misconceptions",
         "./skills/analysis-guides/generate-sql",
+        "./skills/analysis-guides/rate-change-significance",
         "./skills/analysis-guides/system-field-reference"
       ]
     },
@@ -53,6 +71,8 @@
         "./skills/user-insight/community-analyzing-theme-comment",
         "./skills/user-insight/community-hottopic-insight",
         "./skills/user-insight/community-ops-report",
+        "./skills/user-insight/propensity-score-matching",
+        "./skills/user-insight/rfm-segmentation",
         "./skills/user-insight/single-user-inspector",
         "./skills/user-insight/user-tag-system-designer"
       ]
@@ -90,19 +110,6 @@
         "./skills/monetization/payment-funnel-analysis",
         "./skills/monetization/pricing-evaluation",
         "./skills/monetization/repeat-purchase-analysis"
-      ]
-    },
-    {
-      "name": "game-operations-游戏运营",
-      "description": "游戏运营 / game-operations",
-      "source": "./",
-      "skills": [
-        "./skills/game-operations/game-activity-evaluation",
-        "./skills/game-operations/game-economy-balance",
-        "./skills/game-operations/gift-push-strategy",
-        "./skills/game-operations/level-churn-analyzer",
-        "./skills/game-operations/new-hero-insight",
-        "./skills/game-operations/pvp-winrate-analyzer"
       ]
     },
     {

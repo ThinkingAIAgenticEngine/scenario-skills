@@ -1,0 +1,12 @@
+zh:
+  name: 倾向得分匹配
+  description: 使用倾向得分匹配估算非随机干预的增量效果。
+en:
+  name: Propensity Score Matching
+  description: Estimate the incremental effect of a non-random intervention using propensity score matching.
+ja:
+  name: 傾向スコアマッチング
+  description: 傾向スコアマッチングを使用して、非ランダム介入の増分効果を推定します。
+ko:
+  name: 성향 점수 매칭
+  description: 성향 점수 매칭을 사용하여 비무작위 개입의 증분 효과를 추정합니다.

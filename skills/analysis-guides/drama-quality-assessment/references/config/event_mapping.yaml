@@ -1,0 +1,59 @@
+# Short Drama Quality Assessment - Event/Property Mapping
+#
+# This document defines the mapping from "standard events/properties" to
+# "project-specific actual event/property names". The Agent reads this file in
+# Step 1 phase B and completes the mapping together with the results of
+# `ae-cli analysis-meta event list` / `property list`.
+#
+# Matching rule: candidate names are examples, not an exhaustive list. The Agent
+# MUST also read each event's `event_desc` / `remark` (e.g. "视频播放开始上报")
+# and match by business semantics, not by string equality alone — real projects
+# use CamelCase, prefixes, and arbitrary names. When the semantic match is clear
+# but no candidate string hits, map it and record the confirmed name to user
+# memory. Matching order: try in array order; the first name found wins.
+
+standard_events:
+  play_start: [play_start, video_play, episode_play, drama_play, EpisodeExpose]
+  play_complete: [play_complete, video_complete, episode_finish, drama_finish, EpisodeQuit]
+  episode_click: [episode_click, drama_click, video_click, HPVideoClick, TheaterClick]
+  next_episode_click: [next_episode_click, episode_skip, next_click]
+  play_progress: [play_progress, video_progress, progress]
+  payment_start: [payment_start, pay, purchase, unlock_episode, RechargeResult]
+  like: [like, video_like, drama_like]
+  comment: [comment, video_comment, drama_comment]
+  share: [share, video_share, drama_share, EpisodeShare]
+
+# Property mapping: same semantic-matching rule as events — also read prop_desc
+# and map by business meaning, not string equality alone.
+
+standard_properties:
+  episode_id: [episode_id, episode_num, chapter, video_index, episodnum]
+  drama_id: [drama_id, drama_name, drama_title, show_id]
+  progress_pct: [progress_pct, progress, play_progress_pct]
+  play_duration: [play_duration, video_duration, watch_duration]
+  is_new_user: [is_new_user, new_user, first_visit, is_register]
+
+# ---- Project Mapping Cache (stored in user memory) ----
+#
+# After the Agent completes the mapping for the first time, it writes the
+# confirmed results to the user's persistent memory (file name
+# `drama-quality-assessment-event-mapping-<project_id>.md`); on the next run for
+# the same project, the Agent reuses the memory and skips the matching step.
+# This file stays read-only; mapping results are never written back to it, to
+# avoid concurrency and contamination issues from multiple sessions/projects
+# writing to the same skill file.
+#
+# Example memory file content (standard name → project-specific actual name):
+#   play_start → drama_play
+#   play_complete → drama_finish
+#   episode_click → drama_click
+#   next_episode_click → episode_skip
+#   play_progress → play_progress
+#   payment_start → unlock_episode
+#   like → drama_like
+#   comment → drama_comment
+#   share → drama_share
+#   episode_id property → chapter
+#   drama_id property → drama_name
+#   progress_pct property → progress_pct
+#   is_new_user property → is_new_user

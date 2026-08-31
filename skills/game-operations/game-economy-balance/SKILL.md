@@ -1,6 +1,6 @@
 ---
 name: game-economy-balance
-description: "Diagnose game economy health from macro production-consumption ratio to micro source-point breakdown, localize inflation or deflation root causes, output quantified intervention strategies, and build anomaly alert mechanisms. Use when: a game operations team discovers resource production far exceeds consumption (inflation), resource depletion is degrading player experience (deflation), currency value is dropping, players are hoarding resources abnormally, or suspicious studio/cheat farming is detected. Do NOT use for: single-metric dashboard configuration, general DAU/retention analysis without economy context, payment funnel setup, or ad attribution tracking — route those to the appropriate specialized skill instead."
+description: "Diagnose confirmed or suspected game economy imbalance from macro production-consumption ratio to micro source-point and user breakdown, localize inflation or deflation root causes, output quantified intervention strategies, and build anomaly alert mechanisms. Use when: a game operations team has observed resource over-production or depletion, currency devaluation, abnormal hoarding, suspicious studio/cheat farming, or needs source attribution, remediation parameters, rollback design, or a general economy monitoring system. Do NOT use for proactive cross-domain early-warning inspection while macro economy totals still appear normal, including combat-meta concentration, nurturing breadth, backpack accumulation, equipment recycle-before-use trends, and monetization-linked slow variables; route those to game-economy-inspection. Do NOT use for single-metric dashboard configuration, general DAU/retention analysis without economy context, payment funnel setup, or ad attribution tracking."
 metadata:
   version: "1.0.0"
   dependencies:
@@ -31,7 +31,14 @@ You are a game economy system balance analysis expert, focused on helping game o
 
 **This Skill scope: "Diagnosis Analysis + Strategy Design + Alert Configuration Guidance"**
 
-- ✅ Consult on economy system analysis methods, diagnose production-consumption imbalance, design intervention strategies, build alert mechanisms.
+- ✅ Use this Skill when an economy imbalance is already observed or suspected, or when the user needs production/consumption source-point breakdown, user-tier comparison, suspicious-user investigation, quantified intervention parameters, rollback design, or a general economy alert/dashboard system.
+- ❌ Do not use this Skill to ask whether a gradual cross-domain problem is emerging while macro production-consumption totals still appear normal. Route routine or event-driven inspection of combat meta, nurturing breadth, backpack/material accumulation, equipment recycle-before-use trends, and monetization-linked slow variables to `game-economy-inspection`.
+
+### Handoff rules
+
+- If the intent is clearly early-warning inspection, route directly to `game-economy-inspection`; do not run the macro balance workflow first.
+- If the user provides verified signals or an attribution chain produced by `game-economy-inspection` and asks for deeper diagnosis or remediation, accept that evidence as the starting context. Confirm the target resource and analysis window, then continue with the relevant source-point, anomaly, intervention, or monitoring branch without repeating the inspection.
+- If a generic request such as "check game economy health" does not reveal which outcome is needed, ask one routing question: early detection of gradual cross-domain degradation → `game-economy-inspection`; diagnosis or treatment of a known/suspected resource imbalance → this Skill.
 
 ---
 
@@ -39,11 +46,11 @@ You are a game economy system balance analysis expert, focused on helping game o
 
 Based on the type of data needed, first select the correct ae-cli subcommand to fetch data; proactively query. Only guide the user to provide data when the correct data cannot be retrieved.
 
-> ae-cli command syntax follows the pattern "domain + subcommand + `run`/`export`"; the `+` prefix indicates a direct capability call (no `run` needed). When ae-cli returns "capability not found" / "not implemented", report the capability gap or degrade to framework-level analysis suggestions.
+> ae-cli 6.0.42 command syntax follows the product Skill command index. Analysis commands use explicit resource/action paths such as `analysis report-data run`; only domains whose product Skill documents `+<command>` may use the `+` form. When ae-cli returns "capability not found" / "not implemented", report the capability gap or degrade to framework-level analysis suggestions.
 
 **Using ae-cli analysis (dashboard/report aggregate data):**
 - View aggregate metrics for a time range (production-consumption totals, DAU, Payment Rate, etc.) → `ae-cli analysis report-data run -p <pid> --report-ids <ids>`
-- Query dashboard data, report data → `ae-cli analysis report` / `ae-cli analysis dashboard`
+- Discover reports/dashboards with `ae-cli analysis report list --project-id <pid> --queries '["<keyword>"]'` and `ae-cli analysis dashboard list --project-id <pid> --queries '["<keyword>"]'`; query data with `analysis report-data run` or `analysis dashboard-report-data run` using returned IDs.
 - Compare metric changes between analysis period and baseline period → `ae-cli analysis report-data run` (change `--start-time` / `--end-time`)
 
 **Using ae-cli analysis adhoc (custom analysis and detail queries):**
@@ -59,7 +66,7 @@ Based on the type of data needed, first select the correct ae-cli subcommand to 
 **Using ae-cli analysis-meta (metadata and event property queries):**
 - Get project event list → `ae-cli analysis-meta event list -p <pid>`
 - Get project property list → `ae-cli analysis-meta property list -p <pid>`
-- Query tracking field details → `ae-cli metadata event get` / `ae-cli metadata property get`
+- Query tracking field details → `ae-cli analysis-meta event get --project-id <pid> --event-name <event>` / `ae-cli analysis-meta property get --project-id <pid> --table-type <event|user> --prop-name <property>`
 
 **Decision Principle:** Prefer `report-data run` for aggregate metrics; use `adhoc run` / `event-detail run` / `entity-detail run` for custom analysis/details; use `analysis-meta event list` / `analysis-meta property list` for analysis metadata.
 

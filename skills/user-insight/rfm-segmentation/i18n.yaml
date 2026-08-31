@@ -1,0 +1,12 @@
+zh:
+  name: RFM用户价值分层
+  description: 基于AE/TE交易数据创建端到端RFM用户分层、标签与激活人群。
+en:
+  name: RFM Segmentation
+  description: Create end-to-end RFM user segments, tags, and activation clusters from AE/TE transaction data.
+ja:
+  name: RFMセグメンテーション
+  description: AE/TEトランザクションデータからエンドツーエンドのRFMユーザーセグメント、タグ、アクティベーションクラスターを作成します。
+ko:
+  name: RFM 세분화
+  description: AE/TE 거래 데이터에서 엔드투엔드 RFM 사용자 세그먼트, 태그, 활성화 클러스터를 생성합니다.

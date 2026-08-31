@@ -1,12 +1,12 @@
 zh:
-  name: "TE 模型选择助手"
-  description: "推荐最合适的 TE 分析模型并指导配置"
+  name: "TE 分析模型选择"
+  description: "在用户不确定该选择事件、漏斗、留存、路径等分析模型时提供选型指导"
 en:
   name: "TE Analysis Model Selection"
-  description: "Recommend the best TE analysis model and guide configuration"
+  description: "Guide users who are unsure whether to choose event, funnel, retention, path, or other analysis models"
 ja:
   name: "TE分析モデル選択"
-  description: "最適なTE分析モデルを推奨し、設定をガイドします"
+  description: "イベント、ファネル、リテンション、パスなど、選ぶべき分析モデルが不明な場合に選定を支援します"
 ko:
   name: "TE 분석 모델 선택"
-  description: "최적의 TE 분석 모델을 추천하고 설정을 안내합니다"
+  description: "이벤트, 퍼널, 리텐션, 경로 등 어떤 분석 모델을 선택할지 모를 때 선정을 안내합니다"

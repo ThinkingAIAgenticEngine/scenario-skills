@@ -15,16 +15,16 @@ All content in English. Exception: user explicitly requests Chinese.
 | List events | `ae-cli analysis-meta event list --project-id <id> --format json` |
 | List event properties | `ae-cli analysis-meta property list --project-id <id> --format json` |
 | List user properties | `ae-cli analysis-meta property list --project-id <id> --scope user --format json` |
-| List tags | `ae-cli analysis user-tag list --project-id <id> --query <keyword>` |
+| List tags | `ae-cli analysis user-tag list --project-id <id> --queries '["<keyword>"]'` |
 
 ### Analysis Commands
 
 | Purpose | Command |
 |---------|---------|
 | Query ad-hoc | `ae-cli analysis adhoc run --project-id <id> --model-type event --definition '<ai_definition_json>'` |
-| List dashboards | `ae-cli analysis dashboard list --project-id <id> --query LTV --format json` |
+| List dashboards | `ae-cli analysis dashboard list --project-id <id> --queries '["LTV"]' --format json` |
 | Query dashboard | `ae-cli analysis dashboard-report-data run --project-id <id> --dashboard-id <id> --start-time <date> --end-time <date> --format json` |
-| List reports | `ae-cli analysis report list --project-id <id> --query LTV` |
+| List reports | `ae-cli analysis report list --project-id <id> --queries '["LTV"]'` |
 | Query report | `ae-cli analysis report-data run --project-id <id> --report-ids '[<id>]' --start-time <date> --end-time <date>` |
 
 ### Creation Commands

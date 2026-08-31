@@ -30,7 +30,7 @@ All data comes from the **AE CLI (ae-cli)** on the ThinkingEngine / Shushu analy
 
 ### ae-cli Data Retrieval Paths (by priority)
 
-Depending on the ae-cli version and project configuration, retrieve data in the following priority order:
+Using the ae-cli 6.0.42 command contract, retrieve data in the following priority order according to the project configuration:
 
 **Path A: Existing Dashboard (fastest)**
 → First use `analysis dashboard list` / `analysis report list` to search for existing DAU/DNU/revenue assets

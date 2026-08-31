@@ -95,7 +95,7 @@ Before touching any data, collect the following information through dialogue (ca
 After information collection completes, verify that the project context and analysis access are usable.
 
 ⚠️ **Important**: First satisfy the project-ID gate, then use
-`ae-cli analysis report list --project-id <project_id> --query <channel_keyword>`
+`ae-cli analysis report list --project-id <project_id> --queries '["<channel_keyword>"]'`
 to check accessible channel-analysis assets. A tool response cannot be used to infer the
 remaining model context capacity.
 

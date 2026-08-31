@@ -99,7 +99,7 @@ both tables:
 ```bash
 ae-cli analysis-meta property list \
   --project-id <project_id> \
-  --query '<field_name>' \
+  --queries '["<field_name>"]' \
   --fields '["prop_id","prop_name","prop_desc","select_type","table_type","authentication_status"]' \
   --limit 20 \
   --offset 0

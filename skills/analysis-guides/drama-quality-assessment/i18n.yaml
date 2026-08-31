@@ -1,0 +1,12 @@
+zh:
+  name: 短剧质量评估
+  description: 从九个维度量化评分单部短剧的剧集质量，并提供 AI 诊断。
+en:
+  name: Short Drama Quality Assessment
+  description: Score a short drama's episode-level quality across nine dimensions and provide AI-powered diagnosis.
+ja:
+  name: 短編ドラマ品質評価
+  description: 1本の短編ドラマのエピソード品質を9つの観点で定量評価し、AI診断を提供します。
+ko:
+  name: 숏드라마 품질 평가
+  description: 단일 숏드라마의 에피소드 품질을 9가지 관점에서 정량 평가하고 AI 기반 진단을 제공합니다.

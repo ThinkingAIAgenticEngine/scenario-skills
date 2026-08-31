@@ -1,0 +1,30 @@
+id: rfm-segmentation
+name: rfm-segmentation
+kind: scenario
+display_name: RFM Segmentation
+description: Create end-to-end RFM user segments, tags, and activation clusters from AE/TE transaction data.
+category: user-insight
+tags:
+  - rfm
+  - user-segmentation
+  - user-value
+  - payer-tiering
+  - lapsed-payer
+  - ae-tags
+  - user-clusters
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 278
+  version_seq: 5
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-08-28T06:51:42.000Z"

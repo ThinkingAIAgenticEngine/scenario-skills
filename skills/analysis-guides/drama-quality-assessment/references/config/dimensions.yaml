@@ -1,0 +1,178 @@
+# Short Drama Quality Assessment - Dimension Definitions Config
+# Users can customize the weight and enabled status of each dimension
+
+dimensions:
+  - key: first_episode_appeal
+    name: First-Episode Appeal
+    weight: 15
+    enabled: true
+    description: First-episode click→play conversion, first-episode completion rate, 1→2 conversion rate
+    metrics:
+      - name: First-Episode Click-to-Play Conversion
+        key: first_episode_click_to_play_rate
+        type: funnel
+        description: Conversion from first-episode exposure/click to actual playback
+      - name: First-Episode Completion Rate
+        key: first_episode_completion_rate
+        type: event
+        description: Ratio of users who fully watch the first episode
+      - name: 1→2 Jump Rate
+        key: ep1_to_ep2_rate
+        type: funnel
+        description: Ratio of users who continue to episode 2 after finishing episode 1 (short-window cross-episode conversion, expressed as a funnel)
+
+  - key: completion_quality
+    name: Completion Quality
+    weight: 10
+    enabled: true
+    description: Per-episode completion rate, time-segmented completion curve
+    metrics:
+      - name: Per-Episode Completion Rate
+        key: episode_completion_rate
+        type: event
+        description: Full-play completion rate per episode
+      - name: Time-Segmented Completion Rate
+        key: segmented_completion_rate
+        type: event
+        description: Completion rate grouped by time period (hour/day)
+
+  - key: episode_pacing
+    name: In-Episode Pacing
+    weight: 10
+    enabled: true
+    description: Progress retention curve (25%/50%/75%/100%); high-churn positions are obtained via detail query and used only for Step 4 diagnosis
+    metrics:
+      - name: 25% Retention
+        key: retention_at_25pct
+        type: event
+        description: Ratio of users still watching at 25% progress
+      - name: 50% Retention
+        key: retention_at_50pct
+        type: event
+        description: Ratio of users still watching at 50% progress
+      - name: 75% Retention
+        key: retention_at_75pct
+        type: event
+        description: Ratio of users still watching at 75% progress
+      - name: 100% Retention
+        key: retention_at_100pct
+        type: event
+        description: Ratio of users who fully watch (≈ completion rate, used to compute 75%→100% retention)
+
+  - key: cliffhanger_effect
+    name: Cliffhanger Effect
+    weight: 15
+    enabled: true
+    description: Episode-end → next-episode click rate, 5s post-cliffhanger jump rate, cliffhanger failure ratio
+    metrics:
+      - name: Episode-End Jump Rate
+        key: episode_end_jump_rate
+        type: event
+        description: Ratio of users who click the next episode after reaching 90%+ of the episode end
+      - name: 5s Cliffhanger Jump Rate
+        key: cliffhanger_5s_jump_rate
+        type: event
+        description: Ratio of users who jump to the next episode within 5s of the episode end
+      - name: Cliffhanger Failure Ratio
+        key: cliffhanger_failure_rate
+        type: event
+        description: Ratio of users who leave without clicking the next episode after completion
+
+  - key: inter_episode_retention
+    name: Inter-Episode Retention
+    weight: 15
+    enabled: true
+    description: Next-day retention, inter-episode jump rate, churn point distribution
+    metrics:
+      - name: Next-Day Retention
+        key: next_day_retention
+        type: retention
+        description: Ratio of users who watch an episode today and continue to the next tomorrow
+      - name: Inter-Episode Jump Rate
+        key: inter_episode_jump_rate
+        type: funnel
+        description: Ratio of users who continue to episode N+1 after finishing episode N (short-window cross-episode conversion, expressed as a funnel)
+      - name: Churn Point Distribution
+        key: churn_point_distribution
+        type: event
+        description: Distribution of episodes where users stop following
+
+  - key: binge_depth
+    name: Binge Depth
+    weight: 10
+    enabled: true
+    description: Distribution of episodes played per session, binge ≥3 episodes ratio, binge median
+    metrics:
+      - name: Binge ≥3 Ratio
+        key: binge_3plus_rate
+        type: event
+        description: Ratio of users who watch 3+ episodes consecutively in a single session
+      - name: Binge Median
+        key: binge_median_episodes
+        type: event
+        description: Median of episodes watched consecutively in a single session
+
+  - key: payment_conversion
+    name: Payment Conversion
+    weight: 15
+    enabled: true
+    description: Payment trigger rate, post-payment watch rate
+    metrics:
+      - name: Payment Trigger Rate
+        key: payment_trigger_rate
+        type: funnel
+        description: Ratio of users who actually pay after reaching the paywalled episode
+      - name: Post-Payment Watch Rate
+        key: post_payment_watch_rate
+        type: funnel
+        description: Ratio of users who continue to the next episode after paying (short-window conversion, expressed as a funnel)
+
+  - key: heat_trend
+    name: Heat Trend
+    weight: 5
+    enabled: true
+    description: Daily plays, new-user ratio, play peak
+    metrics:
+      - name: Daily Average Plays
+        key: daily_avg_play_count
+        type: event
+        description: Average daily play count during the release period
+      - name: New-User Ratio
+        key: new_user_ratio
+        type: event
+        description: Ratio of first-time viewers of the drama to total viewers
+      - name: Play Peak
+        key: play_peak_count
+        type: event
+        description: Highest single-day play count
+
+  - key: user_engagement
+    name: User Engagement
+    weight: 5
+    enabled: true
+    description: Like rate, comment rate, share rate
+    metrics:
+      - name: Like Rate
+        key: like_rate
+        type: event
+        description: Ratio of likers to viewers
+      - name: Comment Rate
+        key: comment_rate
+        type: event
+        description: Ratio of commenters to viewers
+      - name: Share Rate
+        key: share_rate
+        type: event
+        description: Ratio of sharers to viewers
+
+# Drama type presets (can override scoring thresholds)
+drama_types:
+  - key: vertical
+    name: Vertical mini-drama
+    description: Vertical mini-dramas on platforms like Douyin/Kuaishou, 1-3 minutes per episode
+  - key: horizontal
+    name: Horizontal short drama
+    description: Horizontal short dramas on platforms like iQiyi/Youku/Tencent, 5-15 minutes per episode
+  - key: private_platform
+    name: Private-platform drama
+    description: Private-platform or mini-program dramas with varying lengths

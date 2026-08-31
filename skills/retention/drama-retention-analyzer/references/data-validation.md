@@ -23,7 +23,7 @@ If any ae-cli command returns `Cannot obtain token` (expired): run `ae-cli auth 
 
 Data source: ThinkingData, accessed via ae-cli tool.
 
-### Command Domain Mapping (⚠️ Important — verified against ae-cli 6.x)
+### Command Domain Mapping (⚠️ Important — verified against ae-cli 6.0.42)
 
 ae-cli commands are distributed across different domains. Use the exact
 registered domain and subcommand spelling. Analysis metadata lives under
@@ -40,7 +40,7 @@ registered domain and subcommand spelling. Analysis metadata lives under
 | Run event model query (⚠️ fragile) | `ae-cli analysis adhoc run --model-type event --project-id <pid> --definition '<ai_definition_json>'` | analysis |
 | Export async (large data) | `ae-cli analysis adhoc export --model-type sql --project-id <pid> --definition '<sql_json>'` | analysis |
 | Inspect async run | `ae-cli analysis run inspect --run-id <run_id>` | analysis |
-| Download artifact | `ae-cli analysis artifact download --run-id <run_id> --artifact-id <artifact_id>` | analysis |
+| Download artifact | `ae-cli analysis artifact download --run-id <run_id> --artifact-id <artifact_id> --output <local_path>` | analysis |
 
 > **Common errors**:
 > - Omitting `--project-id` from `analysis-meta event list`; the project ID is required.
@@ -68,7 +68,7 @@ ae-cli analysis adhoc run \
   --project-id <project_id> \
   --model-type sql \
   --definition "$(cat /tmp/ae_query.json)" \
-  --format json
+  --format json > /tmp/ae_query.out 2>&1
 ```
 
 Key points of the heredoc pattern:
@@ -80,16 +80,19 @@ Key points of the heredoc pattern:
 **Output parsing template** (ae-cli prints a `[ae-cli] dispatching...` prefix line before JSON):
 
 ```bash
-# Pipe to python, find first line starting with { or [
-# ⚠️ Assumes ae-cli 6.x JSON output format (data.data.rows). If using other versions,
-# verify the JSON path with: ae-cli ... | python3 -c "import sys,json; print(json.dumps(json.loads(sys.stdin.read().split('{',1)[1].rsplit('}',1)[0].join(['{','}'])))  # fallback: inspect raw structure
-ae-cli ... 2>&1 | python3 -c "
-import sys, json
-lines = sys.stdin.read().split('\n')
-start = next(i for i, l in enumerate(lines) if l.strip().startswith(('{', '[')))
-data = json.loads('\n'.join(lines[start:]))
-print(json.dumps(data['data']['rows'], indent=2, ensure_ascii=False))
-"
+# Read the saved envelope, find the first line starting with { or [, then parse it.
+# ⚠️ Assumes ae-cli 6.0.42 JSON output format (data.data.rows). For another version,
+# inspect the parsed envelope before selecting the rows path.
+python3 - /tmp/ae_query.out <<'PY'
+import json
+import pathlib
+import sys
+
+lines = pathlib.Path(sys.argv[1]).read_text().splitlines()
+start = next(i for i, line in enumerate(lines) if line.lstrip().startswith(("{", "[")))
+data = json.loads("\n".join(lines[start:]))
+print(json.dumps(data["data"]["rows"], indent=2, ensure_ascii=False))
+PY
 ```
 
 **Inline alternative** (only for very short queries, not recommended):
@@ -98,7 +101,7 @@ ae-cli analysis adhoc run \
   --project-id <project_id> \
   --model-type sql \
   --definition '{"sql":"SELECT ... FROM v_event_<pid> WHERE \"$part_date\" BETWEEN '\''<start>'\'' AND '\''<end>'\'' ... "}' \
-  --limit 1000 \
+  --preview-rows 1000 \
   --timeout-seconds 180 \
   --format json
 ```
@@ -112,7 +115,7 @@ ae-cli analysis adhoc run \
   - Use `"$part_date"` for date partition filtering (mandatory — queries without it are rejected)
   - Use `"#account_id"` / `"#distinct_id"` for user identifiers (quote with double quotes — `#` requires delimiting)
   - With heredoc pattern: SQL single quotes need no escaping; with inline pattern: must be `'\''`
-- `--limit`: Max 1000 inline rows. For larger data, use `ae-cli analysis adhoc export` (async gzip artifact)
+- `--preview-rows`: Bounds synchronous preview rows. For larger or unknown-size data, use `ae-cli analysis adhoc export` (async gzip artifact).
 - `--timeout-seconds`: Max 180
 - `--zone-offset`: **Omit by default**. Some projects reject it with `PROJECT_TZ_DISABLED`. If needed, use `99` for local-time mode.
 

@@ -1,0 +1,170 @@
+# Language-neutral result schema. Visible labels are localized at runtime.
+# Semantic keys and core-table column order remain stable across languages.
+version: '3.24'
+locale_policy:
+  allow_bilingual_only_when_explicitly_requested: true
+  preserve_identifiers:
+  - RFM
+  - AE
+  - TE
+  - LTV
+  - KPI
+  - M_raw
+  - M_scoring
+  - '#account_id'
+  - '#user_id'
+  - account_id
+result_object:
+  required_top_level_keys:
+  - status
+  - output_locale
+  success_keys:
+  - core_conclusion
+  - analysis_caliber
+  - rfm_scoring_rule
+  - segment_result
+  - segment_quality
+  - operational_strategy
+  - next_step
+  partial_keys:
+  - partial_result
+  - completed_analysis
+  - blocking_issue
+  - impact
+  - required_correction
+  - not_performed
+  failed_keys:
+  - stopped_at
+  - evidence
+  - required_input_or_correction
+  - not_performed
+success_sections:
+- core_conclusion
+- analysis_caliber
+- rfm_scoring_rule
+- segment_result
+- segment_quality
+- operational_strategy
+- next_step
+partial_sections:
+- partial_result
+- completed_analysis
+- blocking_issue
+- impact
+- required_correction
+- not_performed
+failed_sections:
+- stopped_at
+- evidence
+- required_input_or_correction
+- not_performed
+tables:
+  analysis_caliber:
+    columns:
+    - item
+    - definition
+    required_rows:
+    - project
+    - business_entity
+    - subject_field
+    - universe
+    - eligibility_lookback
+    - scoring_window
+    - reference_timestamp
+    - payment_event
+    - refund_rule
+    - frequency_rule
+    - order_dedup
+    - amount_currency
+    allow_extra_columns: false
+  scoring_rule:
+    columns:
+    - metric
+    - requested_bands
+    - effective_bands
+    - score
+    - semantic_level
+    - value_rule
+    row_count: dynamic
+    required_metric_groups:
+    - R
+    - F
+    - M_scoring
+    allow_extra_columns: false
+  clustering_profile:
+    columns:
+    - cluster
+    - user_count
+    - user_share
+    - median_R
+    - median_F
+    - median_M_raw
+    - business_profile
+    row_count: dynamic
+    allow_extra_columns: false
+  segment_result:
+    columns:
+    - segment
+    - user_count
+    - user_share
+    - revenue_share
+    - typical_profile
+    row_count: dynamic
+    require_total_row: true
+    allow_extra_columns: false
+  supplementary_segment_metrics:
+    columns:
+    - segment
+    - median_R
+    - median_F
+    - median_M_raw
+    row_count: dynamic
+    allow_extra_columns: false
+  segment_quality:
+    columns:
+    - check_item
+    - result
+    required_rows:
+    - universe_coverage
+    - exactly_once_assignment
+    - tie_preservation
+    - band_resolution_integrity
+    - scoring_boundary_direction
+    - revenue_reconciliation
+    - lapsed_user_retention
+    - entity_integrity
+    - temporal_stability
+    - migration_status
+    allow_extra_columns: false
+  operational_strategy:
+    columns:
+    - segment
+    - objective
+    - recommended_actions
+    - kpi
+    row_count: dynamic
+    allow_extra_columns: false
+  ae_tags:
+    columns:
+    - tag_name
+    - tag_value
+    - tag_display_name
+    - analytical_count
+    - platform_count
+    - analytical_difference
+    - link
+    row_count: dynamic
+    allow_extra_columns: false
+  ae_clusters:
+    columns:
+    - cluster_name
+    - cluster_display_name
+    - analytical_count
+    - platform_count
+    - member_difference
+    - link
+    row_count: dynamic
+    allow_extra_columns: false
+revenue_share_rule:
+  when_total_M_raw_gt_zero: compute_percent
+  when_total_M_raw_lte_zero_or_undefined: render_dash

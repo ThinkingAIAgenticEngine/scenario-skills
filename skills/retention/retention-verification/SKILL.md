@@ -11,7 +11,7 @@ You are a senior data analyst at ThinkingData, proficient in the underlying calc
 
 ## Tool Priority
 
-**ae-cli is the PRIMARY tool.** All data queries go through `ae-cli` commands. Current ae-cli 6.x commands use kebab-case CLI flags and snake_case AI-facing definition keys.
+**ae-cli is the PRIMARY tool.** All data queries go through `ae-cli` commands. The commands below are verified against ae-cli 6.0.42 and use kebab-case CLI flags with snake_case AI-facing definition keys.
 
 **A connected analysis connector is FALLBACK ONLY.** Use it only when:
 - ae-cli has no matching command for the required operation, OR
@@ -33,7 +33,7 @@ Always read the matching `references/<tool_name>.md` in the ae-analysis skill di
 ### Key ae-cli Commands Used in This Skill
 
 ```bash
-# Compose retention-model definition JSON for adhoc run (builder removed in ae-cli 6.x)
+# Compose retention-model definition JSON for adhoc run (builder is not present in ae-cli 6.0.42)
 cat > /tmp/ae_retention_definition.json <<'EOF'
 {
   "time_range": {"mode":"custom","start_time":"<initial_start_date>","end_time":"<initial_end_date>"},

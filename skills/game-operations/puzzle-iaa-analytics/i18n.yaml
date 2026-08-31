@@ -1,0 +1,12 @@
+zh:
+  name: 消除类IAA分析
+  description: 分析消除类IAA游戏上线数据，涵盖留存、关卡、变现、分群与流失归因
+en:
+  name: Puzzle IAA Analytics
+  description: Analyze puzzle IAA game post-launch data covering retention, levels, monetization, segmentation, and churn.
+ja:
+  name: パズルIAA分析
+  description: パズルIAAゲームのリリース後データを分析し、リテンション、レベル、収益化、セグメンテーション、解約要因をカバー
+ko:
+  name: 퍼즐 IAA 분석
+  description: 퍼즐 IAA 게임 출시 후 데이터를 분석하여 리텐션, 레벨, 수익화, 세분화, 이탈 요인 파악

@@ -2,7 +2,7 @@ id: community-ops-report
 name: community-ops-report
 kind: scenario
 display_name: "Community Operations Report"
-description: Generate community operations sentiment reports, daily flash or weekly summary
+description: Generate daily or weekly community operations sentiment reports
 category: user-insight
 tags:
   - daily-report
@@ -25,4 +25,4 @@ source:
 owners: []
 status: approved
 translation_status: approved
-updated_at: "2026-08-05T00:00:00.000Z"
+updated_at: "2026-08-14T03:50:46.000Z"

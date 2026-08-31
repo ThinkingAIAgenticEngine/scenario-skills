@@ -14,8 +14,8 @@ description: "Establishes churned user filtering conditions and segmentation ass
 | Typical Expressions | "help me analyze churned user characteristics", "what types of churned users are there", "churned user profile" |
 | Not This Skill | "why did they churn", "help me with recall operations" |
 | Core Value | Establish churned user filtering conditions directly usable for analysis and operations, describe churned user profile characteristics |
-| Main AE Capabilities | User Property / virtual-user-property, firstlast-tag, quotation-tag, Property Analysis Model |
-| Execution | ae-cli 6.x (`analysis` / `analysis-meta`), see references/ae-cli-guide.md |
+| Main AE Capabilities | User Property / virtual-user-property, first/last tag, quotation tag, Property Analysis Model |
+| Execution | ae-cli 6.0.42 (`analysis` / `analysis-meta`), see references/ae-cli-guide.md |
 
 ---
 
@@ -220,11 +220,11 @@ Execute **Operation A (source: user property)**.
 
 ```
 No available user property related to last active time.
-I recommend first creating a firstlast-tag based on the activity event to get each user's last login time; then creating a virtual-user-property "days since last active time" based on the tag, which can be used to filter churned users.
+I recommend first creating a first/last tag based on the activity event to get each user's last login time; then creating a virtual-user-property "days since last active time" based on the tag, which can be used to filter churned users.
 Do you agree with this approach? I will create it after confirmation.
 ```
 
-Execute **Operation C**, then execute **Operation A (source: firstlast-tag)**.
+Execute **Operation C**, then execute **Operation A (source: first/last tag)**.
 
 ---
 
@@ -262,22 +262,22 @@ About to create virtual-user-property. Please confirm the following parameters:
 I will create it after confirmation.
 ```
 
-**Pre-operation Confirmation - Create firstlast-tag:**
+**Pre-operation Confirmation - Create first/last tag:**
 
 Before operation, collect one parameter from user:
 ```
-I need one parameter: When was your product's launch date (or the earliest date data was stored)? The analysis period for the firstlast-tag needs to start from that date to cover all historical activity data.
+I need one parameter: When was your product's launch date (or the earliest date data was stored)? The analysis period for the first/last tag needs to start from that date to cover all historical activity data.
 ```
 
 After receiving user feedback:
 
 ```
-About to create firstlast-tag. Please confirm the following parameters:
+About to create a first/last tag. Please confirm the following parameters:
 
 | Parameter | Value | Note |
 |---|---|---|
 | Tag Name | [Last Login Time] | Can modify |
-| Tag Type | firstlast-tag | Fixed |
+| Tag Type | first/last tag | Fixed |
 | Event | [event name] | Based on user confirmation |
 | Value | Last trigger time | Fixed |
 | Analysis Period | [user confirmed start date] (static) to dynamic "Today" | Fixed structure |

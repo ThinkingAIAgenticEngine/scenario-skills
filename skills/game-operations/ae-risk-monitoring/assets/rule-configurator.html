@@ -1,0 +1,418 @@
+<div id="ae-risk-rule-configurator">
+  <h1>AE Risk Monitoring Configuration</h1>
+
+  <script id="ae-monitor-metadata" type="application/json">{"events":[],"properties":[]}</script>
+  <datalist id="ae-event-options"></datalist>
+  <datalist id="ae-property-options"></datalist>
+
+  <div class="viz-controls">
+    <label class="form-label" for="ae-project">AE project name or ID
+      <input class="form-control" id="ae-project" type="text" placeholder="Example: QA Project or 1364" autocomplete="off">
+    </label>
+    <button class="btn" id="ae-load-events" type="button">Load project events</button>
+    <label class="form-label" for="ae-execution-mode">Alert speed
+      <select class="form-select" id="ae-execution-mode">
+        <option value="fast" selected>Low latency (about 1-minute polling)</option>
+        <option value="balanced">Balanced (about 5-minute polling)</option>
+      </select>
+    </label>
+    <label class="form-label" for="ae-backtest">Historical backtest
+      <select class="form-select" id="ae-backtest">
+        <option value="7">Last 7 days</option>
+        <option value="14">Last 14 days</option>
+        <option value="30">Last 30 days</option>
+      </select>
+    </label>
+    <label class="form-label" for="ae-cadence">Check cadence
+      <select class="form-select" id="ae-cadence">
+        <option value="1" selected>Every 1 minute</option>
+        <option value="5">Every 5 minutes</option>
+        <option value="10">Every 10 minutes</option>
+        <option value="15">Every 15 minutes</option>
+      </select>
+    </label>
+    <label class="form-label" for="ae-timezone">Time zone
+      <select class="form-select" id="ae-timezone">
+        <option value="Asia/Shanghai" selected>Asia/Shanghai (UTC+8)</option>
+        <option value="UTC">UTC</option>
+        <option value="project">Use project time zone</option>
+      </select>
+    </label>
+  </div>
+
+  <p class="text-small text-muted" id="ae-metadata-status">Project events are not loaded. Enter event names manually or select "Load project events".</p>
+  <p class="text-small text-muted" id="ae-latency-budget">Low-latency mode: 30-second lateness allowance and a recommended 60-second query limit. Consecutive-period rules must still wait for every full period.</p>
+
+  <h2>Custom Formula Rules</h2>
+  <div class="viz-controls">
+    <label class="form-label" for="custom-name">Rule name
+      <input class="form-control" id="custom-name" type="text" placeholder="Example: High Payment Failure Rate" autocomplete="off">
+    </label>
+    <label class="form-label" for="custom-window">Calculation window (minutes)
+      <input class="form-control" id="custom-window" type="number" min="1" max="1440" value="10">
+    </label>
+    <label class="form-label" for="custom-consecutive">Required consecutive periods
+      <input class="form-control" id="custom-consecutive" type="number" min="1" max="12" value="2">
+    </label>
+    <label class="form-label" for="custom-severity">Alert severity
+      <select class="form-select" id="custom-severity">
+        <option value="WARNING">WARNING</option>
+        <option value="CRITICAL">CRITICAL</option>
+        <option value="INFO">INFO</option>
+      </select>
+    </label>
+  </div>
+
+  <h3>Calculate Separately by Dimension (Optional Grouping)</h3>
+  <div class="viz-row" id="custom-group-fields"></div>
+  <div class="viz-row">
+    <button class="btn btn-ghost" id="custom-add-group" type="button">Add another grouping dimension</button>
+    <span class="text-small text-muted">Use up to two shared dimensions for all metrics. Each run returns at most the five most severe anomalous groups.</span>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead>
+        <tr><th scope="col">Metric</th><th scope="col">Event</th><th scope="col">Aggregation</th><th scope="col">Numeric property</th><th scope="col">Filters</th><th scope="col">Action</th></tr>
+      </thead>
+      <tbody id="custom-metric-rows"></tbody>
+    </table>
+  </div>
+
+  <div class="viz-row">
+    <button class="btn" id="custom-add-metric" type="button">Add metric</button>
+    <span class="text-small text-muted">Count and distinct users do not require a property. Sum, average, maximum, and minimum require a numeric property.</span>
+  </div>
+
+  <div class="viz-controls">
+    <label class="form-label" for="custom-expression">Formula
+      <input class="form-control" id="custom-expression" type="text" value="A / B * 100" placeholder="Example: (A - B) / B * 100" autocomplete="off">
+    </label>
+    <label class="form-label" for="custom-comparator">Comparator
+      <select class="form-select" id="custom-comparator">
+        <option value=">=">≥</option><option value=">">&gt;</option><option value="<=">≤</option><option value="<">&lt;</option><option value="==">=</option><option value="!=">≠</option>
+      </select>
+    </label>
+    <label class="form-label" for="custom-threshold">Trigger threshold
+      <input class="form-control" id="custom-threshold" type="number" step="any" value="20">
+    </label>
+    <label class="form-label" for="custom-cooldown">Cooldown (minutes)
+      <input class="form-control" id="custom-cooldown" type="number" min="0" value="30">
+    </label>
+  </div>
+
+  <div class="viz-row" id="custom-formula-buttons" aria-label="Formula shortcuts"></div>
+  <p class="text-destructive" id="custom-rule-error" role="alert" aria-live="polite"></p>
+  <button class="btn" id="custom-save-rule" type="button">Add this custom rule</button>
+
+  <div class="table-responsive" id="custom-saved-section" hidden>
+    <table class="table table-sm">
+      <thead><tr><th scope="col">Saved rule</th><th scope="col">Metrics and formula</th><th scope="col">Trigger condition</th><th scope="col">Action</th></tr></thead>
+      <tbody id="custom-saved-rules"></tbody>
+    </table>
+  </div>
+
+  <h2>Delivery and Execution</h2>
+  <div class="viz-controls">
+    <label class="form-label" for="ae-notification-language">Notification language
+      <select class="form-select" id="ae-notification-language">
+        <option value="zh-CN" selected>Simplified Chinese</option>
+        <option value="en-US">English</option>
+      </select>
+    </label>
+    <label class="form-label" for="ae-channel">Delivery channel
+      <select class="form-select" id="ae-channel">
+        <option value="current_task" selected>Current task</option>
+        <option value="lark">Lark group or user</option>
+        <option value="slack">Slack channel</option>
+        <option value="email">Email</option>
+        <option value="webhook">Webhook</option>
+      </select>
+    </label>
+    <label class="form-label" for="ae-destination">Destination
+      <input class="form-control" id="ae-destination" type="text" value="Current task" placeholder="Group, user, email, channel, or approved URL" autocomplete="off">
+    </label>
+    <label class="form-label" for="ae-cooldown">Default cooldown
+      <select class="form-select" id="ae-cooldown">
+        <option value="10">10 minutes</option><option value="20">20 minutes</option><option value="30" selected>30 minutes</option><option value="60">60 minutes</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" id="ae-authorize" type="checkbox">
+    <label class="form-check-label" for="ae-authorize">I authorize the external monitor at the selected cadence and masked alert delivery to the selected destination. Do not use AE native alerts.</label>
+  </div>
+
+  <p class="text-destructive" id="ae-form-error" role="alert" aria-live="polite"></p>
+  <div class="card" id="ae-selection-summary" aria-live="polite"><span class="text-muted">Current selection</span><div id="ae-summary-text">0 rules selected</div></div>
+  <div class="viz-row">
+    <button class="btn" id="ae-preview" type="button">Preview configuration</button>
+    <button class="btn btn-primary" id="ae-submit" type="button">Submit and start building</button>
+  </div>
+  <pre id="ae-config-preview" hidden><code></code></pre>
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById('ae-risk-rule-configurator');
+  const metricRows = root.querySelector('#custom-metric-rows');
+  const groupFields = root.querySelector('#custom-group-fields');
+  const savedRows = root.querySelector('#custom-saved-rules');
+  const error = root.querySelector('#ae-form-error');
+  const customError = root.querySelector('#custom-rule-error');
+  const summary = root.querySelector('#ae-summary-text');
+  const preview = root.querySelector('#ae-config-preview');
+  const previewCode = preview.querySelector('code');
+  const channel = root.querySelector('#ae-channel');
+  const destination = root.querySelector('#ae-destination');
+  const expressionInput = root.querySelector('#custom-expression');
+  const customRules = [];
+  let customRuleCounter = 0;
+  let metricCounter = 0;
+
+  let metadata = { events: [], properties: [], property_types: {} };
+  try { metadata = JSON.parse(root.querySelector('#ae-monitor-metadata').textContent); } catch (ignored) { metadata = { events: [], properties: [], property_types: {} }; }
+  metadata.property_types = metadata.property_types || {};
+  const eventOptions = root.querySelector('#ae-event-options');
+  const propertyOptions = root.querySelector('#ae-property-options');
+  (metadata.events || []).forEach((name) => { const option = document.createElement('option'); option.value = name; eventOptions.appendChild(option); });
+  (metadata.properties || []).forEach((name) => { const option = document.createElement('option'); option.value = name; propertyOptions.appendChild(option); });
+  if ((metadata.events || []).length) root.querySelector('#ae-metadata-status').textContent = `Loaded ${metadata.events.length} events and ${(metadata.properties || []).length} selectable properties.`;
+
+  function addGroupField() {
+    if (groupFields.querySelectorAll('.custom-group-field').length >= 2) {
+      customError.textContent = 'Each rule supports at most two grouping dimensions.';
+      return;
+    }
+    const field = document.createElement('div');
+    field.className = 'viz-row custom-group-field';
+    const groupNumber = groupFields.querySelectorAll('.custom-group-field').length + 1;
+    field.innerHTML = `<label class="form-label">Grouping dimension ${groupNumber}<input class="form-control group-property" list="ae-property-options" type="text" placeholder="Example: channel, platform, country" aria-label="Grouping property"></label><button class="btn btn-ghost group-remove" type="button">Remove grouping</button>`;
+    field.querySelector('.group-remove').addEventListener('click', () => field.remove());
+    groupFields.appendChild(field);
+  }
+
+  function collectGroupBy() {
+    return Array.from(groupFields.querySelectorAll('.group-property')).map((input) => input.value.trim()).filter(Boolean);
+  }
+
+  function updateFilterConnectors(metricRow) {
+    Array.from(metricRow.querySelectorAll('.metric-filter-row')).forEach((filterRow, index) => {
+      const connector = filterRow.querySelector('.filter-connector');
+      connector.disabled = index === 0;
+      if (index === 0) connector.value = 'AND';
+      connector.setAttribute('aria-label', index === 0 ? 'First filter condition' : 'Relationship to the previous filter condition');
+    });
+    metricRow.querySelector('.metric-filter-empty').hidden = metricRow.querySelectorAll('.metric-filter-row').length > 0;
+  }
+
+  function addMetricFilter(metricRow) {
+    const container = metricRow.querySelector('.metric-filters');
+    if (container.querySelectorAll('.metric-filter-row').length >= 10) {
+      customError.textContent = `Metric ${metricRow.dataset.alias} supports at most 10 filter conditions.`;
+      return;
+    }
+    const filterRow = document.createElement('div');
+    filterRow.className = 'metric-filter-row viz-row';
+    filterRow.innerHTML = `<select class="form-select filter-connector"><option value="AND">AND</option><option value="OR">OR</option></select><input class="form-control filter-property" list="ae-property-options" type="text" placeholder="Property" aria-label="Filter property"><select class="form-select filter-operator" aria-label="Filter operator"><option value="eq">Equals</option><option value="neq">Does not equal</option><option value="gt">Greater than</option><option value="gte">Greater than or equal</option><option value="lt">Less than</option><option value="lte">Less than or equal</option><option value="contains">Contains</option><option value="not_contains">Does not contain</option><option value="in">In (comma-separated)</option><option value="not_in">Not in (comma-separated)</option><option value="is_set">Has value</option><option value="is_not_set">Has no value</option></select><input class="form-control filter-value" type="text" placeholder="Comparison value" aria-label="Filter comparison value" autocomplete="off"><button class="btn btn-ghost filter-remove" type="button">Remove condition</button>`;
+    const operator = filterRow.querySelector('.filter-operator');
+    const value = filterRow.querySelector('.filter-value');
+    operator.addEventListener('change', () => {
+      const unary = ['is_set', 'is_not_set'].includes(operator.value);
+      value.disabled = unary;
+      if (unary) value.value = '';
+    });
+    filterRow.querySelector('.filter-remove').addEventListener('click', () => {
+      filterRow.remove();
+      updateFilterConnectors(metricRow);
+    });
+    container.appendChild(filterRow);
+    updateFilterConnectors(metricRow);
+  }
+
+  function addMetricRow() {
+    if (metricCounter >= 8) { customError.textContent = 'Each rule supports at most eight metrics.'; return; }
+    const alias = String.fromCharCode(65 + metricCounter++);
+    const tr = document.createElement('tr');
+    tr.dataset.alias = alias;
+    tr.innerHTML = `<td><code>${alias}</code></td><td><input class="form-control metric-event" list="ae-event-options" type="text" placeholder="Select or enter an event" aria-label="Metric ${alias} event"></td><td><select class="form-select metric-aggregation" aria-label="Metric ${alias} aggregation"><option value="count">Event count</option><option value="distinct_users">Distinct users</option><option value="sum">Property sum</option><option value="avg">Property average</option><option value="max">Property maximum</option><option value="min">Property minimum</option></select></td><td><input class="form-control metric-property" list="ae-property-options" type="text" placeholder="Required for sum, average, and similar aggregations" aria-label="Metric ${alias} numeric property" disabled></td><td><div class="metric-filters"></div><span class="text-small text-muted metric-filter-empty">No filters. Count all matching events.</span><button class="btn btn-ghost metric-add-filter" type="button">Add filter condition</button></td><td><button class="btn btn-ghost metric-remove" type="button" aria-label="Remove metric ${alias}">Remove metric</button></td>`;
+    const aggregation = tr.querySelector('.metric-aggregation');
+    const property = tr.querySelector('.metric-property');
+    aggregation.addEventListener('change', () => { property.disabled = ['count', 'distinct_users'].includes(aggregation.value); if (property.disabled) property.value = ''; });
+    tr.querySelector('.metric-add-filter').addEventListener('click', () => addMetricFilter(tr));
+    tr.querySelector('.metric-remove').addEventListener('click', () => { tr.remove(); updateFormulaButtons(); });
+    metricRows.appendChild(tr);
+    updateFormulaButtons();
+  }
+
+  function metricAliases() { return Array.from(metricRows.querySelectorAll('tr')).map((row) => row.dataset.alias); }
+
+  function updateFormulaButtons() {
+    const container = root.querySelector('#custom-formula-buttons');
+    container.replaceChildren();
+    [...metricAliases(), '+', '-', '*', '/', '(', ')'].forEach((token) => {
+      const button = document.createElement('button');
+      button.className = 'btn btn-ghost';
+      button.type = 'button';
+      button.textContent = token;
+      button.addEventListener('click', () => { expressionInput.value = `${expressionInput.value} ${token}`.trim(); });
+      container.appendChild(button);
+    });
+  }
+
+  function collectCustomMetrics() {
+    return Array.from(metricRows.querySelectorAll(':scope > tr')).map((row) => ({
+      alias: row.dataset.alias,
+      event_name: row.querySelector('.metric-event').value.trim(),
+      aggregation: row.querySelector('.metric-aggregation').value,
+      property: row.querySelector('.metric-property').value.trim(),
+      filters: Array.from(row.querySelectorAll('.metric-filter-row')).map((filterRow, index) => {
+        const operator = filterRow.querySelector('.filter-operator').value;
+        const property = filterRow.querySelector('.filter-property').value.trim();
+        return {
+          connector: index === 0 ? 'AND' : filterRow.querySelector('.filter-connector').value,
+          property,
+          operator,
+          value: ['is_set', 'is_not_set'].includes(operator) ? null : filterRow.querySelector('.filter-value').value.trim(),
+          value_type: metadata.property_types[property] === 'number' ? 'number' : 'string'
+        };
+      })
+    }));
+  }
+
+  function validateCustomDraft(metrics, expression) {
+    if (!root.querySelector('#custom-name').value.trim()) return 'Enter a custom rule name.';
+    if (!metrics.length) return 'Add at least one metric.';
+    const missingEvent = metrics.find((metric) => !metric.event_name);
+    if (missingEvent) return `Select an event for metric ${missingEvent.alias}.`;
+    const missingProperty = metrics.find((metric) => ['sum', 'avg', 'max', 'min'].includes(metric.aggregation) && !metric.property);
+    if (missingProperty) return `Metric ${missingProperty.alias} requires a numeric property for this aggregation.`;
+    const groupBy = collectGroupBy();
+    if (new Set(groupBy).size !== groupBy.length) return 'Grouping dimensions must be unique.';
+    const allowedFilterOperators = new Set(['eq', 'neq', 'gt', 'gte', 'lt', 'lte', 'contains', 'not_contains', 'in', 'not_in', 'is_set', 'is_not_set']);
+    for (const metric of metrics) {
+      for (const filter of metric.filters || []) {
+        if (!filter.property) return `Metric ${metric.alias} has a filter without a property.`;
+        if (!allowedFilterOperators.has(filter.operator)) return `Metric ${metric.alias} uses an unsupported filter operator.`;
+        if (!['AND', 'OR'].includes(filter.connector)) return `Metric ${metric.alias} filter connectors must be AND or OR.`;
+        if (!['is_set', 'is_not_set'].includes(filter.operator) && !filter.value) return `Metric ${metric.alias} has a filter without a comparison value.`;
+      }
+    }
+    if (!expression || !/^[A-H0-9+\-*/().\s]+$/.test(expression)) return 'The formula may contain only metrics A-H, numbers, parentheses, and + - * /.';
+    const aliases = new Set(metrics.map((metric) => metric.alias));
+    const names = expression.match(/[A-H]/g) || [];
+    if (names.some((name) => !aliases.has(name))) return 'The formula references an undefined metric.';
+    return '';
+  }
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+  }
+
+  function renderSavedRules() {
+    savedRows.replaceChildren();
+    customRules.forEach((rule) => {
+      const tr = document.createElement('tr');
+      const metricText = rule.metrics.map((metric) => {
+        const filters = (metric.filters || []).map((filter, index) => `${index ? filter.connector + ' ' : ''}${filter.property} ${filter.operator}${filter.value === null ? '' : ' ' + filter.value}`).join(' ');
+        return `${metric.alias}=${metric.aggregation}(${metric.event_name}${metric.property ? '.' + metric.property : ''})${filters ? ' WHERE ' + filters : ''}`;
+      }).join('; ');
+      const grouping = rule.group_by && rule.group_by.length ? ` · Group by: ${rule.group_by.join(' / ')}` : '';
+      tr.innerHTML = `<td>${escapeHtml(rule.name)}</td><td><code>${escapeHtml(metricText)}</code><br><code>${escapeHtml(rule.expression)}</code>${escapeHtml(grouping)}</td><td>${rule.consecutive_periods} consecutive periods · ${escapeHtml(rule.comparator)} ${rule.threshold} · ${escapeHtml(rule.severity)}</td><td><button class="btn btn-ghost" type="button">Remove</button></td>`;
+      tr.querySelector('button').addEventListener('click', () => { const index = customRules.findIndex((item) => item.id === rule.id); if (index >= 0) customRules.splice(index, 1); renderSavedRules(); updateSummary(); });
+      savedRows.appendChild(tr);
+    });
+    root.querySelector('#custom-saved-section').hidden = customRules.length === 0;
+  }
+
+  function buildConfig() {
+    const fast = root.querySelector('#ae-execution-mode').value === 'fast';
+    return {
+      marker: 'AE_RISK_MONITOR_CONFIG',
+      project: root.querySelector('#ae-project').value.trim(),
+      backtest_days: Number(root.querySelector('#ae-backtest').value),
+      cadence_minutes: Number(root.querySelector('#ae-cadence').value),
+      execution_mode: fast ? 'fast' : 'balanced',
+      query_timeout_seconds: fast ? 60 : 120,
+      lateness_seconds: fast ? 30 : 60,
+      delivery_batching: true,
+      max_delivery_retries: 2,
+      timezone: root.querySelector('#ae-timezone').value,
+      custom_rules: customRules,
+      delivery: { channel: channel.value, destination: destination.value.trim() },
+      notification_language: root.querySelector('#ae-notification-language').value,
+      default_cooldown_minutes: Number(root.querySelector('#ae-cooldown').value),
+      authorized: root.querySelector('#ae-authorize').checked,
+      ae_native_alerts: false
+    };
+  }
+
+  function updateSummary() {
+    const config = buildConfig();
+    const count = config.custom_rules.length;
+    const longest = config.custom_rules.reduce((maximum, rule) => Math.max(maximum, rule.window_minutes * rule.consecutive_periods), 0);
+    const detection = longest ? ` · detected about ${config.cadence_minutes} minute(s) after the rule is satisfied` : '';
+    summary.textContent = `${count} custom formula rule(s) added · checked every ${config.cadence_minutes} minute(s)${detection} · delivered to ${config.delivery.destination || 'no destination'}`;
+  }
+
+  function validate(config) {
+    if (!config.project) return 'Enter an AE project name or ID.';
+    if (!config.custom_rules.length) return 'Add at least one custom formula rule.';
+    if (!config.delivery.destination) return 'Enter a notification destination.';
+    if (!config.authorized) return 'Select the authorization checkbox before submitting.';
+    return '';
+  }
+
+  root.querySelector('#ae-load-events').addEventListener('click', async () => {
+    const project = root.querySelector('#ae-project').value.trim();
+    if (!project) { error.textContent = 'Enter an AE project name or ID first.'; return; }
+    if (!window.openai || !window.openai.sendFollowUpMessage) { error.textContent = 'Automatic loading is unavailable in this environment. Enter event names manually.'; return; }
+    await window.openai.sendFollowUpMessage({ title: 'Load AE project events', prompt: `Use $ae-risk-monitoring to resolve the project in read-only mode and refresh the configuration window. Do not use AE native alerts.\n\nAE_RISK_LOAD_METADATA\n${JSON.stringify({ project })}` });
+  });
+
+  root.querySelector('#custom-add-metric').addEventListener('click', addMetricRow);
+  root.querySelector('#custom-add-group').addEventListener('click', addGroupField);
+  root.querySelector('#ae-execution-mode').addEventListener('change', (event) => {
+    const fast = event.target.value === 'fast';
+    root.querySelector('#ae-cadence').value = fast ? '1' : '5';
+    root.querySelector('#ae-latency-budget').textContent = fast
+      ? 'Low-latency mode: 30-second lateness allowance and a recommended 60-second query limit. Consecutive-period rules must still wait for every full period.'
+      : 'Balanced mode: 60-second lateness allowance and a recommended 120-second query limit.';
+    updateSummary();
+  });
+  root.querySelector('#custom-save-rule').addEventListener('click', () => {
+    const metrics = collectCustomMetrics();
+    const expression = expressionInput.value.trim();
+    const message = validateCustomDraft(metrics, expression);
+    if (message) { customError.textContent = message; return; }
+    customError.textContent = '';
+    customRuleCounter += 1;
+    const consecutivePeriods = Number(root.querySelector('#custom-consecutive').value);
+    if (!Number.isInteger(consecutivePeriods) || consecutivePeriods < 1 || consecutivePeriods > 12) { customError.textContent = 'Required consecutive periods must be an integer from 1 through 12.'; return; }
+    customRules.push({ id: `custom_rule_${customRuleCounter}`, name: root.querySelector('#custom-name').value.trim(), enabled: true, window_minutes: Number(root.querySelector('#custom-window').value), consecutive_periods: consecutivePeriods, cooldown_minutes: Number(root.querySelector('#custom-cooldown').value), group_by: collectGroupBy(), max_groups: 50, notification_group_limit: 5, metrics, expression, comparator: root.querySelector('#custom-comparator').value, threshold: Number(root.querySelector('#custom-threshold').value), severity: root.querySelector('#custom-severity').value });
+    renderSavedRules();
+    updateSummary();
+  });
+
+  channel.addEventListener('change', () => { destination.value = channel.value === 'current_task' ? 'Current task' : ''; destination.placeholder = channel.value === 'webhook' ? 'Approved webhook URL' : 'Group, user, email, or channel'; updateSummary(); });
+  root.addEventListener('input', updateSummary);
+  root.addEventListener('change', updateSummary);
+  root.querySelector('#ae-preview').addEventListener('click', () => { const config = buildConfig(); previewCode.textContent = JSON.stringify(config, null, 2); preview.hidden = false; error.textContent = ''; });
+  root.querySelector('#ae-submit').addEventListener('click', async () => {
+    const config = buildConfig();
+    const message = validate(config);
+    if (message) { error.textContent = message; return; }
+    error.textContent = '';
+    previewCode.textContent = JSON.stringify(config, null, 2);
+    preview.hidden = false;
+    if (!window.openai || !window.openai.sendFollowUpMessage) { error.textContent = 'Direct submission is unavailable in this environment. Copy the preview configuration and send it to me.'; return; }
+    await window.openai.sendFollowUpMessage({ title: 'Submit AE risk monitoring configuration', prompt: `Use $ae-risk-monitoring to build and run the following authorized configuration. Resolve the real AE project, events, and properties, safely compile custom formulas, run a historical backtest, and then create the external monitor. Do not use AE native alerts.\n\nAE_RISK_MONITOR_CONFIG\n${JSON.stringify(config, null, 2)}` });
+  });
+
+  addGroupField();
+  addMetricRow();
+  addMetricRow();
+  updateSummary();
+})();
+</script>

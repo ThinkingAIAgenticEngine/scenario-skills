@@ -68,36 +68,44 @@
     "path": "./skills/automation/ae-freeze-inactive-dashboards"
   },
   {
-    "id": "ae-kb-discovery",
-    "name": "ae-kb-discovery",
-    "display_name": "ae-kb-discovery",
-    "description": "Search and read AE/TE knowledge base content",
-    "category": "analysis-guides",
-    "category_display_name": "分析方法",
-    "tags": [],
+    "id": "ae-risk-monitoring",
+    "name": "ae-risk-monitoring",
+    "display_name": "AE Risk Monitoring",
+    "description": "Monitor game operations and risk signals from AE data with read-only queries and external scheduled alerts.",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "risk-monitoring",
+      "account-burst",
+      "traffic-drop",
+      "withdrawal-alert",
+      "custom-rules",
+      "external-scheduler",
+      "game-operations"
+    ],
     "cluster_versions": [
       "6.0",
       "6.1"
     ],
     "i18n": {
       "zh": {
-        "name": "AE 知识库检索",
-        "description": "检索和阅读 AE/TE 知识库内容"
+        "name": "AE 风险监测",
+        "description": "通过只读查询和外部定时告警，监测来自 AE 数据的游戏运营与风险信号。"
       },
       "en": {
-        "name": "AE Knowledge Base Discovery",
-        "description": "Search and read AE/TE knowledge base content"
+        "name": "AE Risk Monitoring",
+        "description": "Monitor game operations and risk signals from AE data with read-only queries and external scheduled alerts."
       },
       "ja": {
-        "name": "AE ナレッジベース検索",
-        "description": "AE/TEのナレッジベースコンテンツを検索・閲覧します"
+        "name": "AEリスクモニタリング",
+        "description": "AEデータからゲーム運用とリスクシグナルを読み取り専用クエリと外部スケジュールアラートで監視します。"
       },
       "ko": {
-        "name": "AE 지식베이스 검색",
-        "description": "AE/TE 지식베이스 콘텐츠를 검색하고 열람합니다"
+        "name": "AE 리스크 모니터링",
+        "description": "AE 데이터에서 게임 운영 및 리스크 신호를 읽기 전용 쿼리와 외부 예약 알림으로 모니터링합니다."
       }
     },
-    "path": "./skills/analysis-guides/ae-kb-discovery"
+    "path": "./skills/game-operations/ae-risk-monitoring"
   },
   {
     "id": "analysis-scope-alignment",
@@ -269,7 +277,7 @@
     "id": "community-ops-report",
     "name": "community-ops-report",
     "display_name": "Community Operations Report",
-    "description": "Generate community operations sentiment reports, daily flash or weekly summary",
+    "description": "Generate daily or weekly community operations sentiment reports",
     "category": "user-insight",
     "category_display_name": "用户洞察",
     "tags": [
@@ -285,19 +293,19 @@
     "i18n": {
       "zh": {
         "name": "社区运营报告",
-        "description": "生成社区运营舆情报告，支持日报与周报"
+        "description": "生成社区运营舆情日报或周报"
       },
       "en": {
         "name": "Community Operations Report",
-        "description": "Generate community operations sentiment reports, daily or weekly"
+        "description": "Generate daily or weekly community operations sentiment reports"
       },
       "ja": {
         "name": "コミュニティ運営レポート",
-        "description": "コミュニティ運営の世論レポートを生成、日次と週次に対応"
+        "description": "コミュニティ運営の世論日報または週報を生成します"
       },
       "ko": {
         "name": "커뮤니티 운영 보고서",
-        "description": "커뮤니티 운영 여론 보고서 생성, 일간 및 주간 지원"
+        "description": "커뮤니티 운영 여론 일간 또는 주간 보고서를 생성합니다"
       }
     },
     "path": "./skills/user-insight/community-ops-report"
@@ -435,6 +443,44 @@
       }
     },
     "path": "./skills/performance/device-performance-analysis"
+  },
+  {
+    "id": "drama-quality-assessment",
+    "name": "drama-quality-assessment",
+    "display_name": "Short Drama Quality Assessment",
+    "description": "Score a short drama's episode-level quality across nine dimensions and provide AI-powered diagnosis.",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "short-drama",
+      "quality-assessment",
+      "drama-analysis",
+      "episode-analysis",
+      "thinkingdata"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "短剧质量评估",
+        "description": "从九个维度量化评分单部短剧的剧集质量，并提供 AI 诊断。"
+      },
+      "en": {
+        "name": "Short Drama Quality Assessment",
+        "description": "Score a short drama's episode-level quality across nine dimensions and provide AI-powered diagnosis."
+      },
+      "ja": {
+        "name": "短編ドラマ品質評価",
+        "description": "1本の短編ドラマのエピソード品質を9つの観点で定量評価し、AI診断を提供します。"
+      },
+      "ko": {
+        "name": "숏드라마 품질 평가",
+        "description": "단일 숏드라마의 에피소드 품질을 9가지 관점에서 정량 평가하고 AI 기반 진단을 제공합니다."
+      }
+    },
+    "path": "./skills/analysis-guides/drama-quality-assessment"
   },
   {
     "id": "drama-retention-analyzer",
@@ -639,6 +685,83 @@
       }
     },
     "path": "./skills/game-operations/game-economy-balance"
+  },
+  {
+    "id": "game-economy-inspection",
+    "name": "game-economy-inspection",
+    "display_name": "Game Economy Health Inspection",
+    "description": "Detect gradual game economy degradation across combat, nurturing, inventory, and monetization.",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "game-economy",
+      "economy-health",
+      "slow-variable",
+      "cross-domain",
+      "inflation",
+      "meta-balance",
+      "proactive-monitoring"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "游戏经济健康巡检",
+        "description": "巡检战斗、养成、背包和商业化中的游戏经济缓慢退化。"
+      },
+      "en": {
+        "name": "Game Economy Health Inspection",
+        "description": "Detect gradual game economy degradation across combat, nurturing, inventory, and monetization."
+      },
+      "ja": {
+        "name": "ゲーム経済健全性検査",
+        "description": "戦闘・育成・所持品・収益化を横断し、ゲーム経済の緩やかな劣化を検出します。"
+      },
+      "ko": {
+        "name": "게임 경제 건전성 점검",
+        "description": "전투, 육성, 인벤토리, 수익화를 아울러 게임 경제의 점진적 악화를 탐지합니다."
+      }
+    },
+    "path": "./skills/game-operations/game-economy-inspection"
+  },
+  {
+    "id": "game-testing-first-day-report",
+    "name": "game-testing-first-day-report",
+    "display_name": "Game First-Day Testing Report",
+    "description": "Generate a first-day game testing report from TE data, covering acquisition, monetization, progression, and data quality.",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "game-testing",
+      "first-day",
+      "report",
+      "analytics"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "游戏首日测试报告",
+        "description": "从TE系统生成游戏首日测试报告，涵盖用户获取、付费、进度和数据质量。"
+      },
+      "en": {
+        "name": "Game First-Day Testing Report",
+        "description": "Generate a first-day game testing report from TE data, covering acquisition, monetization, progression, and data quality."
+      },
+      "ja": {
+        "name": "ゲーム初日テストレポート",
+        "description": "TEシステムからゲームの初日テストレポートを生成し、ユーザー獲得・マネタイズ・進行度・データ品質をカバーします。"
+      },
+      "ko": {
+        "name": "게임 첫날 테스트 보고서",
+        "description": "TE 시스템에서 게임 첫날 테스트 보고서를 생성하여, 사용자 획득·수익화·진행도·데이터 품질을 다룹니다."
+      }
+    },
+    "path": "./skills/game-operations/game-testing-first-day-report"
   },
   {
     "id": "generate-sql",
@@ -965,19 +1088,19 @@
     "i18n": {
       "zh": {
         "name": "付费归因分析",
-        "description": "诊断付费率异常，归因付费变化根因，提供多维度拆解与优化建议"
+        "description": "诊断付费率异常并归因付费变化的根本原因"
       },
       "en": {
         "name": "Payment Attribution Analysis",
-        "description": "Diagnose payment rate anomalies and attribute payment changes to root causes with multi-dimension breakdown"
+        "description": "Diagnose payment rate anomalies and attribute payment changes to root causes"
       },
       "ja": {
         "name": "決済帰属分析",
-        "description": "決済率の異常を診断し、決済変動の根本原因を特定し、多次元分析と改善提案を提供します"
+        "description": "決済率の異常を診断し、決済変動の根本原因を特定します"
       },
       "ko": {
         "name": "결제 기여 분석",
-        "description": "결제율 이상을 진단하고 결제 변화의 근본 원인을 파악하여 다차원 분석과 최적화 제안을 제공합니다"
+        "description": "결제율 이상을 진단하고 결제 변화의 근본 원인을 파악합니다"
       }
     },
     "path": "./skills/monetization/payment-attribution-analysis"
@@ -1051,6 +1174,87 @@
     "path": "./skills/monetization/pricing-evaluation"
   },
   {
+    "id": "propensity-score-matching",
+    "name": "propensity-score-matching",
+    "display_name": "Propensity Score Matching",
+    "description": "Estimate the incremental effect of a non-random intervention using propensity score matching.",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "propensity-score-matching",
+      "causal-inference",
+      "incrementality",
+      "campaign-effectiveness",
+      "treatment-effect",
+      "psm",
+      "attribution"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "倾向得分匹配",
+        "description": "使用倾向得分匹配估算非随机干预的增量效果。"
+      },
+      "en": {
+        "name": "Propensity Score Matching",
+        "description": "Estimate the incremental effect of a non-random intervention using propensity score matching."
+      },
+      "ja": {
+        "name": "傾向スコアマッチング",
+        "description": "傾向スコアマッチングを使用して、非ランダム介入の増分効果を推定します。"
+      },
+      "ko": {
+        "name": "성향 점수 매칭",
+        "description": "성향 점수 매칭을 사용하여 비무작위 개입의 증분 효과를 추정합니다."
+      }
+    },
+    "path": "./skills/user-insight/propensity-score-matching"
+  },
+  {
+    "id": "puzzle-iaa-analytics",
+    "name": "puzzle-iaa-analytics",
+    "display_name": "Puzzle IAA Analytics",
+    "description": "Analyze puzzle IAA game post-launch data covering retention, levels, monetization, segmentation, and churn.",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "iaa",
+      "puzzle",
+      "post-mortem",
+      "retention",
+      "ad-monetization",
+      "user-segmentation",
+      "churn",
+      "level-analysis"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "消除类IAA分析",
+        "description": "分析消除类IAA游戏上线数据，涵盖留存、关卡、变现、分群与流失归因"
+      },
+      "en": {
+        "name": "Puzzle IAA Analytics",
+        "description": "Analyze puzzle IAA game post-launch data covering retention, levels, monetization, segmentation, and churn."
+      },
+      "ja": {
+        "name": "パズルIAA分析",
+        "description": "パズルIAAゲームのリリース後データを分析し、リテンション、レベル、収益化、セグメンテーション、解約要因をカバー"
+      },
+      "ko": {
+        "name": "퍼즐 IAA 분석",
+        "description": "퍼즐 IAA 게임 출시 후 데이터를 분석하여 리텐션, 레벨, 수익화, 세분화, 이탈 요인 파악"
+      }
+    },
+    "path": "./skills/game-operations/puzzle-iaa-analytics"
+  },
+  {
     "id": "pvp-winrate-analyzer",
     "name": "pvp-winrate-analyzer",
     "display_name": "PVP Win Rate Analyzer",
@@ -1083,6 +1287,45 @@
       }
     },
     "path": "./skills/game-operations/pvp-winrate-analyzer"
+  },
+  {
+    "id": "rate-change-significance",
+    "name": "rate-change-significance",
+    "display_name": "Rate Change Significance Analysis",
+    "description": "Assess whether a binary rate changed significantly and meaningfully across two periods or groups.",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "statistical-significance",
+      "binary-rate",
+      "z-test",
+      "fisher-exact",
+      "mcnemar",
+      "ab-testing"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "比率变化显著性分析",
+        "description": "判断两个时期或群体间的二元比率变化是否具有统计显著性和实际意义。"
+      },
+      "en": {
+        "name": "Rate Change Significance Analysis",
+        "description": "Assess whether a binary rate changed significantly and meaningfully across two periods or groups."
+      },
+      "ja": {
+        "name": "比率変化の有意性分析",
+        "description": "2つの期間またはグループ間の二値比率の変化が、統計的・実務的に有意かを判定します。"
+      },
+      "ko": {
+        "name": "비율 변화 유의성 분석",
+        "description": "두 기간 또는 그룹 간 이진 비율 변화가 통계적·실질적으로 유의한지 판단합니다."
+      }
+    },
+    "path": "./skills/analysis-guides/rate-change-significance"
   },
   {
     "id": "repeat-purchase-analysis",
@@ -1186,6 +1429,46 @@
       }
     },
     "path": "./skills/forecasting/revenue-forecast-model-cli"
+  },
+  {
+    "id": "rfm-segmentation",
+    "name": "rfm-segmentation",
+    "display_name": "RFM Segmentation",
+    "description": "Create end-to-end RFM user segments, tags, and activation clusters from AE/TE transaction data.",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "rfm",
+      "user-segmentation",
+      "user-value",
+      "payer-tiering",
+      "lapsed-payer",
+      "ae-tags",
+      "user-clusters"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "RFM用户价值分层",
+        "description": "基于AE/TE交易数据创建端到端RFM用户分层、标签与激活人群。"
+      },
+      "en": {
+        "name": "RFM Segmentation",
+        "description": "Create end-to-end RFM user segments, tags, and activation clusters from AE/TE transaction data."
+      },
+      "ja": {
+        "name": "RFMセグメンテーション",
+        "description": "AE/TEトランザクションデータからエンドツーエンドのRFMユーザーセグメント、タグ、アクティベーションクラスターを作成します。"
+      },
+      "ko": {
+        "name": "RFM 세분화",
+        "description": "AE/TE 거래 데이터에서 엔드투엔드 RFM 사용자 세그먼트, 태그, 활성화 클러스터를 생성합니다."
+      }
+    },
+    "path": "./skills/user-insight/rfm-segmentation"
   },
   {
     "id": "single-user-inspector",
@@ -1294,7 +1577,7 @@
     "id": "te-model-selector",
     "name": "te-model-selector",
     "display_name": "TE Analysis Model Selection",
-    "description": "Recommend the best TE analysis model and guide configuration",
+    "description": "Guide users who are unsure whether to choose event, funnel, retention, path, or other analysis models",
     "category": "automation",
     "category_display_name": "自动化运营",
     "tags": [
@@ -1306,20 +1589,20 @@
     ],
     "i18n": {
       "zh": {
-        "name": "TE 模型选择助手",
-        "description": "推荐最合适的 TE 分析模型并指导配置"
+        "name": "TE 分析模型选择",
+        "description": "在用户不确定该选择事件、漏斗、留存、路径等分析模型时提供选型指导"
       },
       "en": {
         "name": "TE Analysis Model Selection",
-        "description": "Recommend the best TE analysis model and guide configuration"
+        "description": "Guide users who are unsure whether to choose event, funnel, retention, path, or other analysis models"
       },
       "ja": {
         "name": "TE分析モデル選択",
-        "description": "最適なTE分析モデルを推奨し、設定をガイドします"
+        "description": "イベント、ファネル、リテンション、パスなど、選ぶべき分析モデルが不明な場合に選定を支援します"
       },
       "ko": {
         "name": "TE 분석 모델 선택",
-        "description": "최적의 TE 분석 모델을 추천하고 설정을 안내합니다"
+        "description": "이벤트, 퍼널, 리텐션, 경로 등 어떤 분석 모델을 선택할지 모를 때 선정을 안내합니다"
       }
     },
     "path": "./skills/automation/te-model-selector"

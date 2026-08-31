@@ -1,0 +1,27 @@
+id: game-testing-first-day-report
+name: game-testing-first-day-report
+kind: scenario
+display_name: Game First-Day Testing Report
+description: Generate a first-day game testing report from TE data, covering acquisition, monetization, progression, and data quality.
+category: game-operations
+tags:
+  - game-testing
+  - first-day
+  - report
+  - analytics
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 258
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-08-19T07:18:25.926Z"

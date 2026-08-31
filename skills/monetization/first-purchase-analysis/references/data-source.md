@@ -1,4 +1,4 @@
-# First Purchase Analysis — ae-cli 6.x Data Source
+# First Purchase Analysis — ae-cli 6.0.42 Data Source
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ event/property list` and select an exact returned candidate. Do not assume
 ```bash
 ae-cli analysis dashboard list \
   --project-id <project_id> \
-  --query "<first_purchase_keyword>"
+  --queries '["<first_purchase_keyword>"]'
 
 ae-cli analysis dashboard get \
   --project-id <project_id> \
@@ -30,7 +30,7 @@ ae-cli analysis dashboard-report-data run \
 
 ae-cli analysis report list \
   --project-id <project_id> \
-  --query "<first_purchase_keyword>"
+  --queries '["<first_purchase_keyword>"]'
 
 ae-cli analysis report-data run \
   --project-id <project_id> \

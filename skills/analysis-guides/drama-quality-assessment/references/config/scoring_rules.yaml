@@ -1,0 +1,422 @@
+# Short Drama Quality Assessment - Scoring Rules Config
+# Defines threshold ranges and piecewise linear mapping rules for each metric
+
+# ============ Uniform Scoring Conventions (read these before any scoring) ============
+# 1. Contiguous tiers: every tier's `range` is an inclusive integer interval
+#    [min, max]; the next tier always starts at prev.max + 1 (no gaps, no overlap).
+# 2. Fractional raw values: before matching, clamp the raw value to the metric's
+#    domain (first tier min ~ last tier max), then round to the nearest integer
+#    (0.5 rounds up). This guarantees every real value matches exactly one tier.
+# 3. Reverse metrics: "lower is better" metrics (cliffhanger_failure_rate,
+#    churn_point_distribution) have DESCENDING score ranges (score_min > score_max);
+#    the unified linear formula below then yields a negative slope automatically.
+# 4. Point tier: when range_min == range_max, the tier returns the constant score
+#    score_min; no division happens.
+# 5. Inheritance: a drama type may declare `_inherit: <base_type>`; any metric not
+#    explicitly defined under that type falls back to the base type's tiers.
+
+# Grade definitions
+grade_definitions:
+  - grade: S
+    score_range: [85, 100]
+    label: Potential Hit
+    action: Full Promotion
+  - grade: A
+    score_range: [70, 84]
+    label: Quality Content
+    action: Continued Investment
+  - grade: B
+    score_range: [55, 69]
+    label: Average
+    action: Targeted Optimization
+  - grade: C
+    score_range: [40, 54]
+    label: Multiple Issues
+    action: Key Rectification
+  - grade: D
+    score_range: [0, 39]
+    label: Poor Quality
+    action: Stop Loss
+
+# Piecewise linear mapping rules
+# Each metric defines threshold ranges; different drama types may set different thresholds
+# Range format: [min_value, max_value] → [score_min, score_max]
+
+scoring_rules:
+  # ============ Vertical mini-drama ============
+  vertical:
+    first_episode_click_to_play_rate:
+      description: First-episode click-to-play conversion rate (%)
+      tiers:
+        - range: [0, 20]       # raw value range
+          score: [0, 30]        # mapped score range
+        - range: [21, 40]
+          score: [31, 60]
+        - range: [41, 65]
+          score: [61, 85]
+        - range: [66, 100]
+          score: [86, 100]
+
+    first_episode_completion_rate:
+      description: First-episode completion rate (%)
+      tiers:
+        - range: [0, 30]
+          score: [0, 30]
+        - range: [31, 50]
+          score: [31, 60]
+        - range: [51, 70]
+          score: [61, 85]
+        - range: [71, 100]
+          score: [86, 100]
+
+    ep1_to_ep2_rate:
+      description: Episode 1→2 jump rate (%)
+      tiers:
+        - range: [0, 25]
+          score: [0, 30]
+        - range: [26, 45]
+          score: [31, 60]
+        - range: [46, 65]
+          score: [61, 85]
+        - range: [66, 100]
+          score: [86, 100]
+
+    episode_completion_rate:
+      description: Per-episode completion rate (%)
+      tiers:
+        - range: [0, 35]
+          score: [0, 30]
+        - range: [36, 55]
+          score: [31, 60]
+        - range: [56, 75]
+          score: [61, 85]
+        - range: [76, 100]
+          score: [86, 100]
+
+    segmented_completion_rate:
+      description: Time-segmented completion rate (%)
+      tiers:
+        - range: [0, 35]
+          score: [0, 30]
+        - range: [36, 55]
+          score: [31, 60]
+        - range: [56, 75]
+          score: [61, 85]
+        - range: [76, 100]
+          score: [86, 100]
+
+    retention_at_25pct:
+      description: 25% progress retention rate (%)
+      tiers:
+        - range: [0, 40]
+          score: [0, 30]
+        - range: [41, 60]
+          score: [31, 60]
+        - range: [61, 80]
+          score: [61, 85]
+        - range: [81, 100]
+          score: [86, 100]
+
+    retention_at_50pct:
+      description: 50% progress retention rate (%)
+      tiers:
+        - range: [0, 30]
+          score: [0, 30]
+        - range: [31, 50]
+          score: [31, 60]
+        - range: [51, 70]
+          score: [61, 85]
+        - range: [71, 100]
+          score: [86, 100]
+
+    retention_at_75pct:
+      description: 75% progress retention rate (%)
+      tiers:
+        - range: [0, 25]
+          score: [0, 30]
+        - range: [26, 45]
+          score: [31, 60]
+        - range: [46, 65]
+          score: [61, 85]
+        - range: [66, 100]
+          score: [86, 100]
+
+    retention_at_100pct:
+      description: 100% progress retention rate (%, ≈ completion rate)
+      tiers:
+        - range: [0, 35]
+          score: [0, 30]
+        - range: [36, 55]
+          score: [31, 60]
+        - range: [56, 75]
+          score: [61, 85]
+        - range: [76, 100]
+          score: [86, 100]
+
+    episode_end_jump_rate:
+      description: Episode-end jump rate (%)
+      tiers:
+        - range: [0, 30]
+          score: [0, 30]
+        - range: [31, 50]
+          score: [31, 60]
+        - range: [51, 70]
+          score: [61, 85]
+        - range: [71, 100]
+          score: [86, 100]
+
+    cliffhanger_5s_jump_rate:
+      description: 5s cliffhanger jump rate (%)
+      tiers:
+        - range: [0, 20]
+          score: [0, 30]
+        - range: [21, 40]
+          score: [31, 60]
+        - range: [41, 60]
+          score: [61, 85]
+        - range: [61, 100]
+          score: [86, 100]
+
+    cliffhanger_failure_rate:
+      description: Cliffhanger failure ratio (%) - reverse metric (lower is better)
+      tiers:
+        - range: [0, 15]
+          score: [100, 86]
+        - range: [16, 30]
+          score: [85, 61]
+        - range: [31, 50]
+          score: [60, 31]
+        - range: [51, 100]
+          score: [30, 0]
+
+    next_day_retention:
+      description: Next-day retention rate (%)
+      tiers:
+        - range: [0, 15]
+          score: [0, 30]
+        - range: [16, 30]
+          score: [31, 60]
+        - range: [31, 50]
+          score: [61, 85]
+        - range: [51, 100]
+          score: [86, 100]
+
+    inter_episode_jump_rate:
+      description: Inter-episode jump rate (%)
+      tiers:
+        - range: [0, 30]
+          score: [0, 30]
+        - range: [31, 50]
+          score: [31, 60]
+        - range: [51, 70]
+          score: [61, 85]
+        - range: [71, 100]
+          score: [86, 100]
+
+    churn_point_distribution:
+      description: Churn concentration (ratio of the episode with the most churn, %) - reverse metric (lower is better)
+      tiers:
+        - range: [0, 10]
+          score: [100, 86]
+        - range: [11, 20]
+          score: [85, 61]
+        - range: [21, 35]
+          score: [60, 31]
+        - range: [36, 100]
+          score: [30, 0]
+
+    binge_3plus_rate:
+      description: Binge ≥3 episodes ratio (%)
+      tiers:
+        - range: [0, 20]
+          score: [0, 30]
+        - range: [21, 40]
+          score: [31, 60]
+        - range: [41, 60]
+          score: [61, 85]
+        - range: [61, 100]
+          score: [86, 100]
+
+    binge_median_episodes:
+      description: Binge median (episodes)
+      tiers:
+        - range: [1, 2]
+          score: [0, 30]
+        - range: [3, 4]
+          score: [31, 60]
+        - range: [5, 7]
+          score: [61, 85]
+        - range: [8, 100]
+          score: [86, 100]
+
+    payment_trigger_rate:
+      description: Payment trigger rate (%)
+      tiers:
+        - range: [0, 5]
+          score: [0, 30]
+        - range: [6, 15]
+          score: [31, 60]
+        - range: [16, 30]
+          score: [61, 85]
+        - range: [31, 100]
+          score: [86, 100]
+
+    post_payment_watch_rate:
+      description: Post-payment watch rate (%)
+      tiers:
+        - range: [0, 40]
+          score: [0, 30]
+        - range: [41, 60]
+          score: [31, 60]
+        - range: [61, 80]
+          score: [61, 85]
+        - range: [81, 100]
+          score: [86, 100]
+
+    daily_avg_play_count:
+      description: Daily average plays
+      tiers:
+        - range: [0, 1000]
+          score: [0, 30]
+        - range: [1001, 5000]
+          score: [31, 60]
+        - range: [5001, 20000]
+          score: [61, 85]
+        - range: [20001, 99999999]
+          score: [86, 100]
+
+    new_user_ratio:
+      description: New-user ratio (%)
+      tiers:
+        - range: [0, 10]
+          score: [0, 30]
+        - range: [11, 25]
+          score: [31, 60]
+        - range: [26, 45]
+          score: [61, 85]
+        - range: [46, 100]
+          score: [86, 100]
+
+    play_peak_count:
+      description: Play peak
+      tiers:
+        - range: [0, 500]
+          score: [0, 30]
+        - range: [501, 2000]
+          score: [31, 60]
+        - range: [2001, 10000]
+          score: [61, 85]
+        - range: [10001, 99999999]
+          score: [86, 100]
+
+    like_rate:
+      description: Like rate (%)
+      tiers:
+        - range: [0, 3]
+          score: [0, 30]
+        - range: [4, 8]
+          score: [31, 60]
+        - range: [9, 15]
+          score: [61, 85]
+        - range: [16, 100]
+          score: [86, 100]
+
+    comment_rate:
+      description: Comment rate (%)
+      tiers:
+        - range: [0, 1]
+          score: [0, 30]
+        - range: [2, 5]
+          score: [31, 60]
+        - range: [6, 10]
+          score: [61, 85]
+        - range: [11, 100]
+          score: [86, 100]
+
+    share_rate:
+      description: Share rate (%)
+      tiers:
+        - range: [0, 1]
+          score: [0, 30]
+        - range: [2, 3]
+          score: [31, 60]
+        - range: [4, 8]
+          score: [61, 85]
+        - range: [9, 100]
+          score: [86, 100]
+
+  # ============ Horizontal short drama ============
+  # Horizontal short dramas usually have fewer episodes and longer duration;
+  # thresholds adjusted accordingly. Metrics not listed below inherit from vertical.
+  horizontal:
+    # Inherits vertical scoring rules; the metrics below only override the differences
+    _inherit: vertical
+    first_episode_completion_rate:
+      description: First-episode completion rate (%)
+      tiers:
+        - range: [0, 25]
+          score: [0, 30]
+        - range: [26, 45]
+          score: [31, 60]
+        - range: [46, 65]
+          score: [61, 85]
+        - range: [66, 100]
+          score: [86, 100]
+
+    binge_3plus_rate:
+      description: Binge ≥3 episodes ratio (%)
+      tiers:
+        - range: [0, 15]
+          score: [0, 30]
+        - range: [16, 35]
+          score: [31, 60]
+        - range: [36, 55]
+          score: [61, 85]
+        - range: [56, 100]
+          score: [86, 100]
+
+    binge_median_episodes:
+      description: Binge median (episodes)
+      tiers:
+        - range: [1, 2]
+          score: [0, 30]
+        - range: [3, 3]        # point tier: median == 3 → constant 45 (no division)
+          score: [45, 45]
+        - range: [4, 5]
+          score: [61, 85]
+        - range: [6, 100]
+          score: [86, 100]
+
+  # ============ Private-platform drama ============
+  # Uses default thresholds; users may adjust as needed
+  private_platform:
+    # Inherits vertical scoring rules; users may override
+    _inherit: vertical
+
+# Scoring calculation function notes (for the Agent):
+#
+# 0. Normalize the raw value before tier matching:
+#    value = clamp(raw_value, first_tier.range_min, last_tier.range_max)
+#    value = round_half_up(value)   # to the nearest integer; 0.5 rounds up
+#    then find the tier whose range contains the integer value.
+#
+# 1. Linear mapping function:
+#    score = score_min + (value - range_min) / (range_max - range_min) * (score_max - score_min)
+#    - reverse metrics: score_min > score_max, so the slope is negative (works unchanged).
+#    - point tier (range_min == range_max): score = score_min, skip the division.
+#
+# 2. Dimension score calculation:
+#    metric average = Σ(metric scores in the dimension) / metric count
+#    If a sub-metric is missing (insufficient data), drop it and re-normalize the
+#    remaining sub-metric weights proportionally so they still sum to 1; mark the
+#    dropped sub-metric as N/A in the report.
+#
+# 3. Dimension score = weighted average of all metric scores in the dimension
+#    (sub-metric weights come from references/dimension_details.md).
+#
+# 4. Total score calculation:
+#    total = Σ(dimension score × dimension weight) / Σ(dimension weight)
+#    (missing dimensions are excluded; their weights are reallocated proportionally.)
+#
+# 5. Per-episode score:
+#    run the above calculation flow independently for each episode.
