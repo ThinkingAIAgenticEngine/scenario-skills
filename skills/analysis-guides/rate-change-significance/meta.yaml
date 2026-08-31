@@ -1,0 +1,29 @@
+id: rate-change-significance
+name: rate-change-significance
+kind: scenario
+display_name: Rate Change Significance Analysis
+description: Assess whether a binary rate changed significantly and meaningfully across two periods or groups.
+category: analysis-guides
+tags:
+  - statistical-significance
+  - binary-rate
+  - z-test
+  - fisher-exact
+  - mcnemar
+  - ab-testing
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 266
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-08-14T10:33:35.468Z"

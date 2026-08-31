@@ -14,7 +14,7 @@ description: "Diagnoses funnel counting rules, explains common pitfalls, and hel
 
 ## Tool Priority
 
-**ae-cli is the PRIMARY tool.** All data queries go through `ae-cli` commands. Current ae-cli 6.x commands use kebab-case CLI flags and snake_case AI-facing definition keys.
+**ae-cli is the PRIMARY tool.** All data queries go through `ae-cli` commands. The commands below are verified against ae-cli 6.0.42 and use kebab-case CLI flags with snake_case AI-facing definition keys.
 
 **A connected analysis connector is FALLBACK ONLY.** Use it only when:
 - ae-cli has no matching command for the required operation, OR
@@ -118,7 +118,7 @@ Extract from response:
 **Must do this before any data queries.** The funnel report's timezone determines how event timestamps are attributed to dates, how the window period boundaries are calculated, and whether conversion is counted within the correct window. Using a different timezone will cause incorrect date attribution and wrong diagnostic conclusions.
 
 ```bash
-ae-cli analysis project timezone get --project-id <project_id>
+ae-cli project timezone get --project-id <project_id>
 ```
 
 Prefer the saved report execution's `effective_zone_offset` as `<FUNNEL_TZ>`.
@@ -223,7 +223,7 @@ ae-cli analysis drilldown-entities run \
   --project-id <project_id> \
   --query-context-id <query_context_id> \
   --coordinate '<merged_returned_coordinate>' \
-  --limit 100
+  --preview-rows 100
 
 # Continue only when the previous result returns subject.type=user,
 # drilldown_context_id, and the matching canonical user_id.
@@ -233,7 +233,7 @@ ae-cli analysis drilldown-user-events run \
   --user-id <canonical_user_id> \
   --event-name-filter '<funnel_event_filter>' \
   --sort-order asc \
-  --limit 1000
+  --preview-rows 1000
 ```
 
 **Key parameter notes**:
@@ -266,7 +266,7 @@ ae-cli analysis event-detail run \
     "sort":[{"field":"#event_time","order":"asc"}]
   }' \
   --zone-offset <FUNNEL_TZ> \
-  --limit 1000
+  --preview-rows 1000
 ```
 
 Run this bounded query for each funnel step event, then merge the returned rows by event time. Use `event-detail export` when the requested sequence cannot fit within 1000 rows.
@@ -342,7 +342,7 @@ attribution and window boundaries.
 
 ```
 1. ae-cli analysis report get → extract config
-2. ae-cli analysis project timezone get → extract & lock <FUNNEL_TZ>
+2. ae-cli project timezone get → extract & lock <FUNNEL_TZ>
 3. Calculate actual date range (relative → absolute)
 
 4. ae-cli analysis adhoc run --zone-offset <FUNNEL_TZ> --model-type event --definition <ai_definition_json>

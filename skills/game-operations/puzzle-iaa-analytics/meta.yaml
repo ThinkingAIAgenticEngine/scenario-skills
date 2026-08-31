@@ -1,0 +1,31 @@
+id: puzzle-iaa-analytics
+name: puzzle-iaa-analytics
+kind: scenario
+display_name: Puzzle IAA Analytics
+description: Analyze puzzle IAA game post-launch data covering retention, levels, monetization, segmentation, and churn.
+category: game-operations
+tags:
+  - iaa
+  - puzzle
+  - post-mortem
+  - retention
+  - ad-monetization
+  - user-segmentation
+  - churn
+  - level-analysis
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 261
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-08-19T07:18:25.926Z"

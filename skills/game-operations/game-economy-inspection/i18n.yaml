@@ -1,0 +1,12 @@
+zh:
+  name: 游戏经济健康巡检
+  description: 巡检战斗、养成、背包和商业化中的游戏经济缓慢退化。
+en:
+  name: Game Economy Health Inspection
+  description: Detect gradual game economy degradation across combat, nurturing, inventory, and monetization.
+ja:
+  name: ゲーム経済健全性検査
+  description: 戦闘・育成・所持品・収益化を横断し、ゲーム経済の緩やかな劣化を検出します。
+ko:
+  name: 게임 경제 건전성 점검
+  description: 전투, 육성, 인벤토리, 수익화를 아울러 게임 경제의 점진적 악화를 탐지합니다.

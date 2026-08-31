@@ -169,7 +169,7 @@ If comparison objects are fundamentally incomparable, subsequent result differen
 ### Common Tools
 - `ae-cli analysis report get`
 - `ae-cli analysis report-data run`
-- `ae-cli analysis project timezone get`
+- `ae-cli project timezone get`
 
 ### Phase 2 Closing Template
 ```markdown
@@ -228,7 +228,7 @@ Key identification:
 - Current day data affected by latency
 
 Common tools:
-- `ae-cli analysis project timezone get`
+- `ae-cli project timezone get`
 - `ae-cli analysis adhoc run`
 - `ae-cli analysis report-data run`
 

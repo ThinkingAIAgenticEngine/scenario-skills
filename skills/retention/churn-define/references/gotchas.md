@@ -22,9 +22,9 @@
 
 ### 2. Exception Handling: Failed to Create AE Assets
 
-**Pitfall:** After failing to create virtual-user-property, firstlast-tag, or Property Analysis Model reports, starts trying other methods on its own
+**Pitfall:** After failing to create a virtual-user-property, first/last tag, or Property Analysis Model report, starts trying other methods on its own
 - After Step 3 fails to create virtual-user-property "days since last active", starts trying to call other tools or use other tool parameters to create churn user segments or tags
-- After Step 3-2 fails to create firstlast-tag to get user's last active time, starts trying to call other tools or use other tool parameters to create churn user segments or tags
+- After Step 3-2 fails to create a first/last tag to get the user's last active time, starts trying to call other tools or use other tool parameters to create churn user segments or tags
 - "Churned user churn day distribution" report and other segmentation dimension reports must be [Property Analysis Model] reports, cannot use Event Analysis Model reports or Distribution Analysis Model reports, once report creation fails, cannot try creating other types of reports
 
 **Correct Approach:**

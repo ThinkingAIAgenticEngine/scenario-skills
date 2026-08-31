@@ -51,8 +51,8 @@ or stable user identifier can be resolved.
 Prefer verified existing reports:
 
 ```bash
-ae-cli analysis report list --project-id <project_id> --query "PVP"
-ae-cli analysis dashboard list --project-id <project_id> --query "PVP"
+ae-cli analysis report list --project-id <project_id> --queries '["PVP"]'
+ae-cli analysis dashboard list --project-id <project_id> --queries '["PVP"]'
 ```
 
 Inspect with `report get` or `dashboard get`, then execute with

@@ -1,0 +1,71 @@
+{
+  "scenarios": [
+    {
+      "id": "currency_silent_devaluation",
+      "name": "Currency Silent Devaluation",
+      "description": "Detect nurturing currency (evolution stones, spirit fragments, etc.) silently devaluing within the economy system: currency keeps being issued and its quantity keeps growing, but the sense of growth it buys is getting weaker. Applicable to Card/RPG/SLG and other games with nurturing systems.",
+      "domains": {
+        "battle": {
+          "label": "Battle",
+          "metrics": ["§1", "§2", "§3"]
+        },
+        "economy": {
+          "label": "Economy",
+          "metrics": ["§4", "§5", "§6"]
+        },
+        "backpack": {
+          "label": "Backpack",
+          "metrics": ["§7", "§8"]
+        },
+        "monetization": {
+          "label": "Monetization",
+          "metrics": ["§9", "§10"]
+        }
+      },
+      "cross_domain_rules": [
+        {
+          "primary_signal": "§1",
+          "expected_correlated": ["§5", "§8", "§9"],
+          "min_correlation_for_alert": 2
+        },
+        {
+          "primary_signal": "§5",
+          "expected_correlated": ["§8", "§10"],
+          "min_correlation_for_alert": 1
+        }
+      ],
+      "attribution_chains": ["chain_numeric_to_monetization", "chain_content_pacing"]
+    },
+    {
+      "id": "equipment_recycle_anomaly",
+      "name": "Equipment Recycle Anomaly",
+      "description": "Detect abnormally rising recycle/salvage ratios in the equipment system, and equipment being recycled for materials in bulk instead of being used.",
+      "domains": {
+        "equipment": {
+          "label": "Equipment",
+          "metrics": ["§11"]
+        },
+        "economy": {
+          "label": "Economy",
+          "metrics": ["§4"]
+        },
+        "backpack": {
+          "label": "Backpack",
+          "metrics": ["§7"]
+        }
+      },
+      "cross_domain_rules": [
+        {
+          "primary_signal": "§11",
+          "expected_correlated": ["§7", "§4"],
+          "min_correlation_for_alert": 1
+        }
+      ],
+      "attribution_chains": ["chain_equipment_recycle"]
+    }
+  ],
+  "defaults": {
+    "query_window_days": 30,
+    "time_granularity": "week"
+  }
+}

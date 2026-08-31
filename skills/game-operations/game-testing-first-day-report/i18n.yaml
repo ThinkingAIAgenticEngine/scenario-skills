@@ -1,0 +1,12 @@
+zh:
+  name: 游戏首日测试报告
+  description: 从TE系统生成游戏首日测试报告，涵盖用户获取、付费、进度和数据质量。
+en:
+  name: Game First-Day Testing Report
+  description: Generate a first-day game testing report from TE data, covering acquisition, monetization, progression, and data quality.
+ja:
+  name: ゲーム初日テストレポート
+  description: TEシステムからゲームの初日テストレポートを生成し、ユーザー獲得・マネタイズ・進行度・データ品質をカバーします。
+ko:
+  name: 게임 첫날 테스트 보고서
+  description: TE 시스템에서 게임 첫날 테스트 보고서를 생성하여, 사용자 획득·수익화·진행도·데이터 품질을 다룹니다.

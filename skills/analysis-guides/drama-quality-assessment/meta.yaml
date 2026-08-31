@@ -1,0 +1,28 @@
+id: drama-quality-assessment
+name: drama-quality-assessment
+kind: scenario
+display_name: Short Drama Quality Assessment
+description: Score a short drama's episode-level quality across nine dimensions and provide AI-powered diagnosis.
+category: analysis-guides
+tags:
+  - short-drama
+  - quality-assessment
+  - drama-analysis
+  - episode-analysis
+  - thinkingdata
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 276
+  version_seq: 4
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-08-25T03:31:34.241Z"

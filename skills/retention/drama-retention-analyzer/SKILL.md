@@ -11,7 +11,7 @@ compatibility: [claude-code, workbuddy]
 > **Applicable industry**: Short drama (vertical short drama, mini-program drama, vertical micro-short drama)
 > **Target roles**: Short drama operations manager, data analyst, content producer
 > **One-line positioning**: Decompose retention through a 5-layer funnel + layered attribution (traffic / content / product / monetization), precisely locate retention problem inflection points and output actionable strategies. Core conclusions first, drill-down on demand.
-> **Data source**: ThinkingData, accessed via ae-cli (command syntax: `ae-cli --help`; verified against ae-cli 6.x). Metric SQL templates in `references/sql-templates.md` run via `ae-cli analysis adhoc run --model-type sql` or direct Hive/Presto/Trino access.
+> **Data source**: ThinkingData, accessed via ae-cli (command syntax: `ae-cli --help`; verified against ae-cli 6.0.42). Metric SQL templates in `references/sql-templates.md` run via `ae-cli analysis adhoc run --model-type sql` or direct Hive/Presto/Trino access.
 
 ## When to Activate
 
@@ -36,7 +36,7 @@ Trigger phrases (any of these should activate this skill):
 ## Prerequisites
 
 **Required tools:**
-- **ae-cli** (6.x) — ThinkingData CLI. Install and authenticate before use. Key commands:
+- **ae-cli** (6.0.42) — ThinkingData CLI. Install and authenticate before use. Key commands:
   - `ae-cli team +list-projects` — discover project IDs
   - `ae-cli analysis-meta event list --project-id <pid>` — list events
   - `ae-cli analysis-meta event get --project-id <pid> --event-name <name>` — get event properties
@@ -187,7 +187,7 @@ Report format: see `references/report-templates.md` (Phase 1 core report templat
 
 > User: "分析项目 1234 中短剧《厉总的替仵作》的留存，竖屏短剧，最近 7 天"
 
-1. **Step 0**: `ae-cli --version` → 6.x ✓ | `ae-cli auth status` → authenticated ✓ | `ae-cli team +list-projects` → found pid=1234 "短剧demo" | `ae-cli analysis-meta event list --project-id 1234` → returns events incl. EpisodeExpose, EpisodeQuit ✓
+1. **Step 0**: `ae-cli --version` → 6.0.42 ✓ | `ae-cli auth status` → authenticated ✓ | `ae-cli team +list-projects` → found pid=1234 "短剧demo" | `ae-cli analysis-meta event list --project-id 1234` → returns events incl. EpisodeExpose, EpisodeQuit ✓
 2. **Step 1**: drama_name="厉总的替仵作", drama_type="vertical short drama", time_range="2026-07-10 to 2026-07-17"
 3. **Step 2**: Load thresholds from drama-type-configs.md §1 (start-play ≥40%, E1 ≥70%, 3-ep ≥35%, etc.) | Auto-match events (EpisodeExpose=play_start, EpisodeQuit=play_end) via data-validation.md §1 table | Run T1.1–T5.2 SQL templates from sql-templates.md | Cross-validate type: data shows 80 eps × 5min → confirms "vertical short" ✓ | Validate properties: episode_no ✓, watch_time ✓, video_duration ✓, #distinct_id ✓ | Run §5.1 low-sample check: new_uv=3200 (>100, pass) | Run §5.2 synthetic-data sanity check: no synthetic signatures (pass)
 4. **Step 3**: L1 start-play=42% (pass), D1=18% (below 20% threshold) → load R1-3 | L2 E1 completion=58% (below 70%) → load R2-1 (Opening Hook Failure) | L3 max churn at E12 (32% churn rate, 18% contribution) → load R3-2 (Episode Content Quality Collapse) | L4 paywall at E29, paywall pass=42% (pass) | L5 finale retention=14% (pass)

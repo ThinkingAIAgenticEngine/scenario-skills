@@ -1,4 +1,4 @@
-# LTV Prediction — ae-cli 6.x Data Source
+# LTV Prediction — ae-cli 6.0.42 Data Source
 
 ## Command contract
 
@@ -17,11 +17,11 @@
 ```bash
 ae-cli analysis report list \
   --project-id <project_id> \
-  --query LTV
+  --queries '["LTV"]'
 
 ae-cli analysis dashboard list \
   --project-id <project_id> \
-  --query LTV
+  --queries '["LTV"]'
 
 ae-cli analysis report-data run \
   --project-id <project_id> \
@@ -53,7 +53,7 @@ metadata:
 ```bash
 ae-cli analysis-meta event list \
   --project-id <project_id> \
-  --query "<payment_keyword>"
+  --queries '["<payment_keyword>"]'
 
 ae-cli analysis-meta property list \
   --project-id <project_id> \
@@ -101,7 +101,7 @@ Query one RFM/tag segment:
 ```bash
 ae-cli analysis user-tag list \
   --project-id <project_id> \
-  --query "<rfm_keyword>"
+  --queries '["<rfm_keyword>"]'
 
 ae-cli analysis adhoc run \
   --project-id <project_id> \

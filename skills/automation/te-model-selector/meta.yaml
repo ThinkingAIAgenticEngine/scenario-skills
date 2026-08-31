@@ -2,7 +2,7 @@ id: te-model-selector
 name: te-model-selector
 kind: scenario
 display_name: TE Analysis Model Selection
-description: Recommend the best TE analysis model and guide configuration
+description: Guide users who are unsure whether to choose event, funnel, retention, path, or other analysis models
 category: automation
 tags:
   - analytics-guide
@@ -21,4 +21,4 @@ source:
 owners: []
 status: approved
 translation_status: approved
-updated_at: "2026-07-31T00:00:00.000Z"
+updated_at: "2026-08-28T02:58:08.000Z"

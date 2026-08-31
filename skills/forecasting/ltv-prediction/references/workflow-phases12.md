@@ -57,8 +57,8 @@ Execute 3 gates before any analysis. **Stop and ask user if any gate fails.**
 
 1. Search for existing LTV assets:
    ```bash
-   ae-cli analysis report list --project-id <id> --query LTV
-   ae-cli analysis dashboard list --project-id <id> --query LTV --format json
+   ae-cli analysis report list --project-id <id> --queries '["LTV"]'
+   ae-cli analysis dashboard list --project-id <id> --queries '["LTV"]' --format json
    ```
 
 2. **If LTV reports exist**: Inform user:
@@ -142,7 +142,7 @@ from unrelated event totals.
 
 ```bash
 # Get RFM tag members and their payment data
-ae-cli analysis user-tag list --project-id <id> --query "<RFM_TAG>"
+ae-cli analysis user-tag list --project-id <id> --queries '["<RFM_TAG>"]'
 
 # Find the tag, then query all returned segments as a group.
 ae-cli analysis adhoc run \

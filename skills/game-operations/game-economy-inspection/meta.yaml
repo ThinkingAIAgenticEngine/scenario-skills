@@ -1,0 +1,30 @@
+id: game-economy-inspection
+name: game-economy-inspection
+kind: scenario
+display_name: Game Economy Health Inspection
+description: Detect gradual game economy degradation across combat, nurturing, inventory, and monetization.
+category: game-operations
+tags:
+  - game-economy
+  - economy-health
+  - slow-variable
+  - cross-domain
+  - inflation
+  - meta-balance
+  - proactive-monitoring
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 268
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-08-19T07:18:25.926Z"

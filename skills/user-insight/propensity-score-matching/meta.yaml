@@ -1,0 +1,30 @@
+id: propensity-score-matching
+name: propensity-score-matching
+kind: scenario
+display_name: Propensity Score Matching
+description: Estimate the incremental effect of a non-random intervention using propensity score matching.
+category: user-insight
+tags:
+  - propensity-score-matching
+  - causal-inference
+  - incrementality
+  - campaign-effectiveness
+  - treatment-effect
+  - psm
+  - attribution
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 275
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-08-19T10:35:49.929Z"

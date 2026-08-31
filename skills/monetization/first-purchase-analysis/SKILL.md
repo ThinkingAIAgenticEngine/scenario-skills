@@ -151,17 +151,20 @@ After analysis, always provide:
 ### CLI Commands for First Purchase Analysis
 ```bash
 # Search existing assets first
-ae-cli analysis report list --project-id <project_id> --query "first purchase"
-ae-cli analysis dashboard list --project-id <project_id> --query "first purchase"
+ae-cli analysis report list --project-id <project_id> --queries '["first purchase"]'
+ae-cli analysis dashboard list --project-id <project_id> --queries '["first purchase"]'
 
 # If no saved definition matches, run an AI-facing event analysis
 ae-cli analysis adhoc run --project-id <project_id> --model-type event \
   --definition '<ai_facing_definition_json>'
 
 # Persist only after a successful query and explicit user confirmation
-ae-cli analysis report create ...
-ae-cli analysis dashboard create ...
-ae-cli analysis-meta asset url-get ...
+ae-cli analysis report create --project-id <project_id> --report-name "First Purchase Analysis" \
+  --model-type event --definition '<validated_ai_facing_definition_json>'
+ae-cli analysis dashboard create --project-id <project_id> --dashboard-name "First Purchase Analysis" \
+  --initial-report-id <created_report_id>
+ae-cli analysis-meta asset url-get --project-id <project_id> \
+  --resource-id <created_report_id> --resource-type report
 ```
 
 See `references/data-source.md` for detailed CLI commands and AI-facing definitions.

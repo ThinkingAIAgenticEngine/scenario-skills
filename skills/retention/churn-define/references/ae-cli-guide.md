@@ -1,4 +1,4 @@
-# churn-define | ae-cli 6.x Asset Guide
+# churn-define | ae-cli 6.0.42 Asset Guide
 
 Use this reference when the user wants to turn a churn definition into
 queryable or persisted TE assets. Read the matching current `ae-analysis`
