@@ -1,0 +1,12 @@
+zh:
+  name: 飞书数据权限同步
+  description: 将飞书表格中定义的项目级 AE/TE 数据权限同步到明确选定的一个项目中，经审批后执行并验证结果。
+en:
+  name: Feishu Data Permission Sync
+  description: Synchronize project-scoped AE/TE data permissions from a Feishu spreadsheet into an explicitly selected project, with approval and verification.
+ja:
+  name: Feishuデータ権限同期
+  description: Feishuスプレッドシートに定義されたプロジェクトスコープのAE/TEデータ権限を、明示的に選択された1つのプロジェクトへ同期し、承認と検証を行います。
+ko:
+  name: Feishu 데이터 권한 동기화
+  description: Feishu 스프레드시트에 정의된 프로젝트 범위 AE/TE 데이터 권한을 명시적으로 선택된 하나의 프로젝트에 동기화하고 승인 및 검증합니다.

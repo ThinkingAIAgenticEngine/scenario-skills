@@ -1,0 +1,29 @@
+id: ae-feishu-data-permission-sync
+name: ae-feishu-data-permission-sync
+kind: scenario
+display_name: Feishu Data Permission Sync
+description: Synchronize project-scoped AE/TE data permissions from a Feishu spreadsheet into an explicitly selected project, with approval and verification.
+category: automation
+tags:
+  - feishu
+  - data-permission
+  - access-control
+  - sync
+  - approval-workflow
+  - project-permissions
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 285
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-04T06:13:52.889Z"

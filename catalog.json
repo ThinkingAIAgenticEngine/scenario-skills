@@ -34,6 +34,45 @@
     "path": "./skills/acquisition/ad-delivery-analysis"
   },
   {
+    "id": "ae-feishu-data-permission-sync",
+    "name": "ae-feishu-data-permission-sync",
+    "display_name": "Feishu Data Permission Sync",
+    "description": "Synchronize project-scoped AE/TE data permissions from a Feishu spreadsheet into an explicitly selected project, with approval and verification.",
+    "category": "automation",
+    "category_display_name": "自动化运营",
+    "tags": [
+      "feishu",
+      "data-permission",
+      "access-control",
+      "sync",
+      "approval-workflow",
+      "project-permissions"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "飞书数据权限同步",
+        "description": "将飞书表格中定义的项目级 AE/TE 数据权限同步到明确选定的一个项目中，经审批后执行并验证结果。"
+      },
+      "en": {
+        "name": "Feishu Data Permission Sync",
+        "description": "Synchronize project-scoped AE/TE data permissions from a Feishu spreadsheet into an explicitly selected project, with approval and verification."
+      },
+      "ja": {
+        "name": "Feishuデータ権限同期",
+        "description": "Feishuスプレッドシートに定義されたプロジェクトスコープのAE/TEデータ権限を、明示的に選択された1つのプロジェクトへ同期し、承認と検証を行います。"
+      },
+      "ko": {
+        "name": "Feishu 데이터 권한 동기화",
+        "description": "Feishu 스프레드시트에 정의된 프로젝트 범위 AE/TE 데이터 권한을 명시적으로 선택된 하나의 프로젝트에 동기화하고 승인 및 검증합니다."
+      }
+    },
+    "path": "./skills/automation/ae-feishu-data-permission-sync"
+  },
+  {
     "id": "ae-freeze-inactive-dashboards",
     "name": "ae-freeze-inactive-dashboards",
     "display_name": "Freeze Inactive Dashboards",
@@ -140,6 +179,44 @@
       }
     },
     "path": "./skills/analysis-guides/analysis-scope-alignment"
+  },
+  {
+    "id": "audit-project-usage-analysis",
+    "name": "audit-project-usage-analysis",
+    "display_name": "Audit Project Usage Analysis",
+    "description": "Analyze per-user usage across Analysis, Engage, and Agent modules to assess system value.",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "usage-analysis",
+      "user-tagging",
+      "system-adoption",
+      "ae-cli",
+      "audit-project"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "审计项目使用分析",
+        "description": "分析各用户在分析、运营和 Agent 模块中的使用情况，评估系统价值。"
+      },
+      "en": {
+        "name": "Audit Project Usage Analysis",
+        "description": "Analyze per-user usage across Analysis, Engage, and Agent modules to assess system value."
+      },
+      "ja": {
+        "name": "監査プロジェクト利用分析",
+        "description": "分析・エンゲージ・Agent各モジュールのユーザー別利用状況を分析し、システム価値を評価します。"
+      },
+      "ko": {
+        "name": "감사 프로젝트 사용 분석",
+        "description": "분석, 운영, Agent 모듈별 사용자 이용 현황을 분석해 시스템 가치를 평가합니다."
+      }
+    },
+    "path": "./skills/user-insight/audit-project-usage-analysis"
   },
   {
     "id": "channel-quality-analysis",
