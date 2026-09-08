@@ -1,0 +1,12 @@
+zh:
+  name: 审计项目使用分析
+  description: 分析各用户在分析、运营和 Agent 模块中的使用情况，评估系统价值。
+en:
+  name: Audit Project Usage Analysis
+  description: Analyze per-user usage across Analysis, Engage, and Agent modules to assess system value.
+ja:
+  name: 監査プロジェクト利用分析
+  description: 分析・エンゲージ・Agent各モジュールのユーザー別利用状況を分析し、システム価値を評価します。
+ko:
+  name: 감사 프로젝트 사용 분석
+  description: 분석, 운영, Agent 모듈별 사용자 이용 현황을 분석해 시스템 가치를 평가합니다.

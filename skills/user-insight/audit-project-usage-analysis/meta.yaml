@@ -1,0 +1,28 @@
+id: audit-project-usage-analysis
+name: audit-project-usage-analysis
+kind: scenario
+display_name: Audit Project Usage Analysis
+description: Analyze per-user usage across Analysis, Engage, and Agent modules to assess system value.
+category: user-insight
+tags:
+  - usage-analysis
+  - user-tagging
+  - system-adoption
+  - ae-cli
+  - audit-project
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 283
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-02T11:35:24.392Z"

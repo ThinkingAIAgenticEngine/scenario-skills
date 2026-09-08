@@ -1,6 +1,6 @@
-# ThinkingData Scenario Skills
+# ThinkingAI Scenario Skills
 
-Install approved ThinkingData scenario Skills for your coding agent.
+Install approved ThinkingAI scenario Skills for your coding agent.
 
 ## Interactive installation
 

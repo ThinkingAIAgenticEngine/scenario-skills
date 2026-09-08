@@ -17,6 +17,7 @@
       "description": "自动化运营 / automation",
       "source": "./",
       "skills": [
+        "./skills/automation/ae-feishu-data-permission-sync",
         "./skills/automation/ae-freeze-inactive-dashboards",
         "./skills/automation/journey-intent-parser",
         "./skills/automation/mcp-trino",
@@ -54,20 +55,11 @@
       ]
     },
     {
-      "name": "retention-留存与流失",
-      "description": "留存与流失 / retention",
-      "source": "./",
-      "skills": [
-        "./skills/retention/churn-define",
-        "./skills/retention/drama-retention-analyzer",
-        "./skills/retention/retention-verification"
-      ]
-    },
-    {
       "name": "user-insight-用户洞察",
       "description": "用户洞察 / user-insight",
       "source": "./",
       "skills": [
+        "./skills/user-insight/audit-project-usage-analysis",
         "./skills/user-insight/community-analyzing-theme-comment",
         "./skills/user-insight/community-hottopic-insight",
         "./skills/user-insight/community-ops-report",
@@ -75,6 +67,16 @@
         "./skills/user-insight/rfm-segmentation",
         "./skills/user-insight/single-user-inspector",
         "./skills/user-insight/user-tag-system-designer"
+      ]
+    },
+    {
+      "name": "retention-留存与流失",
+      "description": "留存与流失 / retention",
+      "source": "./",
+      "skills": [
+        "./skills/retention/churn-define",
+        "./skills/retention/drama-retention-analyzer",
+        "./skills/retention/retention-verification"
       ]
     },
     {

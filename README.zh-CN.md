@@ -1,6 +1,6 @@
-# ThinkingData 场景 Skills
+# ThinkingAI 场景 Skills
 
-为 Coding Agent 安装已经准出的 ThinkingData 场景 Skill。
+为 Coding Agent 安装已经准出的 ThinkingAI 场景 Skill。
 
 ## 交互式安装
 
