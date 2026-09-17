@@ -1,0 +1,12 @@
+zh:
+  name: 留存指标接入事件报表
+  description: 创建留存指标，并可将其添加到事件分析报表中。
+en:
+  name: Add Retention Metrics to Event Reports
+  description: Create retention metrics and optionally add them to event analysis reports.
+ja:
+  name: リテンション指標をイベント分析レポートに追加
+  description: リテンション指標を作成し、必要に応じてイベント分析レポートに追加します。
+ko:
+  name: 리텐션 지표를 이벤트 분석 리포트에 추가
+  description: 리텐션 지표를 생성하고 필요에 따라 이벤트 분석 리포트에 추가합니다.

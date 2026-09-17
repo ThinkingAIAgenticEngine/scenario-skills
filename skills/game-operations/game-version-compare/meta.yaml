@@ -1,0 +1,30 @@
+id: game-version-compare
+name: game-version-compare
+kind: scenario
+display_name: Game Version Data Comparison Analysis
+description: Compare old vs new game version data to evaluate launch impact and diagnose issues.
+category: game-operations
+tags:
+  - version-comparison
+  - before-after
+  - cohort-analysis
+  - retention
+  - monetization
+  - performance
+  - balance
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 286
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-09T04:18:05.579Z"

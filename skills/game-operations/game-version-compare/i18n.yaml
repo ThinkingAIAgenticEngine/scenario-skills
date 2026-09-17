@@ -1,0 +1,12 @@
+zh:
+  name: 游戏版本数据对比分析
+  description: 对比游戏新旧版本数据，评估版本上线效果并诊断问题。
+en:
+  name: Game Version Data Comparison Analysis
+  description: Compare old vs new game version data to evaluate launch impact and diagnose issues.
+ja:
+  name: ゲームバージョンデータ比較分析
+  description: 新旧ゲームバージョンのデータを比較し、リリース影響を評価して問題を診断します。
+ko:
+  name: 게임 버전 데이터 비교 분석
+  description: 게임의 이전 버전과 새 버전 데이터를 비교하여 출시 영향을 평가하고 문제를 진단합니다.

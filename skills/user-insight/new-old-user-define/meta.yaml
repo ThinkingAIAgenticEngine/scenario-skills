@@ -1,0 +1,30 @@
+id: new-old-user-define
+name: new-old-user-define
+kind: scenario
+display_name: New/Old User Virtual Property Creation
+description: Create a virtual property to classify users as new or old using registration time or a user tag for analysis filtering.
+category: user-insight
+tags:
+  - new-old-user
+  - virtual-property
+  - user-classification
+  - user-segmentation
+  - registration-time
+  - timezone
+  - tag-solution
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 288
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-17T03:35:46.704Z"
