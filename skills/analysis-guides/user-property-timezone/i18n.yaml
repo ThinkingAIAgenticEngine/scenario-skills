@@ -1,0 +1,12 @@
+zh:
+  name: 用户属性时区处理
+  description: 根据用户属性中的时间字段创建可随时区切换的虚拟事件属性。
+en:
+  name: User Property Timezone Handling
+  description: Create timezone-adjusted virtual event properties from user property time fields.
+ja:
+  name: ユーザープロパティのタイムゾーン対応
+  description: ユーザープロパティの時刻項目を、分析タイムゾーンに連動して表示できる仮想イベントプロパティを作成します。
+ko:
+  name: 사용자 속성 시간대 처리
+  description: 사용자 속성의 시간 필드를 분석 시간대에 맞게 조회할 수 있는 가상 이벤트 속성을 생성합니다.

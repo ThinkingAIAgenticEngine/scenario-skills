@@ -1,0 +1,29 @@
+id: user-property-timezone
+name: user-property-timezone
+kind: scenario
+display_name: User Property Timezone Handling
+description: Create timezone-adjusted virtual event properties from user property time fields.
+category: analysis-guides
+tags:
+  - timezone
+  - user-property
+  - virtual-property
+  - datetime
+  - timestamp
+  - timezone-offset
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 277
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-17T10:39:12.230Z"

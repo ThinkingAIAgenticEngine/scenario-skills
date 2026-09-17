@@ -841,6 +841,46 @@
     "path": "./skills/game-operations/game-testing-first-day-report"
   },
   {
+    "id": "game-version-compare",
+    "name": "game-version-compare",
+    "display_name": "Game Version Data Comparison Analysis",
+    "description": "Compare old vs new game version data to evaluate launch impact and diagnose issues.",
+    "category": "game-operations",
+    "category_display_name": "游戏运营",
+    "tags": [
+      "version-comparison",
+      "before-after",
+      "cohort-analysis",
+      "retention",
+      "monetization",
+      "performance",
+      "balance"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "游戏版本数据对比分析",
+        "description": "对比游戏新旧版本数据，评估版本上线效果并诊断问题。"
+      },
+      "en": {
+        "name": "Game Version Data Comparison Analysis",
+        "description": "Compare old vs new game version data to evaluate launch impact and diagnose issues."
+      },
+      "ja": {
+        "name": "ゲームバージョンデータ比較分析",
+        "description": "新旧ゲームバージョンのデータを比較し、リリース影響を評価して問題を診断します。"
+      },
+      "ko": {
+        "name": "게임 버전 데이터 비교 분석",
+        "description": "게임의 이전 버전과 새 버전 데이터를 비교하여 출시 영향을 평가하고 문제를 진단합니다."
+      }
+    },
+    "path": "./skills/game-operations/game-version-compare"
+  },
+  {
     "id": "generate-sql",
     "name": "generate-sql",
     "display_name": "SQL Query Generator",
@@ -1148,6 +1188,46 @@
     "path": "./skills/game-operations/new-hero-insight"
   },
   {
+    "id": "new-old-user-define",
+    "name": "new-old-user-define",
+    "display_name": "New/Old User Virtual Property Creation",
+    "description": "Create a virtual property to classify users as new or old using registration time or a user tag for analysis filtering.",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "new-old-user",
+      "virtual-property",
+      "user-classification",
+      "user-segmentation",
+      "registration-time",
+      "timezone",
+      "tag-solution"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "新老用户虚拟属性创建",
+        "description": "创建虚拟属性，根据注册时间或用户标签区分新老用户，便于在分析中筛选。"
+      },
+      "en": {
+        "name": "New/Old User Virtual Property Creation",
+        "description": "Create a virtual property to classify users as new or old using registration time or a user tag for analysis filtering."
+      },
+      "ja": {
+        "name": "新規/既存ユーザー仮想プロパティ作成",
+        "description": "登録日時またはユーザータグをもとに新規/既存ユーザーを判定する仮想プロパティを作成し、分析で絞り込めるようにします。"
+      },
+      "ko": {
+        "name": "신규/기존 사용자 가상 속성 생성",
+        "description": "등록 시간 또는 사용자 태그를 기준으로 신규/기존 사용자를 구분하는 가상 속성을 생성해 분석에서 필터링할 수 있게 합니다."
+      }
+    },
+    "path": "./skills/user-insight/new-old-user-define"
+  },
+  {
     "id": "payment-attribution-analysis",
     "name": "payment-attribution-analysis",
     "display_name": "Payment Attribution Analysis",
@@ -1439,6 +1519,43 @@
     "path": "./skills/monetization/repeat-purchase-analysis"
   },
   {
+    "id": "retention-metric-to-event-report",
+    "name": "retention-metric-to-event-report",
+    "display_name": "Add Retention Metrics to Event Reports",
+    "description": "Create retention metrics and optionally add them to event analysis reports.",
+    "category": "retention",
+    "category_display_name": "留存与流失",
+    "tags": [
+      "retention",
+      "event-analysis",
+      "metric-creation",
+      "report-building"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "留存指标接入事件报表",
+        "description": "创建留存指标，并可将其添加到事件分析报表中。"
+      },
+      "en": {
+        "name": "Add Retention Metrics to Event Reports",
+        "description": "Create retention metrics and optionally add them to event analysis reports."
+      },
+      "ja": {
+        "name": "リテンション指標をイベント分析レポートに追加",
+        "description": "リテンション指標を作成し、必要に応じてイベント分析レポートに追加します。"
+      },
+      "ko": {
+        "name": "리텐션 지표를 이벤트 분석 리포트에 추가",
+        "description": "리텐션 지표를 생성하고 필요에 따라 이벤트 분석 리포트에 추가합니다."
+      }
+    },
+    "path": "./skills/retention/retention-metric-to-event-report"
+  },
+  {
     "id": "retention-verification",
     "name": "retention-verification",
     "display_name": "Retention Verification",
@@ -1717,6 +1834,45 @@
       }
     },
     "path": "./skills/data-troubleshooting/te-user-id-debug"
+  },
+  {
+    "id": "user-property-timezone",
+    "name": "user-property-timezone",
+    "display_name": "User Property Timezone Handling",
+    "description": "Create timezone-adjusted virtual event properties from user property time fields.",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "timezone",
+      "user-property",
+      "virtual-property",
+      "datetime",
+      "timestamp",
+      "timezone-offset"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "用户属性时区处理",
+        "description": "根据用户属性中的时间字段创建可随时区切换的虚拟事件属性。"
+      },
+      "en": {
+        "name": "User Property Timezone Handling",
+        "description": "Create timezone-adjusted virtual event properties from user property time fields."
+      },
+      "ja": {
+        "name": "ユーザープロパティのタイムゾーン対応",
+        "description": "ユーザープロパティの時刻項目を、分析タイムゾーンに連動して表示できる仮想イベントプロパティを作成します。"
+      },
+      "ko": {
+        "name": "사용자 속성 시간대 처리",
+        "description": "사용자 속성의 시간 필드를 분석 시간대에 맞게 조회할 수 있는 가상 이벤트 속성을 생성합니다."
+      }
+    },
+    "path": "./skills/analysis-guides/user-property-timezone"
   },
   {
     "id": "user-tag-system-designer",

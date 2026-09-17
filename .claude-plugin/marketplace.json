@@ -34,6 +34,7 @@
         "./skills/game-operations/game-economy-balance",
         "./skills/game-operations/game-economy-inspection",
         "./skills/game-operations/game-testing-first-day-report",
+        "./skills/game-operations/game-version-compare",
         "./skills/game-operations/gift-push-strategy",
         "./skills/game-operations/level-churn-analyzer",
         "./skills/game-operations/new-hero-insight",
@@ -51,7 +52,8 @@
         "./skills/analysis-guides/funnel-misconceptions",
         "./skills/analysis-guides/generate-sql",
         "./skills/analysis-guides/rate-change-significance",
-        "./skills/analysis-guides/system-field-reference"
+        "./skills/analysis-guides/system-field-reference",
+        "./skills/analysis-guides/user-property-timezone"
       ]
     },
     {
@@ -63,6 +65,7 @@
         "./skills/user-insight/community-analyzing-theme-comment",
         "./skills/user-insight/community-hottopic-insight",
         "./skills/user-insight/community-ops-report",
+        "./skills/user-insight/new-old-user-define",
         "./skills/user-insight/propensity-score-matching",
         "./skills/user-insight/rfm-segmentation",
         "./skills/user-insight/single-user-inspector",
@@ -76,6 +79,7 @@
       "skills": [
         "./skills/retention/churn-define",
         "./skills/retention/drama-retention-analyzer",
+        "./skills/retention/retention-metric-to-event-report",
         "./skills/retention/retention-verification"
       ]
     },

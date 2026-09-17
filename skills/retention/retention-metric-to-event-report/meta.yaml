@@ -1,0 +1,27 @@
+id: retention-metric-to-event-report
+name: retention-metric-to-event-report
+kind: scenario
+display_name: Add Retention Metrics to Event Reports
+description: Create retention metrics and optionally add them to event analysis reports.
+category: retention
+tags:
+  - retention
+  - event-analysis
+  - metric-creation
+  - report-building
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 284
+  version_seq: 3
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-17T06:33:47.751Z"

@@ -1,0 +1,12 @@
+zh:
+  name: 新老用户虚拟属性创建
+  description: 创建虚拟属性，根据注册时间或用户标签区分新老用户，便于在分析中筛选。
+en:
+  name: New/Old User Virtual Property Creation
+  description: Create a virtual property to classify users as new or old using registration time or a user tag for analysis filtering.
+ja:
+  name: 新規/既存ユーザー仮想プロパティ作成
+  description: 登録日時またはユーザータグをもとに新規/既存ユーザーを判定する仮想プロパティを作成し、分析で絞り込めるようにします。
+ko:
+  name: 신규/기존 사용자 가상 속성 생성
+  description: 등록 시간 또는 사용자 태그를 기준으로 신규/기존 사용자를 구분하는 가상 속성을 생성해 분석에서 필터링할 수 있게 합니다.
