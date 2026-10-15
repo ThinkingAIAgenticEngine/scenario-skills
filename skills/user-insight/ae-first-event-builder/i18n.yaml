@@ -1,0 +1,12 @@
+zh:
+  name: 首次事件资产构建器
+  description: 分析事件的首次发生情况，构建首次发生标签、虚拟事件或直接计算首次行为间隔。
+en:
+  name: First Event Asset Builder
+  description: Analyze first event occurrences and build first-occurrence tags, virtual events, or interval analysis.
+ja:
+  name: 初回イベントアセットビルダー
+  description: イベントの初回発生を分析し、初回発生タグや仮想イベントを構築、または初回行動までの間隔を直接計算します。
+ko:
+  name: 최초 이벤트 자산 빌더
+  description: 이벤트 최초 발생을 분석하고 최초 발생 태그, 가상 이벤트를 구축하거나 최초 행동까지의 간격을 직접 계산합니다.

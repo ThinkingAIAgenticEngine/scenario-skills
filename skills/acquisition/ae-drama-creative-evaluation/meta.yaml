@@ -1,0 +1,32 @@
+id: ae-drama-creative-evaluation
+name: ae-drama-creative-evaluation
+kind: scenario
+display_name: Short-Drama Ad Creative Evaluation
+description: Evaluate short-drama ad creative performance and diagnose scaling, funnel, and monetization issues.
+category: acquisition
+tags:
+  - short-drama
+  - ad-creative
+  - creative-evaluation
+  - lifecycle
+  - ROAS
+  - LTV
+  - channel-analysis
+  - attribution
+  - funnel-diagnosis
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 305
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-29T09:47:20.055Z"

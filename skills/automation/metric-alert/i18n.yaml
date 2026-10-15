@@ -1,0 +1,12 @@
+zh:
+  name: 指标监控与告警
+  description: 创建条件触发的监控任务，在指标、用户列表或数据表满足预设条件时推送告警。
+en:
+  name: Metric Alerts & Monitoring
+  description: Create monitoring tasks that alert when metrics, user lists, or data tables meet preset conditions.
+ja:
+  name: 指標モニタリングとアラート
+  description: 指標、ユーザーリスト、データテーブルが事前設定の条件を満たしたときにアラートを送信する条件付き監視タスクを作成します。
+ko:
+  name: 지표 모니터링 및 알림
+  description: 지표, 사용자 목록 또는 데이터 테이블이 설정 조건을 충족하면 알림을 보내는 모니터링 작업을 생성합니다.

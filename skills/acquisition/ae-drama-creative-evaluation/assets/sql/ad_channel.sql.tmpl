@@ -1,0 +1,35 @@
+-- Creative x Channel fit analysis (D7 mature cohort)
+-- Placeholders: {{EVENT_TABLE}} {{INSTALL_START}} {{MATURE_END}} {{OBS_END}}
+-- When a cell has <100 samples, treat the conclusion only as a "directional signal"
+with inst_ranked as (
+  select "#user_id" uid, "$part_date" d, ad_id, media_source,
+         row_number() over (
+           partition by "#user_id"
+           order by "#event_time", ad_id, media_source
+         ) rn
+  from {{EVENT_TABLE}}
+  where "#event_name" = 'ta_app_install'
+    and "$part_date" between '{{INSTALL_START}}' and '{{MATURE_END}}'
+),
+inst as (
+  select uid, d, ad_id, media_source
+  from inst_ranked
+  where rn = 1
+),
+ev as (
+  select i.ad_id, i.media_source, i.uid,
+         date_diff('day', date(i.d), date(e."$part_date")) dn,
+         e."#event_name" evn, e.is_register, e.is_success, e.pay_amount, e.ad_income
+  from inst i
+  join {{EVENT_TABLE}} e on e."#user_id" = i.uid
+  where e."$part_date" between '{{INSTALL_START}}' and '{{OBS_END}}'
+    and date_diff('day', date(i.d), date(e."$part_date")) between 0 and 7
+)
+select ad_id, media_source,
+  count(distinct uid) installs,
+  count(distinct case when evn='RegisterResult' and is_register=true and dn=0 then uid end) reg_d0,
+  count(distinct case when evn='RechargeResult' and is_success=true and dn<=7 then uid end) payer_d7,
+  round(sum(case when evn='RechargeResult' and is_success=true and dn<=7 then pay_amount end),2) iap_d7,
+  round(sum(case when evn='AdComplete' and dn<=7 then ad_income end),2) iaa_d7,
+  count(distinct case when evn='ta_app_start' and dn=7 then uid end) ret7
+from ev group by 1,2 order by ad_id, installs desc

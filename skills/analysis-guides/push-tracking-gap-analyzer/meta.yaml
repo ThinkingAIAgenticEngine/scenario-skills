@@ -1,0 +1,29 @@
+id: push-tracking-gap-analyzer
+name: push-tracking-gap-analyzer
+kind: scenario
+display_name: Push Tracking Gap Analyzer
+description: Compare tracking plans with push strategies to identify missing events and properties, then produce a Feishu supplement.
+category: analysis-guides
+tags:
+  - push-tracking
+  - tracking-plan
+  - gap-analysis
+  - push-notification
+  - feishu
+  - engagement
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 300
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-23T10:17:34.086Z"

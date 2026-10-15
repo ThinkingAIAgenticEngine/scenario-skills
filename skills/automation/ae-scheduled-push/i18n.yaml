@@ -1,0 +1,12 @@
+zh:
+  name: 定时推送
+  description: 创建并运行按时间触发的定时推送任务，用于推送指标、名单/明细导出和分析报告。
+en:
+  name: Scheduled Push
+  description: Create and run scheduled time-driven push tasks for metrics, lists, detail exports, and analysis reports.
+ja:
+  name: 定期プッシュ
+  description: 指標、リスト・明細エクスポート、分析レポートを送信する、時間トリガーの定期プッシュタスクを作成・実行します。
+ko:
+  name: 예약 푸시
+  description: 지표, 목록/상세 내보내기, 분석 리포트를 전송하는 시간 기반 예약 푸시 작업을 만들고 실행합니다.

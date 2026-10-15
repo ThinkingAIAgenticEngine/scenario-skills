@@ -1,0 +1,32 @@
+id: ae-first-event-builder
+name: ae-first-event-builder
+kind: scenario
+display_name: First Event Asset Builder
+description: Analyze first event occurrences and build first-occurrence tags, virtual events, or interval analysis.
+category: user-insight
+tags:
+  - first-event
+  - first-occurrence
+  - time-to-first
+  - first-purchase
+  - daily-first
+  - user-tag
+  - virtual-event
+  - interval-analysis
+  - is-first
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 314
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-10-08T06:06:52.773Z"

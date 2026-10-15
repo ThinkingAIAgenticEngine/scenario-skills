@@ -1,0 +1,31 @@
+id: ab-test-analysis
+name: ab-test-analysis
+kind: scenario
+display_name: A/B Test Analysis
+description: Determine whether an A/B test variant won, with significance, guardrail, and rollout guidance in a shareable HTML report.
+category: analysis-guides
+tags:
+  - ab-test
+  - experiment-analysis
+  - significance-testing
+  - conversion-rate
+  - guardrail
+  - bonferroni
+  - bayesian
+  - html-report
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 294
+  version_seq: 15
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-21T06:55:06.553Z"

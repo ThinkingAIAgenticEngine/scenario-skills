@@ -1,0 +1,12 @@
+zh:
+  name: AE 业务指标口径库初始化
+  description: 初始化并编译共享的业务指标口径知识库，并按项目追加实际口径，供 AE 分析复用。
+en:
+  name: AE Business Metrics KB Bootstrap
+  description: Initialize and compile a shared business metrics definition knowledge base, then append project-specific metric definitions for reuse in AE analysis.
+ja:
+  name: AE ビジネス指標定義KB初期化
+  description: 共有のビジネス指標定義ナレッジベースを初期化・コンパイルし、プロジェクト別の指標定義を追加してAE分析で再利用できるようにします。
+ko:
+  name: AE 비즈니스 지표 정의 KB 초기화
+  description: 공유 비즈니스 지표 정의 지식 베이스를 초기화하고 컴파일한 뒤 프로젝트별 지표 정의를 추가하여 AE 분석에서 재사용할 수 있도록 합니다.

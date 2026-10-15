@@ -1,0 +1,27 @@
+-- Payment structure per creative (break down D7 successful orders by payment item, identify tier penetration anomalies)
+-- Placeholders: {{EVENT_TABLE}} {{INSTALL_START}} {{MATURE_END}} {{OBS_END}}
+-- Diagnostic usage: when a creative has 0 orders in a specific tier, first investigate the reach pipeline (recharge popup exposure coverage)
+with inst_ranked as (
+  select "#user_id" uid, "$part_date" d, ad_id,
+         row_number() over (
+           partition by "#user_id"
+           order by "#event_time", ad_id
+         ) rn
+  from {{EVENT_TABLE}}
+  where "#event_name" = 'ta_app_install'
+    and "$part_date" between '{{INSTALL_START}}' and '{{MATURE_END}}'
+),
+inst as (
+  select uid, d, ad_id
+  from inst_ranked
+  where rn = 1
+)
+select i.ad_id, e.payment_name,
+  count(*) orders,
+  round(sum(e.pay_amount),2) amt
+from inst i
+join {{EVENT_TABLE}} e on e."#user_id" = i.uid
+where e."#event_name" = 'RechargeResult' and e.is_success = true
+  and e."$part_date" between '{{INSTALL_START}}' and '{{OBS_END}}'
+  and date_diff('day', date(i.d), date(e."$part_date")) between 0 and 7
+group by 1,2 order by 1, amt desc

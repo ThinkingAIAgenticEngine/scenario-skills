@@ -1,0 +1,29 @@
+id: nth-event-tag-builder
+name: nth-event-tag-builder
+kind: scenario
+display_name: Nth Event Tag Builder
+description: Build SQL user tags for the Nth event occurrence or the most recent N events within a window, then use them to segment users.
+category: user-insight
+tags:
+  - user-tag
+  - sql-tag
+  - nth-event
+  - recent-n
+  - event-analysis
+  - user-segmentation
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 292
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-20T09:34:25.941Z"

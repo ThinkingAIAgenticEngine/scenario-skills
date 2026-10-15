@@ -1,0 +1,38 @@
+{
+  "task_name": "Daily Recharge Details",
+  "project_id": 2,
+  "project_name": "Card Game DEMO",
+  "cli_version": "6.1.25",
+  "content": {
+    "kind": "data",
+    "window_freq": "daily",
+    "queries": [
+      {
+        "label": "Recharge Details",
+        "mode": "rows",
+        "source": "sql",
+        "sql_template": "SELECT \"#user_id\" AS \"User ID\", \"pay_amount\" AS \"Recharge Amount\" FROM (SELECT \"#user_id\", \"pay_amount\", IF(((\"#zone_offset\" IS NOT NULL) AND (\"#zone_offset\" >= -30) AND (\"#zone_offset\" <= 30)), date_add('second', CAST((/* settlement timezone = spec.timezone.offset, 8 in this example -- replace with the actual project value */ 8 - \"#zone_offset\") * 3600 AS integer), \"#event_time\"), \"#event_time\") AS shifted_time FROM ta.v_event_2 WHERE \"$part_event\" = 'payment' AND \"$part_date\" BETWEEN date_format(date('{{date}}') - INTERVAL '1' DAY, '%Y-%m-%d') AND date_format(date('{{date}}') + INTERVAL '1' DAY, '%Y-%m-%d')) t WHERE date(shifted_time) = date('{{date}}') LIMIT 50000",
+        "fetch": "export",
+        "summary": [
+          {"column": "Recharge Amount", "agg": "sum", "name": "Total Payment Amount"},
+          {"column": "User ID", "agg": "count_distinct", "name": "Total Paying Users"},
+          {"agg": "count", "name": "Payment Count"}
+        ]
+      }
+    ],
+    "message": {"template": "builtin:plain", "preview_rows": 100},
+    "file": {"name_template": "recharge_details_{date}.csv", "detail_query": "Recharge Details"},
+    "on_empty": "push"
+  },
+  "delivery": {
+    "mechanisms": [
+      {
+        "mechanism": "im_cli",
+        "tool": "lark-cli",
+        "target": {"type": "user", "id": "ou_xxx"},
+        "file_ok": true
+      }
+    ]
+  },
+  "timezone": {"multi_tz": true, "offset": 8, "offset_source": "project_default", "zone_offset_column": "#zone_offset"}
+}

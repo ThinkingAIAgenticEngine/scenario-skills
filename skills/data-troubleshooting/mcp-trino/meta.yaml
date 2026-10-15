@@ -3,7 +3,7 @@ name: mcp-trino
 kind: scenario
 display_name: "Trino Inspection / Diagnostics"
 description: Inspect Trino metadata, table schemas, and query execution plans
-category: automation
+category: data-troubleshooting
 tags: []
 cluster_versions:
   - "6.0"
@@ -21,4 +21,4 @@ source:
 owners: []
 status: approved
 translation_status: approved
-updated_at: "2026-07-27T07:14:47.608Z"
+updated_at: "2026-09-22T04:03:39.000Z"

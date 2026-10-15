@@ -1,0 +1,30 @@
+id: metric-alert
+name: metric-alert
+kind: scenario
+display_name: Metric Alerts & Monitoring
+description: Create monitoring tasks that alert when metrics, user lists, or data tables meet preset conditions.
+category: automation
+tags:
+  - metric-alert
+  - monitoring
+  - alerting
+  - scheduled-tasks
+  - anomaly-detection
+  - user-monitoring
+  - ae-cli
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 295
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-21T08:53:54.203Z"

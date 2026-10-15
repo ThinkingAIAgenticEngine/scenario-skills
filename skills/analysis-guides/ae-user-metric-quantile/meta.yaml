@@ -1,0 +1,34 @@
+id: ae-user-metric-quantile
+name: ae-user-metric-quantile
+kind: scenario
+display_name: User-Level Metric Statistics
+description: Compute user-level metric statistics such as average, median, percentile, variance, and standard deviation, then publish results to reports and dashboards.
+category: analysis-guides
+tags:
+  - user-metric
+  - quantile
+  - percentile
+  - median
+  - variance
+  - stddev
+  - user-tag
+  - virtual-property
+  - event-analysis
+  - ae-cli
+  - metric-aggregation
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 296
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-28T05:40:21.217Z"

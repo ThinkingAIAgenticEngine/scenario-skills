@@ -1,0 +1,12 @@
+zh:
+  name: 直播/语聊/派对房渗透率诊断
+  description: 诊断直播、语聊房、派对房的进入渗透率下滑，定位有证据支撑的根因并给出优先级行动建议。
+en:
+  name: Live/Voice/Party Room Penetration Diagnosis
+  description: Diagnose live-stream, voice-room, or party-room room-entry penetration declines and identify evidence-backed root causes with prioritized actions.
+ja:
+  name: ライブ・音声・パーティールーム入室率診断
+  description: ライブ配信、音声ルーム、パーティールームの入室率低下を診断し、証拠に基づく根本原因と優先度付き施策を提示します。
+ko:
+  name: 라이브·음성·파티룸 입장률 진단
+  description: 라이브 스트리밍, 음성방, 파티룸의 입장률 하락을 진단하고 증거 기반 근본 원인과 우선순위 조치를 제시합니다.

@@ -1,0 +1,12 @@
+zh:
+  name: 推送埋点缺口分析
+  description: 比对现有埋点方案与推送策略，识别缺失的事件和属性，并生成 Feishu 补充表。
+en:
+  name: Push Tracking Gap Analyzer
+  description: Compare tracking plans with push strategies to identify missing events and properties, then produce a Feishu supplement.
+ja:
+  name: プッシュトラッキングギャップ分析
+  description: 既存のトラッキング計画とプッシュ戦略を比較し、不足しているイベントとプロパティを特定して、Feishu の補足スプレッドシートを作成します。
+ko:
+  name: 푸시 트래킹 갭 분석
+  description: 기존 트래킹 플랜과 푸시 전략을 비교해 누락된 이벤트와 속성을 식별하고 Feishu 보완 스프레드시트를 생성합니다.

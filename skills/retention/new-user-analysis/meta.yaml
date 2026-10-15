@@ -1,0 +1,30 @@
+id: new-user-analysis
+name: new-user-analysis
+kind: scenario
+display_name: New User Quality & Retention Analysis
+description: Diagnose new-user quality and retention, from first-day behavior and channel attribution to structural changes.
+category: retention
+tags:
+  - new-user-analysis
+  - first-day-quality
+  - retention-attribution
+  - behavior-path
+  - cohort-analysis
+  - acquisition-quality
+  - structural-mutation
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 291
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-18T06:06:53.429Z"

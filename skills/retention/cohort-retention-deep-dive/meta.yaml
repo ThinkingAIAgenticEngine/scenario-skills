@@ -1,0 +1,30 @@
+id: cohort-retention-deep-dive
+name: cohort-retention-deep-dive
+kind: scenario
+display_name: Cohort Retention Deep Dive
+description: Diagnose retention shifts, identify key drivers, and prioritize optimization hypotheses.
+category: retention
+tags:
+  - retention-attribution
+  - cohort-analysis
+  - inflection-point
+  - key-behavior-correlation
+  - optimization-levers
+  - cross-vertical
+  - churn-diagnosis
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 299
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-23T09:42:45.453Z"

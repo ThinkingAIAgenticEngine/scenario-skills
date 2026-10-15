@@ -1,0 +1,24 @@
+-- Creative lifecycle: weekly activation volume (identify volume trend; without impressions/spend, use activation volume only as a fatigue proxy)
+-- Placeholders: {{EVENT_TABLE}} {{INSTALL_START}} {{OBS_END}}
+-- Note: {{INSTALL_START}} is the attribution data start point, not necessarily the creative launch date; must be explained in the report
+with inst_ranked as (
+  select "#user_id" uid, "$part_date" d, ad_id,
+         row_number() over (
+           partition by "#user_id"
+           order by "#event_time", ad_id
+         ) rn
+  from {{EVENT_TABLE}}
+  where "#event_name" = 'ta_app_install'
+    and "$part_date" between '{{INSTALL_START}}' and '{{OBS_END}}'
+),
+inst as (
+  select uid, d, ad_id
+  from inst_ranked
+  where rn = 1
+)
+select ad_id,
+  floor(date_diff('day', date('{{INSTALL_START}}'), date(d)) / 7) week_idx,
+  min(d) week_start,
+  count(*) installs
+from inst
+group by 1,2 order by 1,2

@@ -1,0 +1,30 @@
+id: live-penetration-analysis
+name: live-penetration-analysis
+kind: scenario
+display_name: Live/Voice/Party Room Penetration Diagnosis
+description: Diagnose live-stream, voice-room, or party-room room-entry penetration declines and identify evidence-backed root causes with prioritized actions.
+category: user-insight
+tags:
+  - live-stream
+  - voice-room
+  - party-room
+  - penetration-rate
+  - root-cause-analysis
+  - entry-rate
+  - trend-analysis
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 290
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-20T10:17:23.513Z"
