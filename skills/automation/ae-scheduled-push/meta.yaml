@@ -1,0 +1,31 @@
+id: ae-scheduled-push
+name: ae-scheduled-push
+kind: scenario
+display_name: Scheduled Push
+description: Create and run scheduled time-driven push tasks for metrics, lists, detail exports, and analysis reports.
+category: automation
+tags:
+  - scheduled-push
+  - daily-push
+  - weekly-push
+  - daily-report
+  - weekly-report
+  - periodic-push
+  - push-spec
+  - analysis-report
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 315
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-10-08T09:01:51.763Z"

@@ -1,0 +1,12 @@
+zh:
+  name: 新用户质量与留存分析
+  description: 诊断新用户质量与留存，从首日行为和渠道归因到结构性变化。
+en:
+  name: New User Quality & Retention Analysis
+  description: Diagnose new-user quality and retention, from first-day behavior and channel attribution to structural changes.
+ja:
+  name: 新規ユーザー品質・リテンション分析
+  description: 新規ユーザーの初日行動、流入チャネル別の差、構成変化を分析し、品質とリテンションの課題を診断します。
+ko:
+  name: 신규 사용자 품질 및 리텐션 분석
+  description: 신규 사용자의 첫날 행동, 유입 채널별 차이와 구성 변화를 분석해 품질과 리텐션 문제를 진단합니다.

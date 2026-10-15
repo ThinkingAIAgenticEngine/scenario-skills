@@ -1,0 +1,32 @@
+id: ae-data-delay-troubleshooter
+name: ae-data-delay-troubleshooter
+kind: scenario
+display_name: AE Data Delay Troubleshooter
+description: Diagnose ingestion-to-delivery delay and freshness issues with evidence-based findings and actions.
+category: data-troubleshooting
+tags:
+  - data-delay
+  - ingestion-latency
+  - stale-data
+  - dashboard-freshness
+  - dataops-sync
+  - 数据延迟
+  - 数据上报
+  - 数据入库
+  - 问题排查
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 317
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-10-11T10:14:03.584Z"

@@ -1,0 +1,12 @@
+zh:
+  name: A/B 测试分析
+  description: 判断 A/B 测试哪个变体胜出，并提供显著性、护栏和上线建议的可分享 HTML 报告。
+en:
+  name: A/B Test Analysis
+  description: Determine whether an A/B test variant won, with significance, guardrail, and rollout guidance in a shareable HTML report.
+ja:
+  name: A/Bテスト分析
+  description: A/Bテストでどのバリエーションが勝ったかを判定し、有意性・ガードレール・リリース判断を共有可能なHTMLレポートで示します。
+ko:
+  name: A/B 테스트 분석
+  description: A/B 테스트에서 어떤 변형이 승리했는지 판단하고 유의성, 가드레일, 출시 권고를 공유 가능한 HTML 보고서로 제공합니다.

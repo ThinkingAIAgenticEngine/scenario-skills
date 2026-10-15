@@ -1,0 +1,48 @@
+-- Creative cross-evaluation main scorecard (Level B: post-activation closed loop)
+-- Placeholders: {{EVENT_TABLE}} {{INSTALL_START}} {{MATURE_END}} {{OBS_END}}
+-- Before use, must test and adjust the following DEMO default names per references/metrics-caliber.md:
+--   activation ta_app_install | attribution ad_id/media_source/campaign
+--   registration RegisterResult + is_register=true | payment RechargeResult + is_success=true + pay_amount
+--   IAA AdComplete + ad_income | retention ta_app_start | viewing EpisodeQuit + watch_time
+-- Boolean fields compare by tested type (boolean uses =true, string uses ='true')
+with inst_ranked as (
+  select "#user_id" uid, "$part_date" d, ad_id, media_source, campaign,
+         row_number() over (
+           partition by "#user_id"
+           order by "#event_time", ad_id, media_source, campaign
+         ) rn
+  from {{EVENT_TABLE}}
+  where "#event_name" = 'ta_app_install'
+    and "$part_date" between '{{INSTALL_START}}' and '{{MATURE_END}}'
+),
+inst as (
+  select uid, d, ad_id, media_source, campaign
+  from inst_ranked
+  where rn = 1
+),
+ev as (
+  select i.ad_id, i.uid, i.d,
+         date_diff('day', date(i.d), date(e."$part_date")) dn,
+         e."#event_name" evn, e.is_register, e.is_success,
+         e.pay_amount, e.ad_income, e.watch_time
+  from inst i
+  join {{EVENT_TABLE}} e on e."#user_id" = i.uid
+  where e."$part_date" between '{{INSTALL_START}}' and '{{OBS_END}}'
+    and date_diff('day', date(i.d), date(e."$part_date")) between 0 and 7
+)
+select ad_id,
+  count(distinct uid) installs,
+  count(distinct case when evn='RegisterResult' and is_register=true and dn=0 then uid end) reg_d0,
+  count(distinct case when evn='RegisterResult' and is_register=true and dn<=7 then uid end) reg_d7,
+  count(distinct case when evn='RechargeResult' and is_success=true and dn=0 then uid end) payer_d0,
+  count(distinct case when evn='RechargeResult' and is_success=true and dn<=7 then uid end) payer_d7,
+  round(sum(case when evn='RechargeResult' and is_success=true and dn=0 then pay_amount end),2) iap_d0,
+  round(sum(case when evn='RechargeResult' and is_success=true and dn<=7 then pay_amount end),2) iap_d7,
+  round(sum(case when evn='AdComplete' and dn=0 then ad_income end),2) iaa_d0,
+  round(sum(case when evn='AdComplete' and dn<=7 then ad_income end),2) iaa_d7,
+  count(distinct case when evn='ta_app_start' and dn=1 then uid end) ret1,
+  count(distinct case when evn='ta_app_start' and dn=3 then uid end) ret3,
+  count(distinct case when evn='ta_app_start' and dn=7 then uid end) ret7,
+  count(case when evn='EpisodeQuit' and dn<=7 then 1 end) eps_d7,
+  round(sum(case when evn='EpisodeQuit' and dn<=7 then watch_time end)/60.0,1) watch_min_d7
+from ev group by ad_id order by installs desc

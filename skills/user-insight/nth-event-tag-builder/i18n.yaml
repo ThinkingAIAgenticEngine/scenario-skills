@@ -1,0 +1,12 @@
+zh:
+  name: 第N次事件标签构建器
+  description: 构建“第N次触发事件”或“窗口内最近N次”的用户 SQL 标签，用于用户分层分析。
+en:
+  name: Nth Event Tag Builder
+  description: Build SQL user tags for the Nth event occurrence or the most recent N events within a window, then use them to segment users.
+ja:
+  name: N回目イベントタグビルダー
+  description: 「N回目のイベント発生」または「直近N回」のユーザーSQLタグを作成し、ユーザーセグメント分析に活用します。
+ko:
+  name: N번째 이벤트 태그 빌더
+  description: "'N번째 이벤트 발생' 또는 '최근 N회' 사용자 SQL 태그를 만들어 사용자 세분화 분석에 활용합니다."

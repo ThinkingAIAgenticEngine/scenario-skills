@@ -1,0 +1,12 @@
+zh:
+  name: AE 数据延迟排查
+  description: 诊断数据上报至交付的延迟与新鲜度问题，提供有依据的结论和行动建议。
+en:
+  name: AE Data Delay Troubleshooter
+  description: Diagnose ingestion-to-delivery delay and freshness issues with evidence-based findings and actions.
+ja:
+  name: AEデータ遅延トラブルシューター
+  description: データ受信から提供までの遅延と鮮度の問題を診断し、根拠に基づく結論と対応案を示します。
+ko:
+  name: AE 데이터 지연 트러블슈터
+  description: 데이터 수집부터 전달까지 지연과 신선도 문제를 진단하고 근거 기반 결론과 후속 조치를 제시합니다.

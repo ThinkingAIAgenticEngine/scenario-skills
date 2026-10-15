@@ -1,0 +1,12 @@
+zh:
+  name: 留存曲线深度诊断
+  description: 诊断留存曲线变化，定位关键影响因素，并按优先级输出优化假设。
+en:
+  name: Cohort Retention Deep Dive
+  description: Diagnose retention shifts, identify key drivers, and prioritize optimization hypotheses.
+ja:
+  name: リテンション曲線の深掘り分析
+  description: リテンション曲線の変化を診断し、主要因を特定して、改善仮説を優先順位付きで提示します。
+ko:
+  name: 리텐션 곡선 심층 분석
+  description: 리텐션 곡선의 변화를 진단하고 핵심 요인을 파악해 개선 가설을 우선순위로 제시합니다.

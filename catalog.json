@@ -1,5 +1,46 @@
 [
   {
+    "id": "ab-test-analysis",
+    "name": "ab-test-analysis",
+    "display_name": "A/B Test Analysis",
+    "description": "Determine whether an A/B test variant won, with significance, guardrail, and rollout guidance in a shareable HTML report.",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "ab-test",
+      "experiment-analysis",
+      "significance-testing",
+      "conversion-rate",
+      "guardrail",
+      "bonferroni",
+      "bayesian",
+      "html-report"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "A/B 测试分析",
+        "description": "判断 A/B 测试哪个变体胜出，并提供显著性、护栏和上线建议的可分享 HTML 报告。"
+      },
+      "en": {
+        "name": "A/B Test Analysis",
+        "description": "Determine whether an A/B test variant won, with significance, guardrail, and rollout guidance in a shareable HTML report."
+      },
+      "ja": {
+        "name": "A/Bテスト分析",
+        "description": "A/Bテストでどのバリエーションが勝ったかを判定し、有意性・ガードレール・リリース判断を共有可能なHTMLレポートで示します。"
+      },
+      "ko": {
+        "name": "A/B 테스트 분석",
+        "description": "A/B 테스트에서 어떤 변형이 승리했는지 판단하고 유의성, 가드레일, 출시 권고를 공유 가능한 HTML 보고서로 제공합니다."
+      }
+    },
+    "path": "./skills/analysis-guides/ab-test-analysis"
+  },
+  {
     "id": "ad-delivery-analysis",
     "name": "ad-delivery-analysis",
     "display_name": "Ad Delivery Analysis",
@@ -32,6 +73,90 @@
       }
     },
     "path": "./skills/acquisition/ad-delivery-analysis"
+  },
+  {
+    "id": "ae-data-delay-troubleshooter",
+    "name": "ae-data-delay-troubleshooter",
+    "display_name": "AE Data Delay Troubleshooter",
+    "description": "Diagnose ingestion-to-delivery delay and freshness issues with evidence-based findings and actions.",
+    "category": "data-troubleshooting",
+    "category_display_name": "数据排障",
+    "tags": [
+      "data-delay",
+      "ingestion-latency",
+      "stale-data",
+      "dashboard-freshness",
+      "dataops-sync",
+      "数据延迟",
+      "数据上报",
+      "数据入库",
+      "问题排查"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "AE 数据延迟排查",
+        "description": "诊断数据上报至交付的延迟与新鲜度问题，提供有依据的结论和行动建议。"
+      },
+      "en": {
+        "name": "AE Data Delay Troubleshooter",
+        "description": "Diagnose ingestion-to-delivery delay and freshness issues with evidence-based findings and actions."
+      },
+      "ja": {
+        "name": "AEデータ遅延トラブルシューター",
+        "description": "データ受信から提供までの遅延と鮮度の問題を診断し、根拠に基づく結論と対応案を示します。"
+      },
+      "ko": {
+        "name": "AE 데이터 지연 트러블슈터",
+        "description": "데이터 수집부터 전달까지 지연과 신선도 문제를 진단하고 근거 기반 결론과 후속 조치를 제시합니다."
+      }
+    },
+    "path": "./skills/data-troubleshooting/ae-data-delay-troubleshooter"
+  },
+  {
+    "id": "ae-drama-creative-evaluation",
+    "name": "ae-drama-creative-evaluation",
+    "display_name": "Short-Drama Ad Creative Evaluation",
+    "description": "Evaluate short-drama ad creative performance and diagnose scaling, funnel, and monetization issues.",
+    "category": "acquisition",
+    "category_display_name": "获客增长",
+    "tags": [
+      "short-drama",
+      "ad-creative",
+      "creative-evaluation",
+      "lifecycle",
+      "ROAS",
+      "LTV",
+      "channel-analysis",
+      "attribution",
+      "funnel-diagnosis"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "短剧广告素材评估",
+        "description": "评估短剧广告素材投放效果，诊断起量、转化漏斗与变现问题。"
+      },
+      "en": {
+        "name": "Short-Drama Ad Creative Evaluation",
+        "description": "Evaluate short-drama ad creative performance and diagnose scaling, funnel, and monetization issues."
+      },
+      "ja": {
+        "name": "ショートドラマ広告クリエイティブ評価",
+        "description": "ショートドラマ広告クリエイティブの配信成果を評価し、配信拡大・ファネル・収益化の課題を診断します。"
+      },
+      "ko": {
+        "name": "숏드라마 광고 소재 평가",
+        "description": "숏드라마 광고 소재의 집행 성과를 평가하고, 확대 가능성·전환 퍼널·수익화 문제를 진단합니다."
+      }
+    },
+    "path": "./skills/acquisition/ae-drama-creative-evaluation"
   },
   {
     "id": "ae-feishu-data-permission-sync",
@@ -73,6 +198,48 @@
     "path": "./skills/automation/ae-feishu-data-permission-sync"
   },
   {
+    "id": "ae-first-event-builder",
+    "name": "ae-first-event-builder",
+    "display_name": "First Event Asset Builder",
+    "description": "Analyze first event occurrences and build first-occurrence tags, virtual events, or interval analysis.",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "first-event",
+      "first-occurrence",
+      "time-to-first",
+      "first-purchase",
+      "daily-first",
+      "user-tag",
+      "virtual-event",
+      "interval-analysis",
+      "is-first"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "首次事件资产构建器",
+        "description": "分析事件的首次发生情况，构建首次发生标签、虚拟事件或直接计算首次行为间隔。"
+      },
+      "en": {
+        "name": "First Event Asset Builder",
+        "description": "Analyze first event occurrences and build first-occurrence tags, virtual events, or interval analysis."
+      },
+      "ja": {
+        "name": "初回イベントアセットビルダー",
+        "description": "イベントの初回発生を分析し、初回発生タグや仮想イベントを構築、または初回行動までの間隔を直接計算します。"
+      },
+      "ko": {
+        "name": "최초 이벤트 자산 빌더",
+        "description": "이벤트 최초 발생을 분석하고 최초 발생 태그, 가상 이벤트를 구축하거나 최초 행동까지의 간격을 직접 계산합니다."
+      }
+    },
+    "path": "./skills/user-insight/ae-first-event-builder"
+  },
+  {
     "id": "ae-freeze-inactive-dashboards",
     "name": "ae-freeze-inactive-dashboards",
     "display_name": "Freeze Inactive Dashboards",
@@ -105,6 +272,46 @@
       }
     },
     "path": "./skills/automation/ae-freeze-inactive-dashboards"
+  },
+  {
+    "id": "ae-kb-bootstrap",
+    "name": "ae-kb-bootstrap",
+    "display_name": "AE Business Metrics KB Bootstrap",
+    "description": "Initialize and compile a shared business metrics definition knowledge base, then append project-specific metric definitions for reuse in AE analysis.",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "kb-bootstrap",
+      "knowledge-base",
+      "caliber-library",
+      "metric-definition",
+      "report-definition",
+      "onboarding",
+      "ae-cli"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "AE 业务指标口径库初始化",
+        "description": "初始化并编译共享的业务指标口径知识库，并按项目追加实际口径，供 AE 分析复用。"
+      },
+      "en": {
+        "name": "AE Business Metrics KB Bootstrap",
+        "description": "Initialize and compile a shared business metrics definition knowledge base, then append project-specific metric definitions for reuse in AE analysis."
+      },
+      "ja": {
+        "name": "AE ビジネス指標定義KB初期化",
+        "description": "共有のビジネス指標定義ナレッジベースを初期化・コンパイルし、プロジェクト別の指標定義を追加してAE分析で再利用できるようにします。"
+      },
+      "ko": {
+        "name": "AE 비즈니스 지표 정의 KB 초기화",
+        "description": "공유 비즈니스 지표 정의 지식 베이스를 초기화하고 컴파일한 뒤 프로젝트별 지표 정의를 추가하여 AE 분석에서 재사용할 수 있도록 합니다."
+      }
+    },
+    "path": "./skills/analysis-guides/ae-kb-bootstrap"
   },
   {
     "id": "ae-risk-monitoring",
@@ -145,6 +352,130 @@
       }
     },
     "path": "./skills/game-operations/ae-risk-monitoring"
+  },
+  {
+    "id": "ae-same-report-debug",
+    "name": "ae-same-report-debug",
+    "display_name": "Diagnose Same-Report Discrepancies",
+    "description": "Diagnose why the same report shows different numbers between its detail page and a dashboard, or across two dashboards.",
+    "category": "data-troubleshooting",
+    "category_display_name": "数据排障",
+    "tags": [
+      "dashboard-report-discrepancy",
+      "dashboard-override",
+      "report-definition",
+      "data-inconsistency",
+      "same-report-debug",
+      "ae-cli"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "同报表数值差异诊断",
+        "description": "诊断同一报表在详情页与仪表盘之间，或在两个不同仪表盘之间显示不同数值的原因。"
+      },
+      "en": {
+        "name": "Diagnose Same-Report Discrepancies",
+        "description": "Diagnose why the same report shows different numbers between its detail page and a dashboard, or across two dashboards."
+      },
+      "ja": {
+        "name": "同一レポートの数値差異診断",
+        "description": "同じレポートが詳細ページとダッシュボード間、または2つのダッシュボード間で異なる数値を表示する原因を診断します。"
+      },
+      "ko": {
+        "name": "동일 보고서 수치 차이 진단",
+        "description": "같은 보고서가 상세 페이지와 대시보드 사이 또는 서로 다른 두 대시보드 사이에서 다른 수치를 표시하는 원인을 진단합니다."
+      }
+    },
+    "path": "./skills/data-troubleshooting/ae-same-report-debug"
+  },
+  {
+    "id": "ae-scheduled-push",
+    "name": "ae-scheduled-push",
+    "display_name": "Scheduled Push",
+    "description": "Create and run scheduled time-driven push tasks for metrics, lists, detail exports, and analysis reports.",
+    "category": "automation",
+    "category_display_name": "自动化运营",
+    "tags": [
+      "scheduled-push",
+      "daily-push",
+      "weekly-push",
+      "daily-report",
+      "weekly-report",
+      "periodic-push",
+      "push-spec",
+      "analysis-report"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "定时推送",
+        "description": "创建并运行按时间触发的定时推送任务，用于推送指标、名单/明细导出和分析报告。"
+      },
+      "en": {
+        "name": "Scheduled Push",
+        "description": "Create and run scheduled time-driven push tasks for metrics, lists, detail exports, and analysis reports."
+      },
+      "ja": {
+        "name": "定期プッシュ",
+        "description": "指標、リスト・明細エクスポート、分析レポートを送信する、時間トリガーの定期プッシュタスクを作成・実行します。"
+      },
+      "ko": {
+        "name": "예약 푸시",
+        "description": "지표, 목록/상세 내보내기, 분석 리포트를 전송하는 시간 기반 예약 푸시 작업을 만들고 실행합니다."
+      }
+    },
+    "path": "./skills/automation/ae-scheduled-push"
+  },
+  {
+    "id": "ae-user-metric-quantile",
+    "name": "ae-user-metric-quantile",
+    "display_name": "User-Level Metric Statistics",
+    "description": "Compute user-level metric statistics such as average, median, percentile, variance, and standard deviation, then publish results to reports and dashboards.",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "user-metric",
+      "quantile",
+      "percentile",
+      "median",
+      "variance",
+      "stddev",
+      "user-tag",
+      "virtual-property",
+      "event-analysis",
+      "ae-cli",
+      "metric-aggregation"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "用户级指标统计",
+        "description": "计算用户级指标统计值（如平均值、中位数、百分位数、方差、标准差），并将结果发布到报表和看板。"
+      },
+      "en": {
+        "name": "User-Level Metric Statistics",
+        "description": "Compute user-level metric statistics such as average, median, percentile, variance, and standard deviation, then publish results to reports and dashboards."
+      },
+      "ja": {
+        "name": "ユーザー指標の統計",
+        "description": "平均、中央値、パーセンタイル、分散、標準偏差などのユーザー指標の統計値を計算し、レポートやダッシュボードに公開します。"
+      },
+      "ko": {
+        "name": "사용자 지표 통계",
+        "description": "평균, 중앙값, 백분위수, 분산, 표준편차 등 사용자 지표의 통계값을 계산하고 리포트와 대시보드에 게시합니다."
+      }
+    },
+    "path": "./skills/analysis-guides/ae-user-metric-quantile"
   },
   {
     "id": "analysis-scope-alignment",
@@ -285,6 +616,46 @@
       }
     },
     "path": "./skills/retention/churn-define"
+  },
+  {
+    "id": "cohort-retention-deep-dive",
+    "name": "cohort-retention-deep-dive",
+    "display_name": "Cohort Retention Deep Dive",
+    "description": "Diagnose retention shifts, identify key drivers, and prioritize optimization hypotheses.",
+    "category": "retention",
+    "category_display_name": "留存与流失",
+    "tags": [
+      "retention-attribution",
+      "cohort-analysis",
+      "inflection-point",
+      "key-behavior-correlation",
+      "optimization-levers",
+      "cross-vertical",
+      "churn-diagnosis"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "留存曲线深度诊断",
+        "description": "诊断留存曲线变化，定位关键影响因素，并按优先级输出优化假设。"
+      },
+      "en": {
+        "name": "Cohort Retention Deep Dive",
+        "description": "Diagnose retention shifts, identify key drivers, and prioritize optimization hypotheses."
+      },
+      "ja": {
+        "name": "リテンション曲線の深掘り分析",
+        "description": "リテンション曲線の変化を診断し、主要因を特定して、改善仮説を優先順位付きで提示します。"
+      },
+      "ko": {
+        "name": "리텐션 곡선 심층 분석",
+        "description": "리텐션 곡선의 변화를 진단하고 핵심 요인을 파악해 개선 가설을 우선순위로 제시합니다."
+      }
+    },
+    "path": "./skills/retention/cohort-retention-deep-dive"
   },
   {
     "id": "community-analyzing-theme-comment",
@@ -592,6 +963,47 @@
       }
     },
     "path": "./skills/retention/drama-retention-analyzer"
+  },
+  {
+    "id": "engagement-effectiveness-analysis",
+    "name": "engagement-effectiveness-analysis",
+    "display_name": "Engagement Effectiveness Analysis",
+    "description": "Analyze post-execution effectiveness of marketing touchpoints (push, in-app message, popup, SMS, EDM) and produce optimization recommendations.",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "engagement",
+      "campaign-effectiveness",
+      "push",
+      "in-app-message",
+      "sms",
+      "edm",
+      "funnel-analysis",
+      "experiment-lift"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "触达效果分析",
+        "description": "分析推送、应用内消息、弹窗、短信、邮件等营销触达效果，输出优化建议报告。"
+      },
+      "en": {
+        "name": "Engagement Effectiveness Analysis",
+        "description": "Analyze post-execution effectiveness of marketing touchpoints (push, in-app message, popup, SMS, EDM) and produce optimization recommendations."
+      },
+      "ja": {
+        "name": "エンゲージメント効果分析",
+        "description": "プッシュ、アプリ内メッセージ、ポップアップ、SMS、EDMなど配信後の効果を分析し、最適化提案レポートを作成します。"
+      },
+      "ko": {
+        "name": "인게이지먼트 효과 분석",
+        "description": "푸시·인앱 메시지·팝업·SMS·EDM 등 실행 후 캠페인 효과를 분석하고 최적화 제안 보고서를 생성합니다."
+      }
+    },
+    "path": "./skills/user-insight/engagement-effectiveness-analysis"
   },
   {
     "id": "filter-result-deviation-troubleshooting",
@@ -1048,6 +1460,46 @@
     "path": "./skills/game-operations/level-churn-analyzer"
   },
   {
+    "id": "live-penetration-analysis",
+    "name": "live-penetration-analysis",
+    "display_name": "Live/Voice/Party Room Penetration Diagnosis",
+    "description": "Diagnose live-stream, voice-room, or party-room room-entry penetration declines and identify evidence-backed root causes with prioritized actions.",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "live-stream",
+      "voice-room",
+      "party-room",
+      "penetration-rate",
+      "root-cause-analysis",
+      "entry-rate",
+      "trend-analysis"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "直播/语聊/派对房渗透率诊断",
+        "description": "诊断直播、语聊房、派对房的进入渗透率下滑，定位有证据支撑的根因并给出优先级行动建议。"
+      },
+      "en": {
+        "name": "Live/Voice/Party Room Penetration Diagnosis",
+        "description": "Diagnose live-stream, voice-room, or party-room room-entry penetration declines and identify evidence-backed root causes with prioritized actions."
+      },
+      "ja": {
+        "name": "ライブ・音声・パーティールーム入室率診断",
+        "description": "ライブ配信、音声ルーム、パーティールームの入室率低下を診断し、証拠に基づく根本原因と優先度付き施策を提示します。"
+      },
+      "ko": {
+        "name": "라이브·음성·파티룸 입장률 진단",
+        "description": "라이브 스트리밍, 음성방, 파티룸의 입장률 하락을 진단하고 증거 기반 근본 원인과 우선순위 조치를 제시합니다."
+      }
+    },
+    "path": "./skills/user-insight/live-penetration-analysis"
+  },
+  {
     "id": "ltv-analysis",
     "name": "ltv-analysis",
     "display_name": "LTV Analysis and Optimization",
@@ -1126,8 +1578,8 @@
     "name": "mcp-trino",
     "display_name": "Trino Inspection / Diagnostics",
     "description": "Inspect Trino metadata, table schemas, and query execution plans",
-    "category": "automation",
-    "category_display_name": "自动化运营",
+    "category": "data-troubleshooting",
+    "category_display_name": "数据排障",
     "tags": [],
     "cluster_versions": [
       "6.0",
@@ -1151,7 +1603,47 @@
         "description": "Trino 메타데이터, 테이블 구조 및 실행 계획을 검사합니다"
       }
     },
-    "path": "./skills/automation/mcp-trino"
+    "path": "./skills/data-troubleshooting/mcp-trino"
+  },
+  {
+    "id": "metric-alert",
+    "name": "metric-alert",
+    "display_name": "Metric Alerts & Monitoring",
+    "description": "Create monitoring tasks that alert when metrics, user lists, or data tables meet preset conditions.",
+    "category": "automation",
+    "category_display_name": "自动化运营",
+    "tags": [
+      "metric-alert",
+      "monitoring",
+      "alerting",
+      "scheduled-tasks",
+      "anomaly-detection",
+      "user-monitoring",
+      "ae-cli"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "指标监控与告警",
+        "description": "创建条件触发的监控任务，在指标、用户列表或数据表满足预设条件时推送告警。"
+      },
+      "en": {
+        "name": "Metric Alerts & Monitoring",
+        "description": "Create monitoring tasks that alert when metrics, user lists, or data tables meet preset conditions."
+      },
+      "ja": {
+        "name": "指標モニタリングとアラート",
+        "description": "指標、ユーザーリスト、データテーブルが事前設定の条件を満たしたときにアラートを送信する条件付き監視タスクを作成します。"
+      },
+      "ko": {
+        "name": "지표 모니터링 및 알림",
+        "description": "지표, 사용자 목록 또는 데이터 테이블이 설정 조건을 충족하면 알림을 보내는 모니터링 작업을 생성합니다."
+      }
+    },
+    "path": "./skills/automation/metric-alert"
   },
   {
     "id": "new-hero-insight",
@@ -1226,6 +1718,85 @@
       }
     },
     "path": "./skills/user-insight/new-old-user-define"
+  },
+  {
+    "id": "new-user-analysis",
+    "name": "new-user-analysis",
+    "display_name": "New User Quality & Retention Analysis",
+    "description": "Diagnose new-user quality and retention, from first-day behavior and channel attribution to structural changes.",
+    "category": "retention",
+    "category_display_name": "留存与流失",
+    "tags": [
+      "new-user-analysis",
+      "first-day-quality",
+      "retention-attribution",
+      "behavior-path",
+      "cohort-analysis",
+      "acquisition-quality",
+      "structural-mutation"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "新用户质量与留存分析",
+        "description": "诊断新用户质量与留存，从首日行为和渠道归因到结构性变化。"
+      },
+      "en": {
+        "name": "New User Quality & Retention Analysis",
+        "description": "Diagnose new-user quality and retention, from first-day behavior and channel attribution to structural changes."
+      },
+      "ja": {
+        "name": "新規ユーザー品質・リテンション分析",
+        "description": "新規ユーザーの初日行動、流入チャネル別の差、構成変化を分析し、品質とリテンションの課題を診断します。"
+      },
+      "ko": {
+        "name": "신규 사용자 품질 및 리텐션 분석",
+        "description": "신규 사용자의 첫날 행동, 유입 채널별 차이와 구성 변화를 분석해 품질과 리텐션 문제를 진단합니다."
+      }
+    },
+    "path": "./skills/retention/new-user-analysis"
+  },
+  {
+    "id": "nth-event-tag-builder",
+    "name": "nth-event-tag-builder",
+    "display_name": "Nth Event Tag Builder",
+    "description": "Build SQL user tags for the Nth event occurrence or the most recent N events within a window, then use them to segment users.",
+    "category": "user-insight",
+    "category_display_name": "用户洞察",
+    "tags": [
+      "user-tag",
+      "sql-tag",
+      "nth-event",
+      "recent-n",
+      "event-analysis",
+      "user-segmentation"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "第N次事件标签构建器",
+        "description": "构建“第N次触发事件”或“窗口内最近N次”的用户 SQL 标签，用于用户分层分析。"
+      },
+      "en": {
+        "name": "Nth Event Tag Builder",
+        "description": "Build SQL user tags for the Nth event occurrence or the most recent N events within a window, then use them to segment users."
+      },
+      "ja": {
+        "name": "N回目イベントタグビルダー",
+        "description": "「N回目のイベント発生」または「直近N回」のユーザーSQLタグを作成し、ユーザーセグメント分析に活用します。"
+      },
+      "ko": {
+        "name": "N번째 이벤트 태그 빌더",
+        "description": "'N번째 이벤트 발생' 또는 '최근 N회' 사용자 SQL 태그를 만들어 사용자 세분화 분석에 활용합니다."
+      }
+    },
+    "path": "./skills/user-insight/nth-event-tag-builder"
   },
   {
     "id": "payment-attribution-analysis",
@@ -1369,6 +1940,45 @@
       }
     },
     "path": "./skills/user-insight/propensity-score-matching"
+  },
+  {
+    "id": "push-tracking-gap-analyzer",
+    "name": "push-tracking-gap-analyzer",
+    "display_name": "Push Tracking Gap Analyzer",
+    "description": "Compare tracking plans with push strategies to identify missing events and properties, then produce a Feishu supplement.",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
+    "tags": [
+      "push-tracking",
+      "tracking-plan",
+      "gap-analysis",
+      "push-notification",
+      "feishu",
+      "engagement"
+    ],
+    "cluster_versions": [
+      "6.0",
+      "6.1"
+    ],
+    "i18n": {
+      "zh": {
+        "name": "推送埋点缺口分析",
+        "description": "比对现有埋点方案与推送策略，识别缺失的事件和属性，并生成 Feishu 补充表。"
+      },
+      "en": {
+        "name": "Push Tracking Gap Analyzer",
+        "description": "Compare tracking plans with push strategies to identify missing events and properties, then produce a Feishu supplement."
+      },
+      "ja": {
+        "name": "プッシュトラッキングギャップ分析",
+        "description": "既存のトラッキング計画とプッシュ戦略を比較し、不足しているイベントとプロパティを特定して、Feishu の補足スプレッドシートを作成します。"
+      },
+      "ko": {
+        "name": "푸시 트래킹 갭 분석",
+        "description": "기존 트래킹 플랜과 푸시 전략을 비교해 누락된 이벤트와 속성을 식별하고 Feishu 보완 스프레드시트를 생성합니다."
+      }
+    },
+    "path": "./skills/analysis-guides/push-tracking-gap-analyzer"
   },
   {
     "id": "puzzle-iaa-analytics",
@@ -1772,8 +2382,8 @@
     "name": "te-model-selector",
     "display_name": "TE Analysis Model Selection",
     "description": "Guide users who are unsure whether to choose event, funnel, retention, path, or other analysis models",
-    "category": "automation",
-    "category_display_name": "自动化运营",
+    "category": "analysis-guides",
+    "category_display_name": "分析方法",
     "tags": [
       "analytics-guide"
     ],
@@ -1799,7 +2409,7 @@
         "description": "이벤트, 퍼널, 리텐션, 경로 등 어떤 분석 모델을 선택할지 모를 때 선정을 안내합니다"
       }
     },
-    "path": "./skills/automation/te-model-selector"
+    "path": "./skills/analysis-guides/te-model-selector"
   },
   {
     "id": "te-user-id-debug",

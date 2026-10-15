@@ -1,0 +1,29 @@
+id: ae-same-report-debug
+name: ae-same-report-debug
+kind: scenario
+display_name: Diagnose Same-Report Discrepancies
+description: Diagnose why the same report shows different numbers between its detail page and a dashboard, or across two dashboards.
+category: data-troubleshooting
+tags:
+  - dashboard-report-discrepancy
+  - dashboard-override
+  - report-definition
+  - data-inconsistency
+  - same-report-debug
+  - ae-cli
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 281
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-28T10:31:52.660Z"

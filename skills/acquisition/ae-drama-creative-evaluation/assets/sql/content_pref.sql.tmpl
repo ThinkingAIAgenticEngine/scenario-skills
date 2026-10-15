@@ -1,0 +1,27 @@
+-- Genre viewing preference of users sourced from creatives (D7 window)
+-- Placeholders: {{EVENT_TABLE}} {{INSTALL_START}} {{MATURE_END}} {{OBS_END}}
+-- Note: first_category may contain dirty values (e.g., parse anomalies like "link video_id{family" found in practice), disclose the share in the report
+with inst_ranked as (
+  select "#user_id" uid, "$part_date" d, ad_id,
+         row_number() over (
+           partition by "#user_id"
+           order by "#event_time", ad_id
+         ) rn
+  from {{EVENT_TABLE}}
+  where "#event_name" = 'ta_app_install'
+    and "$part_date" between '{{INSTALL_START}}' and '{{MATURE_END}}'
+),
+inst as (
+  select uid, d, ad_id
+  from inst_ranked
+  where rn = 1
+)
+select i.ad_id, e.first_category,
+  count(*) eps,
+  round(sum(e.watch_time)/60.0,0) watch_min
+from inst i
+join {{EVENT_TABLE}} e on e."#user_id" = i.uid
+where e."#event_name" = 'EpisodeQuit'
+  and e."$part_date" between '{{INSTALL_START}}' and '{{OBS_END}}'
+  and date_diff('day', date(i.d), date(e."$part_date")) between 0 and 7
+group by 1,2 order by ad_id, watch_min desc

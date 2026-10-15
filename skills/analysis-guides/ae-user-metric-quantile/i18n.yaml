@@ -1,0 +1,12 @@
+zh:
+  name: 用户级指标统计
+  description: 计算用户级指标统计值（如平均值、中位数、百分位数、方差、标准差），并将结果发布到报表和看板。
+en:
+  name: User-Level Metric Statistics
+  description: Compute user-level metric statistics such as average, median, percentile, variance, and standard deviation, then publish results to reports and dashboards.
+ja:
+  name: ユーザー指標の統計
+  description: 平均、中央値、パーセンタイル、分散、標準偏差などのユーザー指標の統計値を計算し、レポートやダッシュボードに公開します。
+ko:
+  name: 사용자 지표 통계
+  description: 평균, 중앙값, 백분위수, 분산, 표준편차 등 사용자 지표의 통계값을 계산하고 리포트와 대시보드에 게시합니다.

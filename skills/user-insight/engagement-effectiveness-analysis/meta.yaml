@@ -1,0 +1,31 @@
+id: engagement-effectiveness-analysis
+name: engagement-effectiveness-analysis
+kind: scenario
+display_name: Engagement Effectiveness Analysis
+description: Analyze post-execution effectiveness of marketing touchpoints (push, in-app message, popup, SMS, EDM) and produce optimization recommendations.
+category: user-insight
+tags:
+  - engagement
+  - campaign-effectiveness
+  - push
+  - in-app-message
+  - sms
+  - edm
+  - funnel-analysis
+  - experiment-lift
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 293
+  version_seq: 13
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-09-21T10:56:36.000Z"

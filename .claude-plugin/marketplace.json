@@ -4,12 +4,47 @@
   },
   "plugins": [
     {
+      "name": "analysis-guides-分析方法",
+      "description": "分析方法 / analysis-guides",
+      "source": "./",
+      "skills": [
+        "./skills/analysis-guides/ab-test-analysis",
+        "./skills/analysis-guides/ae-kb-bootstrap",
+        "./skills/analysis-guides/ae-user-metric-quantile",
+        "./skills/analysis-guides/analysis-scope-alignment",
+        "./skills/analysis-guides/drama-quality-assessment",
+        "./skills/analysis-guides/funnel-misconceptions",
+        "./skills/analysis-guides/generate-sql",
+        "./skills/analysis-guides/push-tracking-gap-analyzer",
+        "./skills/analysis-guides/rate-change-significance",
+        "./skills/analysis-guides/system-field-reference",
+        "./skills/analysis-guides/te-model-selector",
+        "./skills/analysis-guides/user-property-timezone"
+      ]
+    },
+    {
       "name": "acquisition-获客增长",
       "description": "获客增长 / acquisition",
       "source": "./",
       "skills": [
         "./skills/acquisition/ad-delivery-analysis",
+        "./skills/acquisition/ae-drama-creative-evaluation",
         "./skills/acquisition/channel-quality-analysis"
+      ]
+    },
+    {
+      "name": "data-troubleshooting-数据排障",
+      "description": "数据排障 / data-troubleshooting",
+      "source": "./",
+      "skills": [
+        "./skills/data-troubleshooting/ae-data-delay-troubleshooter",
+        "./skills/data-troubleshooting/ae-same-report-debug",
+        "./skills/data-troubleshooting/dashboard-no-data-troubleshooting",
+        "./skills/data-troubleshooting/data-inconsistency-debug",
+        "./skills/data-troubleshooting/data-integration-assistant",
+        "./skills/data-troubleshooting/filter-result-deviation-troubleshooting",
+        "./skills/data-troubleshooting/mcp-trino",
+        "./skills/data-troubleshooting/te-user-id-debug"
       ]
     },
     {
@@ -19,9 +54,29 @@
       "skills": [
         "./skills/automation/ae-feishu-data-permission-sync",
         "./skills/automation/ae-freeze-inactive-dashboards",
+        "./skills/automation/ae-scheduled-push",
         "./skills/automation/journey-intent-parser",
-        "./skills/automation/mcp-trino",
-        "./skills/automation/te-model-selector"
+        "./skills/automation/metric-alert"
+      ]
+    },
+    {
+      "name": "user-insight-用户洞察",
+      "description": "用户洞察 / user-insight",
+      "source": "./",
+      "skills": [
+        "./skills/user-insight/ae-first-event-builder",
+        "./skills/user-insight/audit-project-usage-analysis",
+        "./skills/user-insight/community-analyzing-theme-comment",
+        "./skills/user-insight/community-hottopic-insight",
+        "./skills/user-insight/community-ops-report",
+        "./skills/user-insight/engagement-effectiveness-analysis",
+        "./skills/user-insight/live-penetration-analysis",
+        "./skills/user-insight/new-old-user-define",
+        "./skills/user-insight/nth-event-tag-builder",
+        "./skills/user-insight/propensity-score-matching",
+        "./skills/user-insight/rfm-segmentation",
+        "./skills/user-insight/single-user-inspector",
+        "./skills/user-insight/user-tag-system-designer"
       ]
     },
     {
@@ -43,56 +98,16 @@
       ]
     },
     {
-      "name": "analysis-guides-分析方法",
-      "description": "分析方法 / analysis-guides",
-      "source": "./",
-      "skills": [
-        "./skills/analysis-guides/analysis-scope-alignment",
-        "./skills/analysis-guides/drama-quality-assessment",
-        "./skills/analysis-guides/funnel-misconceptions",
-        "./skills/analysis-guides/generate-sql",
-        "./skills/analysis-guides/rate-change-significance",
-        "./skills/analysis-guides/system-field-reference",
-        "./skills/analysis-guides/user-property-timezone"
-      ]
-    },
-    {
-      "name": "user-insight-用户洞察",
-      "description": "用户洞察 / user-insight",
-      "source": "./",
-      "skills": [
-        "./skills/user-insight/audit-project-usage-analysis",
-        "./skills/user-insight/community-analyzing-theme-comment",
-        "./skills/user-insight/community-hottopic-insight",
-        "./skills/user-insight/community-ops-report",
-        "./skills/user-insight/new-old-user-define",
-        "./skills/user-insight/propensity-score-matching",
-        "./skills/user-insight/rfm-segmentation",
-        "./skills/user-insight/single-user-inspector",
-        "./skills/user-insight/user-tag-system-designer"
-      ]
-    },
-    {
       "name": "retention-留存与流失",
       "description": "留存与流失 / retention",
       "source": "./",
       "skills": [
         "./skills/retention/churn-define",
+        "./skills/retention/cohort-retention-deep-dive",
         "./skills/retention/drama-retention-analyzer",
+        "./skills/retention/new-user-analysis",
         "./skills/retention/retention-metric-to-event-report",
         "./skills/retention/retention-verification"
-      ]
-    },
-    {
-      "name": "data-troubleshooting-数据排障",
-      "description": "数据排障 / data-troubleshooting",
-      "source": "./",
-      "skills": [
-        "./skills/data-troubleshooting/dashboard-no-data-troubleshooting",
-        "./skills/data-troubleshooting/data-inconsistency-debug",
-        "./skills/data-troubleshooting/data-integration-assistant",
-        "./skills/data-troubleshooting/filter-result-deviation-troubleshooting",
-        "./skills/data-troubleshooting/te-user-id-debug"
       ]
     },
     {

@@ -1,0 +1,12 @@
+zh:
+  name: 触达效果分析
+  description: 分析推送、应用内消息、弹窗、短信、邮件等营销触达效果，输出优化建议报告。
+en:
+  name: Engagement Effectiveness Analysis
+  description: Analyze post-execution effectiveness of marketing touchpoints (push, in-app message, popup, SMS, EDM) and produce optimization recommendations.
+ja:
+  name: エンゲージメント効果分析
+  description: プッシュ、アプリ内メッセージ、ポップアップ、SMS、EDMなど配信後の効果を分析し、最適化提案レポートを作成します。
+ko:
+  name: 인게이지먼트 효과 분석
+  description: 푸시·인앱 메시지·팝업·SMS·EDM 등 실행 후 캠페인 효과를 분석하고 최적화 제안 보고서를 생성합니다.

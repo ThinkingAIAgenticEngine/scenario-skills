@@ -1,0 +1,30 @@
+id: ae-kb-bootstrap
+name: ae-kb-bootstrap
+kind: scenario
+display_name: AE Business Metrics KB Bootstrap
+description: Initialize and compile a shared business metrics definition knowledge base, then append project-specific metric definitions for reuse in AE analysis.
+category: analysis-guides
+tags:
+  - kb-bootstrap
+  - knowledge-base
+  - caliber-library
+  - metric-definition
+  - report-definition
+  - onboarding
+  - ae-cli
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 271
+  version_seq: 4
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-10-14T03:20:19.000Z"

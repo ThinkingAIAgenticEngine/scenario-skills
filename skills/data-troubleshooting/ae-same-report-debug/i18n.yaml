@@ -1,0 +1,12 @@
+zh:
+  name: 同报表数值差异诊断
+  description: 诊断同一报表在详情页与仪表盘之间，或在两个不同仪表盘之间显示不同数值的原因。
+en:
+  name: Diagnose Same-Report Discrepancies
+  description: Diagnose why the same report shows different numbers between its detail page and a dashboard, or across two dashboards.
+ja:
+  name: 同一レポートの数値差異診断
+  description: 同じレポートが詳細ページとダッシュボード間、または2つのダッシュボード間で異なる数値を表示する原因を診断します。
+ko:
+  name: 동일 보고서 수치 차이 진단
+  description: 같은 보고서가 상세 페이지와 대시보드 사이 또는 서로 다른 두 대시보드 사이에서 다른 수치를 표시하는 원인을 진단합니다.
