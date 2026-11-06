@@ -10,6 +10,7 @@
       "skills": [
         "./skills/analysis-guides/ab-test-analysis",
         "./skills/analysis-guides/ae-kb-bootstrap",
+        "./skills/analysis-guides/ae-tag-history-version",
         "./skills/analysis-guides/ae-user-metric-quantile",
         "./skills/analysis-guides/analysis-scope-alignment",
         "./skills/analysis-guides/drama-quality-assessment",

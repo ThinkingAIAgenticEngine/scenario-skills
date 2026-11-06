@@ -1,12 +1,12 @@
 zh:
   name: "TE 用户 ID 绑定诊断"
-  description: "诊断多端上报导致的用户碎片化问题"
+  description: "只读诊断用户身份碎片化与 Account ID/Distinct ID 绑定，基于画像和行为序列提供预防建议，不自动合并历史用户。"
 en:
   name: "TE User ID Binding Diagnosis"
-  description: "Diagnose user fragmentation caused by multi-platform reporting"
+  description: "Diagnose identity fragmentation and Account ID/Distinct ID binding with read-only profile and behavior evidence; provide prevention guidance without merging historical profiles."
 ja:
   name: "TEユーザーID紐付け診断"
-  description: "マルチプラットフォーム報告によるユーザー断片化問題を診断します"
+  description: "プロファイルと行動履歴を読み取り専用で調査し、ユーザーの分断やAccount ID/Distinct IDの紐付けを診断します。過去のユーザーを統合せず、予防策を提示します。"
 ko:
   name: "TE 사용자 ID 연동 진단"
-  description: "다중 플랫폼 리포트로 인한 사용자 분화 문제를 진단합니다"
+  description: "프로필과 행동 이력을 읽기 전용으로 조사하여 사용자 분화 및 Account ID/Distinct ID 연동을 진단합니다. 기존 프로필을 병합하지 않고 예방 방법을 안내합니다."

@@ -1,0 +1,12 @@
+zh:
+  name: 标签历史版本专家
+  description: 解释标签历史版本，补录或刷新历史版本，并构建使用历史版本标签的报表。
+en:
+  name: Tag History Version Expert
+  description: Explain tag history versions, backfill or refresh them, and build reports using history-version tags.
+ja:
+  name: タグ履歴バージョンエキスパート
+  description: タグ履歴バージョンの説明、履歴バージョンのバックフィル・更新、履歴バージョンタグを使うレポート作成を支援します。
+ko:
+  name: 태그 이력 버전 전문가
+  description: 태그 이력 버전을 설명하고, 이력 버전을 백필·갱신하며, 이력 버전 태그를 사용하는 보고서를 만듭니다.

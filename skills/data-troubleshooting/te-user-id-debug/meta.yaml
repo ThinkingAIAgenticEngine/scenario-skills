@@ -2,7 +2,7 @@ id: te-user-id-debug
 name: te-user-id-debug
 kind: scenario
 display_name: TE User ID Binding Diagnosis
-description: Diagnose user fragmentation caused by multi-platform reporting
+description: "Diagnose identity fragmentation and Account ID/Distinct ID binding with read-only profile and behavior evidence; provide prevention guidance without merging historical profiles."
 category: data-troubleshooting
 tags:
   - data-debug
@@ -21,4 +21,4 @@ source:
 owners: []
 status: approved
 translation_status: approved
-updated_at: "2026-08-05T00:00:00.000Z"
+updated_at: "2026-11-05T11:20:50.341Z"

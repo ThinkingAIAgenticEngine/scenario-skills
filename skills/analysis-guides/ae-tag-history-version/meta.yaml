@@ -1,0 +1,29 @@
+id: ae-tag-history-version
+name: ae-tag-history-version
+kind: scenario
+display_name: Tag History Version Expert
+description: Explain tag history versions, backfill or refresh them, and build reports using history-version tags.
+category: analysis-guides
+tags:
+  - tag-history-version
+  - history-version
+  - tag-backfill
+  - cluster-date-policy
+  - report-building
+  - user-tag
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 336
+  version_seq: 1
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-11-05T04:15:35.128Z"
