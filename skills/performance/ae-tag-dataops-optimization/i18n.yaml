@@ -1,0 +1,12 @@
+zh:
+  name: 本地标签历史扫描优化
+  description: 使用数开平台生成并复用完整业务日快照，减少分析平台本地标签对历史明细的重复扫描，并交付经验证的优化方案与交接文档。
+en:
+  name: Historical Scan Optimization for Local Tags
+  description: Build and reuse DataOps snapshots for completed business days to cut repeat history scans for local analytics tags and deliver a verified plan and handover guide.
+ja:
+  name: ローカルタグの履歴データスキャン最適化
+  description: DataOpsで終了した業務日ごとのスナップショットを作成・再利用し、分析プラットフォームのローカルタグが履歴明細を繰り返し読み込む処理を減らしたうえで、検証済みの改善案と引き継ぎ資料を提供します。
+ko:
+  name: 로컬 태그 과거 데이터 스캔 최적화
+  description: DataOps에서 마감된 업무일의 스냅샷을 생성하고 재사용해 분석 플랫폼의 로컬 태그가 과거 상세 데이터를 반복해서 읽는 작업을 줄이고, 검증된 최적화 방안과 인수인계 문서를 제공합니다.

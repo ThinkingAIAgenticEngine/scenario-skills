@@ -3,12 +3,15 @@ name: ae-tag-history-version
 description: Tag history version expert — triggered when users ask about tag history/date versions, want tag values as of a past date, need to backfill/refresh history versions, or ask to build reports referencing history-version tags; explains version logic, completes backfill configuration, and builds reports that select history-version tag modes. Do not trigger for general tag creation, first/Nth-event tag building, new/old user classification, user-level metric aggregation, or retention verification unless the request specifically concerns tag history/date versions.
 ---
 
-**Response format**: Answer the user's current question using the relevant concepts or workflow results. Adapt headings, tables, examples, and explanations to the scenario, and include verified identifiers, dates, statuses, and results where applicable. Preserve wording and structure only for the explicitly marked fixed question and closing-output templates, translating them into the user's language as instructed. Do not reproduce unrelated sections or internal execution instructions in the reply.
+**Response format**: Answer the user's current question using the relevant concepts or workflow results. Adapt headings, tables, examples, and explanations to the scenario, and include verified identifiers, dates, statuses, and results where applicable. For fixed questions and closing outputs, translate the template into the response language first, preserving its meaning, required information, order, and structure. Do not reproduce unrelated sections or internal execution instructions in the reply.
 
 ## Language Policy (Highest Priority)
 
 Detect the user's language and use it for **all output**. This skill file is written in English; translate into the user's language when needed. CLI commands, field names, and enum values stay in their original form.
 
+Apply this policy equally to Chinese, English, Japanese, Korean, and every other response language. Each fixed question or closing output below is a single source template. Translate all of its human-readable text into the user's language before using it, including headings, explanatory paragraphs, examples, parenthetical labels, and numbered items. When the response language is English, use the source text directly. **Fixed templates require the same meaning, required information, order, and Markdown structure in the response language.**
+
+Before sending the response, check that all human-readable text in its fixed questions and closing output uses the same response language as the main answer. Include the template's separators and preserve CLI commands, field names, and enum values in their original form.
 
 ## Execution Prerequisites and Product References
 
@@ -65,7 +68,7 @@ User A's behavioral timeline:
 
 > **Application value**: When analyzing "the retention performance of paying users in September", if the latest version is used to group by level, User A would be counted in the "level 50" group — but in September they were actually a level-30 silent user, so the conclusion is contaminated by today's tag values. Switching to the **September 1 history version** for grouping restores "the level tier the user belonged to at that time", correctly evaluating the effect of the operational actions targeting the level-30 group back then.
 
-**Fixed closing output (mandatory)**: When you have answered the user's question (concept/method introduction) per Part One and have not yet entered the backfill execution flow, you MUST append the following "Next Step" guidance paragraph at the end of Part One, **reproduced verbatim** (only translation into the language of the user's question is allowed; the format and structure must remain unchanged); do not rewrite, reorganize, add to, or remove it, and do not replace it with a self-written "follow-up actions" section. Once the user provides the information above, proceed to the Part Two backfill flow:
+**Fixed closing output (mandatory)**: When you have answered the user's question (concept/method introduction) per Part One and have not yet entered the backfill execution flow, append the following closing output in the response language according to the Language Policy. Preserve its meaning, required information, order, and Markdown structure. Once the user provides the requested information, proceed to the Part Two backfill flow.
 
 ---
 
@@ -156,7 +159,7 @@ ae-cli analysis history-tag batch-refresh --project-id <project_id> --tag-name <
 | `analysis history-tag refresh` | Backfill a single-day version | `--refresh-date` |
 | `analysis history-tag batch-refresh` | Batch backfill a date range | `--refresh-request '{"start_time","end_time","only_abnormal?"}'` |
 
-**Fixed closing output (mandatory)**: After completing the backfill per Part Two and verifying `history_tag_status=normal`, you MUST append the following "Next Step" guidance paragraph at the end of Part Two, **reproduced verbatim** (only translation into the language of the user's question is allowed; the format and structure must remain unchanged); do not rewrite, reorganize, add to, or remove it, and do not replace it with a self-written "follow-up actions" section. Once the user provides the information above, proceed to the Part Three report building flow:
+**Fixed closing output (mandatory)**: After completing the backfill per Part Two and verifying `history_tag_status=normal`, append the following closing output in the response language according to the Language Policy. Preserve its meaning, required information, order, and Markdown structure. Once the user provides the requested information, proceed to the Part Three report building flow.
 
 ---
 

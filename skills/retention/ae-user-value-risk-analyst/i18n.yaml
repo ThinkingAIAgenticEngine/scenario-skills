@@ -1,0 +1,12 @@
+zh:
+  name: 用户价值风险分析
+  description: 结合流失风险、活跃或付费下降风险与近期付费及广告收入，确定留存和召回优先级。
+en:
+  name: User Value Risk Analysis
+  description: Prioritize retention and winback by churn or activity/spend decline risk, recent payments, and ad revenue.
+ja:
+  name: ユーザー価値リスク分析
+  description: 離脱や活動・課金の減少リスクと直近の課金・広告収益を基に、継続利用・復帰の優先順位を付けます。
+ko:
+  name: 사용자 가치 리스크 분석
+  description: 이탈 및 활동·결제 감소 위험과 최근 결제·광고 수익을 바탕으로 유지·복귀 우선순위를 정합니다.

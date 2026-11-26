@@ -1,0 +1,28 @@
+id: ae-tag-dataops-optimization
+name: ae-tag-dataops-optimization
+kind: scenario
+display_name: Historical Scan Optimization for Local Tags
+description: Build and reuse DataOps snapshots for completed business days to cut repeat history scans for local analytics tags and deliver a verified plan and handover guide.
+category: performance
+tags:
+  - tag-optimization
+  - dataops
+  - complete-day-snapshot
+  - historical-scan
+  - tag
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 339
+  version_seq: 2
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-11-19T11:07:26.000Z"
