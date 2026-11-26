@@ -1,0 +1,31 @@
+id: ae-user-value-risk-analyst
+name: ae-user-value-risk-analyst
+kind: scenario
+display_name: User Value Risk Analysis
+description: Prioritize retention and winback by churn or activity/spend decline risk, recent payments, and ad revenue.
+category: retention
+tags:
+  - churn-prediction
+  - retention-prioritization
+  - decay-risk
+  - user-value
+  - winback
+  - inactivity
+  - payments
+  - ad-revenue
+cluster_versions:
+  - "6.0"
+  - "6.1"
+languages:
+  - zh
+  - en
+  - ja
+  - ko
+source:
+  type: skill-hub
+  skill_hub_id: 342
+  version_seq: 4
+owners: []
+status: approved
+translation_status: approved
+updated_at: "2026-11-24T10:52:25.665Z"

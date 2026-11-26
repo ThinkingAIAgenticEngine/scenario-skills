@@ -85,6 +85,7 @@
       "description": "游戏运营 / game-operations",
       "source": "./",
       "skills": [
+        "./skills/game-operations/ae-guild-activity-analysis",
         "./skills/game-operations/ae-risk-monitoring",
         "./skills/game-operations/game-activity-evaluation",
         "./skills/game-operations/game-economy-balance",
@@ -99,25 +100,27 @@
       ]
     },
     {
+      "name": "performance-业务表现与性能",
+      "description": "业务表现与性能 / performance",
+      "source": "./",
+      "skills": [
+        "./skills/performance/ae-tag-dataops-optimization",
+        "./skills/performance/device-performance-analysis",
+        "./skills/performance/sql-performance-optimizer"
+      ]
+    },
+    {
       "name": "retention-留存与流失",
       "description": "留存与流失 / retention",
       "source": "./",
       "skills": [
+        "./skills/retention/ae-user-value-risk-analyst",
         "./skills/retention/churn-define",
         "./skills/retention/cohort-retention-deep-dive",
         "./skills/retention/drama-retention-analyzer",
         "./skills/retention/new-user-analysis",
         "./skills/retention/retention-metric-to-event-report",
         "./skills/retention/retention-verification"
-      ]
-    },
-    {
-      "name": "performance-业务表现与性能",
-      "description": "业务表现与性能 / performance",
-      "source": "./",
-      "skills": [
-        "./skills/performance/device-performance-analysis",
-        "./skills/performance/sql-performance-optimizer"
       ]
     },
     {
